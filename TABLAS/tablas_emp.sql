@@ -1,3 +1,4 @@
+/*subirlo al repositorio*/
 CREATE TABLE administradores(
  usuario_admi VARCHAR2(100) CONSTRAINT usuario_admi_pk PRIMARY KEY,
  nombre_admi VARCHAR(50) CONSTRAINT nombre_admi_U UNIQUE,
