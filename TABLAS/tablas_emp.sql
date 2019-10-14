@@ -11,7 +11,6 @@ lugar_conv VARCHAR2(100),
 hora_conv TIME,
 /*imagen_ conv BFILE
 no me lo reconoce con el plugin xd*/
-
 );
 
 CREATE TABLE categoria_varonil(
