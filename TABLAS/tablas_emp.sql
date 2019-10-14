@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 /*recordando mis cursos de git*/
+=======
+/*subirlo al repositorio*/
+<<<<<<< Updated upstream
+>>>>>>> origin/ltuyu3
+=======
+>>>>>>> 3d350a69ea15943f984199ef5d7717b189fad80
+>>>>>>> Stashed changes
 CREATE TABLE administradores(
  usuario_admi VARCHAR2(100) CONSTRAINT usuario_admi_pk PRIMARY KEY,
  nombre_admi VARCHAR(50) CONSTRAINT nombre_admi_U UNIQUE,
@@ -11,7 +19,6 @@ lugar_conv VARCHAR2(100),
 hora_conv TIME,
 /*imagen_ conv BFILE
 no me lo reconoce con el plugin xd*/
-
 );
 
 CREATE TABLE categoria_varonil(

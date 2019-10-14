@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas_01</title>
+    <style>
+        canvas {
+            border: 1px black solid;
+        }
+        
+        body {
+            text-align: center;
+        }
+        
+        h1 {
+            background-color: blanchedalmond;
+            color: cadetblue
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Replicación de logo</h1>
+    <h4>Graficación <br> Alumno: Felipe Aldair Medina Uicab <br> Mastro: Héctor Centina <br> 5SA <br> Fecha de entrega: 10/10/2019
+
+    </h4>
+    <canvas width="900" height="600" id="Dibujo">
+   <script>
+       var l = document.getElementById("Dibujo");
+       var context = l.getContext("2d");
+        var degradado, degradadoC, degradadoS;
+       context.beginPath();
+       context.moveTo(100,400);
+       context.lineTo(450, 10);
+       context.lineTo(800, 400);
+       context.lineTo(720, 400);
+       context.lineTo(450, 100);
+       context.lineTo(180, 400);
+       degradado = context.createLinearGradient(450, 800, 450, 10);
+       degradado.addColorStop(0, "#a3025a");
+       degradado.addColorStop(0.7, "#f50488");
+       degradado.addColorStop(1, "#f8afd7");
+       context.fillStyle=degradado;
+       context.fill();
+       context.closePath();
+       ////////////////////////////
+       context.beginPath();
+       context.moveTo(250,400);
+       context.lineTo(450, 175);
+       context.lineTo(650, 400);
+       context.lineTo(570, 400);
+       context.lineTo(450, 265);
+       context.lineTo(330, 400);
+       degradadoS = context.createLinearGradient(450, 650, 450, 175);
+       degradadoS.addColorStop(0, "#ea4f0d");
+       degradadoS.addColorStop(0.75, "#f17f00");
+       degradadoS.addColorStop(1, "#f2d693");
+       context.fillStyle=degradadoS;
+       context.fill();
+       context.closePath();
+       ///////////////////////////
+       context.beginPath();
+       context.moveTo(400, 400);
+       context.lineTo(450, 350);
+       context.lineTo(500, 400);
+       context.lineTo(450, 450);
+       degradadoC = context.createLinearGradient(450, 500, 450, 350);
+       degradadoC.addColorStop(0, "#ea4f0d");
+       degradadoC.addColorStop(0.6, "#f17f00");
+       degradadoC.addColorStop(1, "#f2d693");
+       context.fillStyle=degradadoC;
+       context.fill();
+       context.closePath();   
+   </script>
+   </canvas>
+</body>
+
+</html>
