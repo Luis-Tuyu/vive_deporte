@@ -65,10 +65,22 @@ nav{
 }
 section{
     position: relative;
-    margin: 10px;
+    margin: 0px;
+    width: 1100px;
+    height: 850px;    
+} 
+article{
+    position: absolute;
+    margin: 5px 10px 5px;    
     width: 800px;
-    height: 750px;
-    border: black solid;
+    height: 830px;
+    border:black solid;
+}
+
+#derecha{
+    position: absolute;
+    top: 10px;
+    right: 0;    
 }
 #abajo{ 
     position: relative;       
