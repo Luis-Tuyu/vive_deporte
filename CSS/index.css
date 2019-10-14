@@ -91,3 +91,25 @@ footer{
     text-align: center;
     background: black;
 }
+form{
+    position: relative;
+    width: 800px;
+    height: 250px;
+    text-align: center;
+    margin:50px 150px;    
+    border: black solid;
+}
+#ayuda{
+    position: relative;
+    width: 1000px;
+    height: 850px;
+    border: black solid;
+    margin: 55px 50px 5px;
+}
+#servicios{
+    position: relative;
+    width: 1000px;
+    height: 850px;
+    border: black solid;
+    margin: 55px 50px 5px; 
+}

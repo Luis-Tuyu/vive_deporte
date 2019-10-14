@@ -7,10 +7,7 @@ CREATE TABLE administradores(
 CREATE TABLE convocatorias(
 nombre_conv VARCHAR2(100) CONSTRAINT nombre_cov_pk PRIMARY KEY,
 lugar_conv VARCHAR2(100), 
-hora_conv TIME,
-/*imagen_ conv BFILE
-no me lo reconoce con el plugin xd*/
-
+hora_conv TIME
 );
 
 CREATE TABLE categoria_varonil(
