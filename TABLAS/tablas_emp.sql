@@ -1,14 +1,32 @@
 /*subirlo al repositorio*/
+CREATE TABLE empresas
+(id_emp NUMBER(10) CONSTRAINT id_emp_pk PRIMARY KEY,
+nombre_emp VARCHAR2(100) CONSTRAINT nombre_emp_u UNIQUE,
+cel_emp NUMBER(10) CONSTRAINT cel_emp_u UNIQUE,
+direccion_emp VARCHAR2(100) CONSTRAINT direccion_emp_nn NOT NULL,
+representante_emp VARCHAR2(50) CONSTRAINT representante_emp_nn NOT NULL
+);
+
 CREATE TABLE administradores(
- usuario_admi VARCHAR2(100) CONSTRAINT usuario_admi_pk PRIMARY KEY,
- nombre_admi VARCHAR(50) CONSTRAINT nombre_admi_U UNIQUE,
- clave_admi VARCHAR(100) CONSTRAINT clave_admi_nn NOT NULL   
+id_admi NUMBER(3) CONSTRAINT id_admi_pk PRIMARY KEY, /*llave primaria nueva*/
+ usuario_admi VARCHAR2(100) CONSTRAINT usuario_admi_u UNIQUE,
+ nombre_admi VARCHAR2(50) CONSTRAINT nombre_admi_nn NOT NULL,
+ clave_admi VARCHAR2(100) CONSTRAINT clave_admi_nn NOT NULL,
+ puesto_admi VARCHAR2(50) CONSTRAINT puesto_admi_nn NOT NULL,
+ salario_Admi NUMBER(9,4),
+ edad_admi NUMBER(3) CONSTRAINT edad_admi_nn NOT NULL,
+ celular_admi NUMBER(10) CONSTRAINT celular_admi_u UNIQUE,
+ correo_admi VARCHAR(100) CONSTRAINT correo_admi_u UNIQUE  
 );
 
 CREATE TABLE convocatorias(
-nombre_conv VARCHAR2(100) CONSTRAINT nombre_cov_pk PRIMARY KEY,
+id_conv NUMBER(10) CONSTRAINT id_conv_pk PRIMARY KEY,/*cambio de llave primaria*/
+nombre_conv VARCHAR2(100) CONSTRAINT nombre_cov_u UNIQUE,
 lugar_conv VARCHAR2(100), 
 hora_conv TIME,
+fecha_conv DATE CONSTRAINT fecha_conv_u UNIQUE,
+costo_conv NUMBER(9,2) CONSTRAINT consto_conv_nn NOT NULL
+/*DEBEMOS LIGAR EL ID_EMP CON LOS EVENTOS*/
 /*imagen_ conv BFILE
 no me lo reconoce con el plugin xd*/
 );
@@ -43,9 +61,9 @@ cat7_var VARCHAR2(50),
 edad7_var_min NUMBER(2),
 edad7_var_max NUMBER(2),
 
-nombre_conv_var VARCHAR2(100),
-CONSTRAINT nombre_conv_var_fk FOREIGN KEY(nombre_conv_var)
-REFERENCES convocatorias(nombre_conv)
+id_conv_var VARCHAR2(100),
+CONSTRAINT id_conv_var_fk FOREIGN KEY(id_conv_var)
+REFERENCES convocatorias(id_conv)
 );
 
 CREATE TABLE categoria_femenil(
@@ -78,9 +96,9 @@ cat7_fem VARCHAR2(50),
 edad7_fem_min NUMBER(2),
 edad7_fem_max NUMBER(2),
 
-nombre_conv_fem VARCHAR2(100),
-CONSTRAINT nombre_conv_fem_fk FOREIGN KEY(nombre_conv_fem)
-REFERENCES convocatorias(nombre_conv)
+id_conv_fem VARCHAR2(100),
+CONSTRAINT id_conv_fem_fk FOREIGN KEY(id_conv_fem)
+REFERENCES convocatorias(id_conv)
 );
 
 CREATE TABLE usuarios(
@@ -115,16 +133,16 @@ precio2_ins NUMBER(8,4),
 precio3_ins NUMBER(8,4),
 precio4_ins NUMBER(8,4),
 nombre_conv VARCHAR2(100),
-CONSTRAINT nombre_cov_fk FOREIGN KEY(nombre_conv)
-REFERENCES convocatorias(nombre_conv)
+CONSTRAINT id_conv_fk FOREIGN KEY(id_conv)
+REFERENCES convocatorias(id_conv)
 );
 
 CREATE TABLE kits(
-fecha_kits DATE,
+fecha_kits DATE CONSTRAINT fecha_kits_nn NOT NULL,
 hora_kits TIME,
 lugar_kits VARCHAR2(250),
-requisitos_kit VARCHAR2(250), /*Son los requisitos extra de la empresa*/
+requisitos_kits VARCHAR2(250), /*Son los requisitos extra de la empresa*/
 nombre_conv VARCHAR2(100),
-CONSTRAINT nombre_conv_kits_fk FOREIGN KEY(nombre_conv)
-REFERENCES convocatorias(nombre_conv)
+CONSTRAINT id_conv_kits_fk FOREIGN KEY(id_conv)
+REFERENCES convocatorias(id_conv)
 );
