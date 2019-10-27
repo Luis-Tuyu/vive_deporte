@@ -7,17 +7,29 @@ direccion_emp VARCHAR(100) NOT NULL,
 representante_emp VARCHAR(50)NOT NULL,
 CONSTRAINT in_emp_pk PRIMARY KEY(id_emp)
 );
+/*tablas administradores se dividio al normaliza*/
+CREATE TABLE Adminstradores_login(
+id_admi INT(5),
+correo_admi VARCHAR(100) NOT NULL UNIQUE,
+contrasena_admi VARCHAR(30) NOT NULL,    
+CONSTRAINT id_admi_pk PRIMARY KEY(id_admi)    
+);
 
-CREATE TABLE administradores(
-id_admi NUMBER(3) CONSTRAINT id_admi_pk PRIMARY KEY, /*llave primaria nueva*/
- correo_admi VARCHAR(100) CONSTRAINT correo_admi_u UNIQUE  /*cambio de dato*/
- nombre_admi VARCHAR2(50) CONSTRAINT nombre_admi_nn NOT NULL,
- clave_admi VARCHAR2(100) CONSTRAINT clave_admi_nn NOT NULL,
- puesto_admi VARCHAR2(50) CONSTRAINT puesto_admi_nn NOT NULL,
- salario_Admi NUMBER(9,4),
- edad_admi NUMBER(3) CONSTRAINT edad_admi_nn NOT NULL,
- celular_admi NUMBER(10) CONSTRAINT celular_admi_u UNIQUE,
- 
+CREATE TABLE Adminstradores_infopersonal
+(id_admi INT(5),
+ nombre_admi VARCHAR(50) NOT NULL,
+ fechanac_admi DATE,
+ celular_admi VARCHAR(10) NOT NULL UNIQUE,
+ CONSTRAINT id_admi_fk FOREIGN KEY(id_admi)
+ REFERENCES Adminstradores_login(id_admi)
+);
+
+CREATE TABLE Adminstradores_infoempresa
+(id_admi INT(5),
+ puesto_admi VARCHAR(100)NOT NULL,
+ salario_admi INT(8)NOT NULL,
+ CONSTRAINT id_admi_fk2 FOREIGN KEY(id_admi)
+ REFERENCES Adminstradores_login(id_admi)
 );
 
 CREATE TABLE convocatorias(
