@@ -105,17 +105,13 @@ CREATE TABLE  contacto_emergencia
 );
 
 CREATE TABLE inscripciones(
-fecha_ins DATE CONSTRAINT fecha_ins_nn NOT NULL,
-lugar1_ins VARCHAR2(250) CONSTRAINT lugar1_ins_nn NOT NULL,
-lugar2_ins VARCHAR2(250),
-lugar3_ins VARCHAR2(250),
-lugar4_ins VARCHAR2(250),
-precio1_ins NUMBER(8,4) CONSTRAINT precio1_ins_nn NOT NULL, /*el precio máximo será de 9999.9999*/
-precio2_ins NUMBER(8,4),
-precio3_ins NUMBER(8,4),
-precio4_ins NUMBER(8,4),
-nombre_conv VARCHAR2(100),
-CONSTRAINT id_conv_fk FOREIGN KEY(id_conv)
-REFERENCES convocatorias(id_conv)
+id_us INT(5),
+id_conv INT(5),
+fecha_ins DATE NOT NULL,
+hora_ins TIME NOT NULL,
+CONSTRAINT id_us_fk2 FOREIGN KEY(id_us)
+    REFERENCES usuarios(id_us),
+    CONSTRAINT id_conv_fk6 FOREIGN KEY(id_conv)
+    REFERENCES convocatorias(id_conv),
+    CONSTRAINT ins_usconv_pk PRIMARY KEY(id_us, id_conv)
 );
-
