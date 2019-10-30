@@ -26,42 +26,54 @@ class formulario extends Component{
         this.setState({value: event.target.value});
     }*/
 
-    handleSubmit (event){   
+    handleSubmit (event){ 
+        var x=document.formu.contraseña.value;
+        var y=document.formu.rcontraseña.value;
+        if (y!=x) {
+            alert('Contraseñas diferentes');
+        }else{
             alert('Envio satisfactorio');
-            event.preventDefault();                           
+            event.preventDefault(); 
+        }
+        
+                                                     
     }  
+   
+       
+   
+
 
         
     render(){
         return(
-            <form className="formularios" onSubmit={this.handleSubmit} >  
+            <form  name="formu" className="formularios" onSubmit={this.handleSubmit} >  
             <h1>REGISTRO</h1>  
                 <label>
-                    Nombres: 
-                    <input name="nombre" type="text"  required value={this.state.nombre} onChange={this.handleInputChange} />
+                    Nombres:  
+                    <input name="nombre" placeholder=" *Luis" type="text"  required value={this.state.nombre} onChange={this.handleInputChange} />
                 </label>  
                 <br/>
                 <label>
-                    Apellido: 
-                    <input name="apellido" type="text"  required value={this.state.apellido} onChange={this.handleInputChange} />
+                    Apellidos:  
+                    <input name="apellido"  placeholder="*Chi " type="text"  required value={this.state.apellido} onChange={this.handleInputChange} />
                 </label> 
                 <br/>
                 <label>
-                    Correo:
-                    <input name="correo" type="email"  required value={this.state.correo} onChange={this.handleInputChange} />
+                    Email:  
+                    <input name="correo"  placeholder=" Example@gmail.com" type="Email"  required value={this.state.correo} onChange={this.handleInputChange} />
                 </label> 
                 <br/>
                 <label>
                     Contraseña: 
-                    <input name="contraseña" type="password"  required value={this.state.contraseña} onChange={this.handleInputChange} />
+                    <input name="contraseña" placeholder=" **********" type="password" minLength="5" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" title="La contraseña debe tener minimo 5 caracteres, una letra mayuscula y un digito" required value={this.state.contraseña} onChange={this.handleInputChange} />
                 </label>  
                 <br/>
                 <label>
                     Confirmar contraseña: 
-                    <input name="rcontraseña" type="password" required value={this.state.rcontraseña} onChange={this.handleInputChange} />
+                    <input name="rcontraseña" placeholder=" *********" type="password" required value={this.state.rcontraseña} onChange={this.handleInputChange} />
                 </label>               
                 <br/>
-                <input type="submit" value="Enviar" />  
+                <input type="submit" className="bfan2" value="Enviar" />  
                       
           </form>       
         );
