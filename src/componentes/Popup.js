@@ -16,22 +16,7 @@ class popup extends Component{
         <div >
           {" "}
           <Sesion/>
-        </div>
-        <div >
-            <button className="bfan2" onClick={() => {
-              console.log("modal closed ");
-              close();
-            }}> 
-                {this.props.nombre}
-            </button>         
-
-            <button className="bfan2" onClick={() => {
-              console.log("modal closed ");
-              close();
-            }}>
-                {this.props.nombre2}    
-            </button>
-        </div>
+        </div>        
       </div>
     )}
   </Popup>            

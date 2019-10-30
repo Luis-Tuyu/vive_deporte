@@ -30,7 +30,7 @@ class sesion extends Component{
                     Contraseña: 
                     <input type="password" placeholder=" Entrada de texto" required value={this.state.value.contraseña} onChange={this.handleChange.contraseña}/>
                 </label>  
-                <input className="bfan2" type="submit" value="Enviar"/> 
+                <input className="bfan" type="submit" value="Enviar"/> 
 
             </form>
                   
