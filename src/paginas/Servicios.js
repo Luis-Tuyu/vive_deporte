@@ -16,7 +16,7 @@ const servicios = () => {
             <h1>Usuarios</h1>                                       
                 <div>
                     <Popup nombre="Enviar" nombre2="Cancelar"/>
-                    <Link to="/Eventos" className="bfan secundario"> Registro de carreras</Link> 
+                    <Link to="/Eventos" className="bfan2 secundario"> Registro de carreras</Link> 
                 </div>         
                 
             <hr></hr>

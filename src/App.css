@@ -56,6 +56,19 @@ body::before{
   max-width: 1000px;
   border: 2px black solid;
 }
+.close{
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
 
 .btn{
  position: relative;  
@@ -141,7 +154,7 @@ body::before{
   display: inline-block;
   border: #FFFB00 solid 1px;  
   padding: 10px 100px;
-  color: white;
+  color: black;
   font-weight: 500;
   text-decoration: none;
   background: #FFFB00;
@@ -154,11 +167,11 @@ body::before{
 
 .bfan2.secundario{
   background-color: transparent;
-  color: #FFFB00;
+  color: black;
 }
 .bfan2.tercero{
   background-color: transparent;
-  color: #FFFB00;
+  color: black;
 }
 
 .bfan2:hover{
