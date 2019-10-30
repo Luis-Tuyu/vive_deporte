@@ -17,7 +17,7 @@
   border: black solid;
   color: white;
   height: 200px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .textos{ 
   position: relative;
@@ -45,7 +45,16 @@ body::before{
   position: relative;
   text-align: center;
   color: black;
+  margin: auto; 
+}
+#eventos{
+  position: relative;
+  text-align: center;
+  color: black;
   margin: auto;
+  height:1000px;        
+  max-width: 1000px;
+  border: 2px black solid;
 }
 
 .btn{
@@ -53,11 +62,33 @@ body::before{
   float: left;
 }
 .formularios{
-  color: red;
+  color: blue;
   width: 500px;
   height: 400px;
   margin: 10px auto ;
-  border: 2px black solid;
+  /*border: 2px black solid;*/
+}
+.Cuadros{  
+  position: absolute;;
+  display:list-item;
+  margin: 10px auto;   
+  width: 70%; 
+  left: 15%;  
+  border: solid 2px blue;  
+  max-height: 900px; 
+}
+.tar_ancho{   
+  margin:5px;
+  float: left; 
+  width: 31%;
+  border:red solid 2px;   
+}
+.tar_largo{  
+  height: 350px;
+  border: violet solid 2px;
+}
+.tar_imagen{
+  position: relative;  
 }
 .bfan{
   position: relative;

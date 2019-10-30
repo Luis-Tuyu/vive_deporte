@@ -3,9 +3,8 @@ import '../App.css';
 import Cabeza from "../componentes/Cabeza";
 import Pie from "../componentes/Pie";
 import BFantasmas from "../componentes/BFantasmas";
-import Contenido from "../componentes/Contenido";
-import BFantasma from "../componentes/BFantasma";
 import {Link} from 'react-router-dom';
+import Popup from "../componentes/Popup";
 
 const servicios = () => {
 
@@ -16,8 +15,8 @@ const servicios = () => {
         <body id="home">
             <h1>Usuarios</h1>                                       
                 <div>
-                    <Link to="/Servicios" className="bfan"> Usuario </Link> 
-                    <Link to="/Ayuda" className="bfan secundario"> Registro de carreras</Link> 
+                    <Popup nombre="Enviar" nombre2="Cancelar"/>
+                    <Link to="/Eventos" className="bfan secundario"> Registro de carreras</Link> 
                 </div>         
                 
             <hr></hr>
