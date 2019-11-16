@@ -7,30 +7,25 @@ direccion_emp VARCHAR(100) NOT NULL,
 representante_emp VARCHAR(50)NOT NULL,
 CONSTRAINT in_emp_pk PRIMARY KEY(id_emp)
 );
-/*tablas administradores se dividio al normaliza*/
-CREATE TABLE Adminstradores_login(
-id_admi INT(5),
-correo_admi VARCHAR(100) NOT NULL UNIQUE,
-contrasena_admi VARCHAR(30) NOT NULL,    
-CONSTRAINT id_admi_pk PRIMARY KEY(id_admi)    
-);
+//modificacion
 
-CREATE TABLE Adminstradores_infopersonal
-(id_admi INT(5),
+CREATE TABLE Adminstradores
+(correo_admi VARCHAR(100) PRIMARY KEY,
  nombre_admi VARCHAR(50) NOT NULL,
- fechanac_admi DATE,
+ fechanac_admi DATE NOT NULL,
  celular_admi VARCHAR(10) NOT NULL UNIQUE,
- CONSTRAINT id_admi_fk FOREIGN KEY(id_admi)
- REFERENCES Adminstradores_login(id_admi)
+ puesto_admi VARCHAR(100)NOT NULL,
+ salario_admi INT(8)NOT NULL
 );
 
-CREATE TABLE Adminstradores_infoempresa
-(id_admi INT(5),
- puesto_admi VARCHAR(100)NOT NULL,
- salario_admi INT(8)NOT NULL,
- CONSTRAINT id_admi_fk2 FOREIGN KEY(id_admi)
- REFERENCES Adminstradores_login(id_admi)
+CREATE TABLE login_admin(
+correo_admi VARCHAR(100),
+contrasena_admi VARCHAR(30) NOT NULL    ,
+FOREIGN KEY(correo_admi) REFERENCES Administradores(correo_admi)
 );
+
+
+
 /*igual se dividió por la normalizacion*/
 CREATE TABLE convocatorias
 (id_conv INT(5),
@@ -86,14 +81,19 @@ CREATE TABLE kits
  REFERENCES convocatorias(id_conv)
 );
 
+//modificacion
 CREATE TABLE usuarios
-(id_us INT(5),
+(correo_us VARCHAR(100) PRIMARY KEY,
  nombre_us VARCHAR(100) NOT NULL,
- correo_us VARCHAR(100) NOT NULL UNIQUE,
  cel_us VARCHAR(10) NOT NULL UNIQUE,
  genero_us VARCHAR(1) NOT NULL,
- fecha_nac_us DATE NOT NULL,
- CONSTRAINT id_us_pk PRIMARY KEY(id_us)
+ fechanac_us DATE NOT NULL
+);
+
+CREATE TABLE login_us
+(correo_us VARCHAR(100),
+contrasena_us VARCHAR(100) NOT NULL UNIQUE,
+FOREIGN KEY(correo_us) REFERENCES usuarios(correo_us)
 );
 
 CREATE TABLE  contacto_emergencia
