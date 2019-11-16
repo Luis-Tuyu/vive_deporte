@@ -4,12 +4,12 @@ CREATE TABLE Empresas
  nombre_emp VARCHAR(80) NOT NULL UNIQUE,
 cel_emp VARCHAR(10) NOT NULL UNIQUE,
 direccion_emp VARCHAR(100) NOT NULL,
-representante_emp VARCHAR(50)NOT NULL,
+repre_emp VARCHAR(50)NOT NULL,
 CONSTRAINT in_emp_pk PRIMARY KEY(id_emp)
 );
 //modificacion
 
-CREATE TABLE Adminstradores
+CREATE TABLE Administradores
 (correo_admi VARCHAR(100) PRIMARY KEY,
  nombre_admi VARCHAR(50) NOT NULL,
  fechanac_admi DATE NOT NULL,
@@ -17,14 +17,11 @@ CREATE TABLE Adminstradores
  puesto_admi VARCHAR(100)NOT NULL,
  salario_admi INT(8)NOT NULL
 );
-
 CREATE TABLE login_admin(
 correo_admi VARCHAR(100),
 contrasena_admi VARCHAR(30) NOT NULL    ,
 FOREIGN KEY(correo_admi) REFERENCES Administradores(correo_admi)
 );
-
-
 
 /*igual se dividió por la normalizacion*/
 CREATE TABLE convocatorias
@@ -62,14 +59,11 @@ CONSTRAINT id_emp_fk3 FOREIGN KEY(id_conv)
 
 CREATE TABLE Ramas_eventos
 (id_conv INT(5),
- rama_re VARCHAR(1),
  modalidad_re VARCHAR(70),
  categoria_re VARCHAR(70),
- edad_re_min INT(3) NOT NULL,
- edad_re_max INT(3) NOT NULL,
+ edad_re INT(3) NOT NULL,
  CONSTRAINT id_conv_fk4 FOREIGN KEY(id_conv)
- REFERENCES convocatorias(id_conv),
- CONSTRAINT combinacion_re_pk PRIMARY KEY(id_conv, rama_re, modalidad_re, categoria_re)
+ REFERENCES convocatorias(id_conv)
 );
 
 CREATE TABLE kits
@@ -105,13 +99,12 @@ CREATE TABLE  contacto_emergencia
 );
 
 CREATE TABLE inscripciones(
-id_us INT(5),
 id_conv INT(5),
+correo_us VARCHAR(100),
 fecha_ins DATE NOT NULL,
 hora_ins TIME NOT NULL,
-CONSTRAINT id_us_fk2 FOREIGN KEY(id_us)
-    REFERENCES usuarios(id_us),
+CONSTRAINT id_us_fk2 FOREIGN KEY(correo_us)
+    REFERENCES usuarios(correo_us),
     CONSTRAINT id_conv_fk6 FOREIGN KEY(id_conv)
-    REFERENCES convocatorias(id_conv),
-    CONSTRAINT ins_usconv_pk PRIMARY KEY(id_us, id_conv)
+    REFERENCES convocatorias(id_conv)
 );
