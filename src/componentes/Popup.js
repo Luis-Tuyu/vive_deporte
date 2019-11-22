@@ -6,7 +6,7 @@ class popup extends Component{
     state={};   
     render(){
         return(    
-            <Popup trigger={<button className=" App bfan2"> Usuario </button>} modal>
+            <Popup trigger={<button className="bfan2"> {this.props.name} </button> } modal>
     {close => (
       <div>
         <a className="close" onClick={close}>

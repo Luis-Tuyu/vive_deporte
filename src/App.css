@@ -46,6 +46,7 @@ body::before{
   text-align: center;
   color: black;
   margin: auto; 
+  background: white;
 }
 #eventos{
   position: relative;
@@ -75,10 +76,10 @@ body::before{
   float: left;
 }
 .formularios{
-  color: blue;
-  width: 500px;
-  height: 400px;
-  margin: 10px auto ;
+  color:red;
+  width: 100%;
+  height: auto;
+  margin: auto ;
   /*border: 2px black solid;*/
 }
 .Cuadros{  
@@ -153,9 +154,9 @@ body::before{
   position: relative;
   display: inline-block;
   border: #FFFB00 solid 1px;  
-  padding: 10px 100px;
+  padding: 10px 90px;
   color: black;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
   background: #FFFB00;
   transition: all 0.5s ease;

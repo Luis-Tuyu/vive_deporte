@@ -15,9 +15,10 @@ const home = () => {
         <body id="home">
             <h1>¡Bienvenido! al nuevo portal de</h1>
             <h1>Vive Deporte</h1>
-            <h2>Un mal dia puede mejorar si sales a correr</h2>                    
+            <h2>Un mal dia puede mejorar si sales a correr</h2>  
+            <BFantasma nombre="Conoce más" link="/Servicios"/>
         </body>       
-        <BFantasma nombre="Conoce más" link="/Servicios"/>
+        
         <Pie />
          </div>
 

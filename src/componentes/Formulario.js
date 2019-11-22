@@ -9,17 +9,20 @@ class formulario extends Component{
             apellido: '',
             correo: '',
             contraseña: '',
-            rcontraseña:''
+            rcontraseña:'',
+            edades:' ',
+            hombre: false,
+            mujer: false
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     }
            
     handleInputChange(event) {
         const target = event.target;
-        const value = '';
+        const value = target.type === 'checkbox' ? target.checked : target.value;;
         const name = target.name;
 
-        this.setState({[name]: target.value});
+        this.setState({[name]: value});
     }
 /*
     handleChange(event) {
@@ -31,6 +34,7 @@ class formulario extends Component{
         var y=document.formu.rcontraseña.value;
         if (y!=x) {
             alert('Contraseñas diferentes');
+            event.preventDefault();
         }else{
             alert('Envio satisfactorio');
             event.preventDefault(); 
@@ -58,6 +62,26 @@ class formulario extends Component{
                     <input name="apellido"  placeholder="*Chi " type="text"  required value={this.state.apellido} onChange={this.handleInputChange} />
                 </label> 
                 <br/>
+                <label>
+                    Rango de edades:
+                    <select value={this.state.edades} onChange={this.handleInputChange} >
+                        <option value="categoria1">5-10</option>
+                        <option value="categoria2">11-20</option>
+                        <option value="categoria3">21-30</option>
+                        <option value="categoria4">30 en adelante</option>
+                    </select>
+                </label>
+                <br/>
+                <label>Genero:    </label>
+                <label>
+                    Hombre
+                    <input type="checkbox" name="hombre" checked={this.state.hombre} onChange={this.handleInputChange}/>                    
+                </label>
+                <label>
+                    Mujer
+                    <input type="checkbox" name="mujer" checked={this.state.mujer} onChange={this.handleInputChange}/>
+                </label>
+                 <br/>                
                 <label>
                     Email:  
                     <input name="correo"  placeholder=" Example@gmail.com" type="Email"  required value={this.state.correo} onChange={this.handleInputChange} />
