@@ -59,7 +59,7 @@ height : 150px;
 margin : -75px 0 0 -75px;
 border-radius : 50%;
 border : transparent solid 3px;
-border-top-color : #3498db;
+border-top-color : #FFBE0D;
 animation : spin 2s linear infinite;
 }
 #loader:before {
@@ -71,7 +71,7 @@ right : 5px;
 bottom : 5px;
 border-radius : 50%;
 border : transparent solid 3px;
-border-top-color : #444;
+border-top-color : black;
 animation : spin 3s linear infinite;
 }
 #loader:after {
@@ -83,7 +83,7 @@ right : 15px;
 bottom : 15px;
 border-radius : 50%;
 border : transparent solid 3px;
-border-top-color : #1487b2;
+border-top-color : #CEE80C;
 animation : spin 1.5s linear infinite;
 }
 @keyframes spin {
@@ -155,7 +155,7 @@ display : block;
 margin-left : 6px;
 }
 #src_sec {
-background-image : url("../img/slide_img.jpg");
+background-image : url("../img/corredor_a.png");
 background-position : center center;
 background-size : cover;
 min-height : 500px;
@@ -182,9 +182,9 @@ margin : 0;
 }
 .lft_hd img {
 float : left;
-margin-right : 30px;
-margin-top : 19px;
-width : 76px;
+margin-right : 15px;
+margin-top : 15px;
+width : 80px;
 }
 #pricing_sec {
 padding : 70px 0;
@@ -345,15 +345,15 @@ vertical-align : middle;
 width : 100%;
 }
 #slider_sec {
-background-image : url("../img/atleta.jpg");
+background-image : url("../img/corredor_a.png");
 background-position : center center;
 background-repeat : no-repeat;
 background-size : 100% 100%;
-height : 650px;
+height : 900px;
 width : 100%;
 }
 .left_crousel_btn, .right_crousel_btn {
-color : #fff;
+color :black;
 height : 20px;
 position : absolute;
 text-align : center;
@@ -366,12 +366,12 @@ font-weight : normal;
 font-family : lato;
 font-size : 60px;
 text-transform : capitalize;
-color : #fff;
+color :#FFBE0D;
 }
 .caption_carousel p {
 font-family : lato;
 font-size : 14px;
-color : #f6f6f6;
+color :#FFBE0D;
 border-top : 1px solid #fff;
 border-bottom : 1px solid #fff;
 display : inline;
@@ -388,7 +388,7 @@ margin : 0 auto;
 display : block;
 }
 .carousel-indicators li {
-background-color : #363636;
+background-color : black;
 border : none medium;
 border-radius : 5px;
 cursor : pointer;
@@ -400,7 +400,7 @@ width : 25px;
 .carousel-indicators .active {
 width : 25px;
 height : 7px;
-background-color : #00AFF0;
+background-color : #FFBE0D;
 }
 #counting_sec {
 background : none 0 0 repeat scroll #f0f0f0;
@@ -432,7 +432,7 @@ padding : 70px 0;
 
 transition: all 1s ease 0s;
 -moz-transition: all 1s ease 0s;
--webkit-transition: all 1s ease 0s;border :1px solid #eeeeee;
+-webkit-transition: all 1s ease 0s;border :1px solid  black	;
 cursor : pointer;
 text-align : center;
 padding : 61px 0;
@@ -833,7 +833,7 @@ margin-left : 15px;
 padding : 100px 0;
 }
 .main_menu_sec {
-background : none 0 0 repeat scroll #353638;
+background : none 0 0 repeat scroll black;
 border : none 0;
 margin : 0;
 }
