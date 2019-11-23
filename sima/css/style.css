@@ -458,7 +458,7 @@ padding-bottom : 30px;
 }
 .service i {
 font-size : 50px;
-color : #03B0F0;
+color : #FFBE0D;
 position : relative;
 }
 .service_hoverly {
@@ -488,7 +488,7 @@ padding : 70px 0;
 .sngl_team h3 {
 font-size : 14px;
 text-transform : uppercase;
-color : #333333;
+color : black;
 }
 .sngl_team {
 text-align : center;
@@ -500,14 +500,14 @@ text-align : center;
 width : 130px;
 }
 .sngl_team span {
-color : #00aff0;
+color : #FFBE0D;
 font-family : lato;
 font-size : 13px;
 margin-left : 10px;
 text-transform : uppercase;
 }
 .all_team .owl-controls .owl-prev i {
-color : #3399ff;
+color : #FFBE0D;
 font-size : 30px;
 position : absolute;
 top : 46%;
@@ -517,11 +517,11 @@ left : 0;
 position : absolute;
 top : 46%;
 font-size : 30px;
-color : #3399FF;
+color : #FFBE0D;
 right : 0%;
 }
 .all_team .owl-controls .owl-dot {
-background-color : #363636;
+background-color : black;
 border : none medium;
 border-radius : 5px;
 cursor : pointer;
@@ -532,7 +532,7 @@ width : 25px;
 margin-right : 5px;
 }
 .all_team .owl-controls .owl-dot.active {
-background-color : #03B0F0;
+background-color : #FFBE0D ;
 }
 .all_team .owl-controls {
 display : inline-block;
@@ -790,7 +790,7 @@ color : #00AFF0;transition: all 1s ease 0s;
 padding : 3px;
 }
 #ltd_map_sec {
-background : none 0 0 repeat scroll #363636;
+background : none 0 0 repeat scroll black;
 text-align : center;
 }
 .map > h1 {
