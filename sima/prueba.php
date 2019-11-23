@@ -5,4 +5,7 @@
         echo "ERROR EN LA VARIABLE";
     }
 
+
+    include ("php/Herramientas_metodos.php");
+    select_form("luis");
 ?>

@@ -1,5 +1,5 @@
 <?php
-function conectar($usuario, $contrasena)
+function conectar_m($usuario, $contrasena)
 {$con=mysqli_connect("127.0.0.1",$usuario,$contrasena,"vive_deporte");
     if(!$con)
     {
@@ -11,7 +11,7 @@ function conectar($usuario, $contrasena)
 }
 //ingresar datos con los usuarios
 function inscripcion($datos_rec)
-{$con3=conectar("root", "");
+{$con3=conectar_m("root", "");
  $correo_us=$datos_rec[0];
  $nombre_us=$datos_rec[1];
  $cel_us=$datos_rec[2];
@@ -49,5 +49,106 @@ $hora_ins=$hora->format('H:i:s');;
     echo "<br>no se ha podido insertar por un error de conexion BD";
   }
 }
+
+
+//insertar administradores
+
+function registrar_adiministradores($datos_admi)
+{$con3=conectar_m("root", ""); //conexion
+    $correo_admi=$datos_admi[0];
+    $nombre_admi=$datos_admi[1];
+   $fechanac_admi=date("Y-m-d",strtotime($datos_admi[2]));
+   $cel_admi=$datos_admi[3];
+   $tipo_admi=$datos_admi[4]; //es para los privilegios
+    if($datos_admi[5]== '')//comparar el salario 
+    {$salario_admi='0';
+    }else{$salario_admi=$datos_admi[5];}
+   $clave_admi=$datos_admi[6];
+    $sql_admi="INSERT INTO administradores (correo_admi, nombre_admi, fechanac_admi, celular_admi,tipo_admi, salario_admi)
+    VALUES ('$correo_admi', '$nombre_admi','$fechanac_admi','$cel_admi', '$tipo_admi','$salario_admi')";   
+    if($con3){
+          
+              if (mysqli_query($con3, $sql_admi)) {//registrar administradores
+                  echo "<h1>Registro de administradores</h1>";
+                              //echo "<h1>Registro exitoso en la tabla de login_admin</h1>";
+                              $sql_admi_login="INSERT INTO login_admin (correo_admi,contrasena_admi) 
+                              VALUES ('$correo_admi', '$clave_admi')";      
+                                  if(mysqli_query($con3,$sql_admi_login))
+                                  {echo "inscripcion correcta en la tabla login admin";
+                                  }else{ echo "Error: " . $sql_admi_login . "<br>" . mysqli_error($con3);}
+                              
+                  } else {
+                  echo "Error: " . $sql_admi . "<br>" . mysqli_error($con3);
+                  }
+    }else{
+      echo "<br>no se ha podido insertar por un error de conexion BD";
+    }
+}
+/*Seleccionamos para luego actualizar los datos*/
+function seleccionar_usuarios($correo_usuario)
+{$con4=conectar_m("root","");
+    if($con4)
+    {$consulta_us="SELECT * FROM usuarios WHERE correo_us LIKE '$correo_usuario'";
+        $select_us=mysqli_query($con4,$consulta_us);   
+        $filas_us=mysqli_fetch_array($select_us);
+        if($correo_usuario ==$filas_us["correo_us"])
+        {echo "<br><rb><br><br><h2>usuario registrado, obteniendo su informacion<h2>";
+            return $filas_us;}
+        else{echo "<br><br><br><h2>ERROR DE CONSULTA</h2>";}
+                
+    }
+}
+
+
+function update_colocar_form($datos_update)
+{
+    print ('<section id="ctn_sec">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+				<div class="title_sec">
+					<h1>UPDATE USUARIO</h1>
+				</div>			
+			</div>		
+			<div class="col-sm-6"> 
+				<div id="cnt_form">
+					<!--Este es el formulario interesante para el resgistro-->
+					<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
+                            <!--nombre-->
+                            <div class="form-group">
+                            <input type="text" name="nombre_update" class="form-control name-field" required="required" 
+                            placeholder="Nombre" value="'.$datos_update["nombre_us"].'">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="celular_update" class="form-control mail-field"
+                                 required="required" placeholder="celular" value="'.$datos_update["cel_us"].'">
+                            </div> 
+                            <!--GENERO-->
+					        	<div class="form-group">
+                                <input type="text" name="genero_update" class="form-control mail-field" 
+                                required="required" placeholder="genero" value="'.$datos_update["genero_us"].'">
+                                </div> 
+                                <div class="form-group">
+                                   
+                                <p>Fecha de nacimiento</p>
+                                <input type="date" name="fechanac_update" class="form-control mail-field" 
+                                required="required" placeholder="fecha nacimiento" value="'.$datos_update["fechanac_us"].'">
+						        </div>
+                                <!--correo-->
+                                <div class="form-group">
+                                    <input type="email" name="email_update" class="form-control mail-field" required="required" 
+                                    placeholder="correo electronico" value="'.$datos_update["correo_us"].'">
+                                </div> 
+
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Consultar</button>
+						</div>
+					</form> 
+				</div>
+			</div>
+</section>');
+}
+
+
 
 ?>

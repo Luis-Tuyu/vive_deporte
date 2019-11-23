@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
 				<div class="title_sec">
-					<h1>Inscripciones</h1>
+					<h1>Registro de administradores</h1>
 				</div>			
 			</div>		
 			<div class="col-sm-6"> 
@@ -12,32 +12,33 @@
 					<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
 						<!--nombre-->
 						<div class="form-group">
-						<input type="text" name="nombre_ins" class="form-control name-field" required="required" placeholder="Nombre">
+						<input type="text" name="nombre_admi" class="form-control name-field" required="required" placeholder="Nombre administrador">
 						</div>
 						<!--celular-->
 						<div class="form-group">
-								<input type="text" name="celular_ins" class="form-control mail-field" required="required" placeholder="celular">
+								<input type="text" name="celular_admi" class="form-control mail-field" required="required" placeholder="celular">
 							</div> 
-							<!--GENERO-->
+							<!--salario, solo se registrad para los trabajadores de vive_deporte-->
 						<div class="form-group">
-								<input type="text" name="genero_ins" class="form-control mail-field" required="required" placeholder="genero">
+								<input type="text" name="salario_admi" class="form-control mail-field"  placeholder="salario">
 						</div> 
 						<!--fecha_nacimiento-->
 						<div class="form-group">
                             <p>Fecha de nacimiento</p>
-								<input type="date" name="fechanac_ins" class="form-control mail-field" required="required" placeholder="fecha nacimiento">
+								<input type="date" name="fechanac_admi" class="form-control mail-field" required="required" placeholder="fecha nacimiento">
 						</div>
+						<!--tipo_admi-->
+						<div class="form-group">
+								<input type="text" name="tipo_admi" class="form-control name-field" required="required" placeholder="Tipo de administrador">
+								</div>
 						<!--correo-->
 							<div class="form-group">
 						<div class="form-group">
-							<input type="email" name="email_ins" class="form-control mail-field" required="required" placeholder="correo electronico">
+							<input type="email" name="email_admi" class="form-control mail-field" required="required" placeholder="correo electronico">
 						</div> 
 						<!--contraseña-->
 						<div class="form-group">
-								<input type="password" name="contrasena_ins" class="form-control mail-field" required="required" placeholder="contraseña">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="idconv_ins" class="form-control mail-field" required="required" placeholder="convocatoria">
+								<input type="password" name="contrasena_admi" class="form-control mail-field" required="required" placeholder="contraseña">
                         </div>
                         <!--La hora se obtiene con php, porque aqui es para poder seleccionarlo-->
 						<div class="form-group">

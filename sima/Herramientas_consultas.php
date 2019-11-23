@@ -28,34 +28,69 @@
             <div id="loader">
             </div>
         </div>
-   <!---importar menú-->   
-   <div class="menuContainer"></div>
-<br><br><br>
-<!-- start contact us Section -->
-<br><br><br>
-<h1>VALIDAR LOGIN ADMINISTRADORES</h1>
+        <!-- end preloader -->
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+		
+<!--Menús-->
+ <!---importar menú-->   
+ <div class="menuContainer"></div>
+
+<!--Recepcion de datos-->
 <?php
-require ("php/conexion.php");
-if(isset($_POST["correo"], $_POST["contrasena"]))
-{$correo_us=$_POST["correo"];
-$clave_us2=$_POST["contrasena"];
-	$bool_login=validar_login_admin($correo_us,$clave_us2);
-}else{//porque enviamos datos a la misma página xd
-	//echo "ERROR, primero dedes iniciar sesión, para ver el contenido";
-	$bool_login=false;
+//herrmaienta de inscripciones
+if(isset($_POST["nombre_ins"], $_POST["celular_ins"],$_POST["genero_ins"],$_POST["fechanac_ins"],
+$_POST["email_ins"],$_POST["contrasena_ins"], $_POST["idconv_ins"]))
+{ include ("php/herramientas_metodos.php");
+	$datos_ins[0]=$_POST["email_ins"];
+	$datos_ins[1]=$_POST["nombre_ins"];
+	$datos_ins[2]=$_POST["celular_ins"];
+	$datos_ins[3]=$_POST["genero_ins"];
+	$datos_ins[4]=$_POST["fechanac_ins"];
+	$datos_ins[5]=$_POST["contrasena_ins"];
+	$datos_ins[6]=$_POST["idconv_ins"];
+  inscripcion($datos_ins); 
+  echo "<br><br><br><br><br>"."<h1>inscripcion correcta</h1>";
+}else{
+	echo "<br><br><br><br>"."<h1>error no estan definidos todos los objetos</h1>";
 }
 
-//herramientas para los usuarios
-if($bool_login)
-{
-  echo '<h2>herramientas del administrador</h2>';
-  echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
-  echo '<div class="agregar_admin"></div>';
-  update_email();
+//registro de administradores
+if(isset($_POST["nombre_admi"],$_POST["celular_admi"],$_POST["fechanac_admi"]
+,$_POST["tipo_admi"],$_POST["email_admi"],$_POST["contrasena_admi"]))
+{include ("php/herramientas_metodos.php");
+  $datos_admi[0]=$_POST["email_admi"];
+	$datos_admi[1]=$_POST["nombre_admi"];
+	$datos_admi[2]=$_POST["fechanac_admi"];
+	$datos_admi[3]=$_POST["celular_admi"];
+  $datos_admi[4]=$_POST["tipo_admi"];
+  $datos_admi[5]=$_POST["salario_admi"];
+	$datos_admi[6]=$_POST["contrasena_admi"];
+  registrar_adiministradores($datos_admi); //registramos a los usuarios
+  echo "<br><br><br><br><br>"."<h1>Registro de administradores correcta</h1>";
+}else{ echo "error de registro administradores";}
+
+
+//si es igual mostramos la informacion dentro de un formulario
+if(isset($_POST["email_update"],$_POST["update"]))
+{ if($_POST["update"]=="update")
+  {/*ejecutamos este codigo*/ 
+    include ("php/herramientas_metodos.php");
+    $correo_update=$_POST["email_update"];
+    $filas_usuarios=seleccionar_usuarios($correo_update);
+    update_colocar_form($filas_usuarios);
+  }
 }
 
-//los mismos datos del usuario
+//ahora hacemos el update dentro de la base de datos
+
+
 ?>
+
+
+
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
 
@@ -142,31 +177,13 @@ $(window).load(function(){
 
 });
 </script>
-
 <script>
+	//Menú
     $(document).ready(function () {
       $('.menuContainer').load('html/Menu_barra.html');
     });
   </script>
 
-<script>
-    $(document).ready(function () {
-      $('.menuContainer').load('html/Menu_barra.html');
-    });
-  </script>
-<!--Importar herramientas desde html-->
-<script>
-    $(document).ready(function () {
-      $('.Herramientas').load('html/Inscripcciones.html');
-    });
-  </script>
-
-<script>
-  //importar el registro de administradores
-    $(document).ready(function () {
-      $('.agregar_admin').load('html/registrar_admin.html');
-    });
-  </script>
 
     </body>
 </html>

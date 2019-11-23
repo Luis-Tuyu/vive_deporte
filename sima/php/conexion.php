@@ -117,5 +117,38 @@ echo "formato de fecha corregido".$fechanac_us;
   }
 }
 
+/*aqui se pondra el editar los datos del usuario*/
+function update_email()
+{
+    print ('<section id="ctn_sec">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+				<div class="title_sec">
+					<h1>Modificar Informacion Usuarios</h1>
+				</div>			
+			</div>		
+			<div class="col-sm-6"> 
+				<div id="cnt_form">
+					<!--Este es el formulario interesante para el resgistro-->
+					<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
+						<!--correo-->
+                                <div class="form-group">
+                                    <input type="email" name="email_update" class="form-control mail-field" required="required" placeholder="correo electronico">
+                                </div> 
+                                <div class="form-group">
+                                    <input type="text" name="update" class="form-control mail-field" value="update">
+                                </div> 
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">Consultar</button>
+						</div>
+					</form> 
+				</div>
+			</div>
+</section>');
+}
+
+
+
 
 ?>
