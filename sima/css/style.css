@@ -226,7 +226,7 @@ padding-left : 20px;
 text-align : left;
 }
 .progress-bar1 .progress-bar {
-background : #00AFF0;
+background : #FFBE0D;
 }
 #lts_sec {
 padding-top : 30px;
@@ -388,7 +388,7 @@ margin : 0 auto;
 display : block;
 }
 .carousel-indicators li {
-background-color : black;
+background-color :greenyellow;
 border : none medium;
 border-radius : 5px;
 cursor : pointer;
@@ -404,7 +404,7 @@ background-color : #FFBE0D;
 }
 #counting_sec {
 background : none 0 0 repeat scroll #f0f0f0;
-padding : 90px 0;
+padding : 30px 0;
 }
 .counting_sl h2 {
 color : #515050;
@@ -418,6 +418,7 @@ font-weight : 300;
 }
 .counting_sl {
 text-align : center;
+
 }
 .counting_sl i {
 color : #515050;
