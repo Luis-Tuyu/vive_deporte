@@ -59,7 +59,7 @@ $_POST["email_ins"],$_POST["contrasena_ins"], $_POST["idconv_ins"]))
 //registro de administradores
 if(isset($_POST["nombre_admi"],$_POST["celular_admi"],$_POST["fechanac_admi"]
 ,$_POST["tipo_admi"],$_POST["email_admi"],$_POST["contrasena_admi"]))
-{include ("php/herramientas_metodos.php");
+{ include ("php/herramientas_metodos.php");
   $datos_admi[0]=$_POST["email_admi"];
 	$datos_admi[1]=$_POST["nombre_admi"];
 	$datos_admi[2]=$_POST["fechanac_admi"];
@@ -85,14 +85,15 @@ if(isset($_POST["email_update"],$_POST["update"]))
 
 //ahora hacemos el update dentro de la base de datos
 if(isset($_POST["nombre_update"], $_POST["celular_update"],$_POST["genero_update"],
-$_POST["genero_update"],$_POST["fechanac_update"], $_POST["email_update"])&& $_POST["update"]=="update_accion")
+$_POST["genero_update"],$_POST["fechanac_update"], $_POST["email_update"])&&
+ $_POST["update"]=="update_accion")
 {//hacemos un update de su informacion
   include ("php/herramientas_metodos.php");
-$datos_form_update[0]=$_POST["email_update"];
-$datos_form_update[1]=$_POST["nombre_update"];
-$datos_form_update[2]=$_POST["celular_update"];
-$datos_form_update[3]=$_POST["genero_update"];
-$datos_form_update[4]=$_POST["fechanac_update"];
+    $datos_form_update[0]=$_POST["email_update"];
+    $datos_form_update[1]=$_POST["nombre_update"];
+    $datos_form_update[2]=$_POST["celular_update"];
+    $datos_form_update[3]=$_POST["genero_update"];
+    $datos_form_update[4]=$_POST["fechanac_update"];
   update_accion($datos_form_update);
 }else{}
 ?>

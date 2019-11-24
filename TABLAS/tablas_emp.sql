@@ -25,7 +25,7 @@ FOREIGN KEY(correo_admi) REFERENCES Administradores(correo_admi)
 
 /*igual se dividió por la normalizacion*/
 CREATE TABLE convocatorias
-(id_conv INT(5),
+(id_conv INT(5)
  nombre_conv VARCHAR(100) NOT NULL,
  costo_conv INT(10),
  CONSTRAINT id_conv_pk PRIMARY KEY(id_conv)

@@ -31,14 +31,24 @@ $hora_ins=$hora->format('H:i:s');;
                 echo "<h1>Registro hecho con éxito</h1>";
                     //registramos en la tabla de login, esto por si existe un error
                     $sql3_ins2="INSERT INTO login_us(correo_us, contrasena_us) VALUES('$correo_us','$clave_us2')";
-                        if (mysqli_query($con3, $sql3_ins2)) {
-                            //echo "<h1>Registro exitoso en la tabla de login_us</h1>";
-                            $sql3_ins3="INSERT INTO inscripciones (id_conv, correo_us, fecha_ins, hora_ins) 
-                            VALUES ('$convoc', '$correo_us', '$fechains', '$hora_ins')";      
-                                if(mysqli_query($con3,$sql3_ins3))
-                                {echo "inscripcion correcta en la tabla de inscripciones";
-                                }else{ echo "Error: " . $sql3_ins3 . "<br>" . mysqli_error($con3);}
-                            } else {
+                        if (mysqli_query($con3, $sql3_ins2)) 
+                        {
+                            //debe haber un select, para determinar el acumulador de convocatorias
+                                $sql3_contador= "SELECT acumulador_participante_conv FROM convocatorias 
+                                WHERE id_conv LIKE $convoc";
+                                $auxiliar=mysqli_query($con3,$sql3_contador);
+                                $contador=mysqli_fetch_array($auxiliar);
+                                $suma=$contador["acumulador_participante_conv"]+1; //sumar el numero de participante
+                                     $sql3_ins3="INSERT INTO inscripciones (id_conv, correo_us, fecha_ins, hora_ins, num_participante) 
+                                    VALUES ('$convoc', '$correo_us', '$fechains', '$hora_ins','$suma')";      
+                                        if(mysqli_query($con3,$sql3_ins3))
+                                        {echo "inscripcion correcta en la tabla de inscripciones";
+                                            //ahora haceos un update del contador, para el # de participante
+                                            $sql_acont="UPDATE convocatorias SET acumulador_participante_conv='$suma'
+                                            WHERE id_conv = '$convoc'";
+                                            mysqli_query($con3,$sql_acont);
+                                        }else{ echo "Error: " . $sql3_ins3 . "<br>" . mysqli_error($con3);}
+                        } else {
                             echo "Error: " . $sql3_ins . "<br>" . mysqli_error($con3);
                             }
 
@@ -60,27 +70,26 @@ function registrar_adiministradores($datos_admi)
    $fechanac_admi=date("Y-m-d",strtotime($datos_admi[2]));
    $cel_admi=$datos_admi[3];
    $tipo_admi=$datos_admi[4]; //es para los privilegios
-    if($datos_admi[5]== '')//comparar el salario 
-    {$salario_admi='0';
-    }else{$salario_admi=$datos_admi[5];}
+    if($datos_admi[5]=='')//comparar el salario 
+    {$salario_admi=0;
+    }else{$salario_admi=(int)$datos_admi[5];}
    $clave_admi=$datos_admi[6];
-    $sql_admi="INSERT INTO administradores (correo_admi, nombre_admi, fechanac_admi, celular_admi,tipo_admi, salario_admi)
-    VALUES ('$correo_admi', '$nombre_admi','$fechanac_admi','$cel_admi', '$tipo_admi','$salario_admi')";   
+    $sql_admi="INSERT INTO administradores (correo_admi, nombre_admi, fechanac_admi, celular_admi, salario_admi) VALUES ('$correo_admi', '$nombre_admi','$fechanac_admi','$cel_admi', '$salario_admi')";   
     if($con3){
           
-              if (mysqli_query($con3, $sql_admi)) {//registrar administradores
+             if (mysqli_query($con3, $sql_admi)) {//registrar administradores
                   echo "<h1>Registro de administradores</h1>";
                               //echo "<h1>Registro exitoso en la tabla de login_admin</h1>";
-                              $sql_admi_login="INSERT INTO login_admin (correo_admi,contrasena_admi) 
-                              VALUES ('$correo_admi', '$clave_admi')";      
-                                  if(mysqli_query($con3,$sql_admi_login))
+                               $sql_admi_2="INSERT INTO login_admin (correo_admi, contrasena_admi, tipo_admi) 
+                              VALUES ('$correo_admi','$clave_admi','$tipo_admi')";      
+                                  if(mysqli_query($con3,$sql_admi_2))
                                   {echo "inscripcion correcta en la tabla login admin";
-                                  }else{ echo "Error: " . $sql_admi_login . "<br>" . mysqli_error($con3);}
+                                  }else{ echo "Error: " . $sql_admi_2. "<br>" . mysqli_error($con3);}
                               
                   } else {
-                  echo "Error: " . $sql_admi . "<br>" . mysqli_error($con3);
+                  echo "Error: " . $sql_admi. "<br>" . mysqli_error($con3);
                   }
-    }else{
+                    }else{
       echo "<br>no se ha podido insertar por un error de conexion BD";
     }
 }
@@ -99,6 +108,27 @@ function seleccionar_usuarios($correo_usuario)
     }
 }
 
+
+function update_accion($datos_ua)
+{$con_update=conectar_m("root","");
+    $correo_ua=$datos_ua[0];
+    $nombre_ua=$datos_ua[1];
+    $cel_ua=$datos_ua[2];
+    $genero_ua=$datos_ua[3];
+    $fechanac_ua=$datos_ua[4];
+    if($con_update)
+    //la llave primaria no se puede actualizar
+    {$update_sql="UPDATE usuarios SET nombre_us='$nombre_ua',
+        cel_us='$cel_ua', genero_us='$genero_ua', fechanac_us='$fechanac_ua'
+        WHERE correo_us LIKE '$correo_ua'";
+        if(mysqli_query($con_update,$update_sql))
+        {echo "<br><br><br><br><h1>echo actualizacion correcta</h1>";  
+        }
+        else{echo "<br><br><br><h2>ERROR DE UPDATE</h2>";}
+                
+    }
+
+}
 
 function update_colocar_form($datos_update)
 {
@@ -150,28 +180,6 @@ function update_colocar_form($datos_update)
 				</div>
 			</div>
 </section>');
-}
-
- 
-function update_accion($datos_ua)
-{$con_update=conectar_m("root","");
-    $correo_ua=$datos_ua[0];
-    $nombre_ua=$datos_ua[1];
-    $cel_ua=$datos_ua[2];
-    $genero_ua=$datos_ua[3];
-    $fechanac_ua=$datos_ua[4];
-    if($con_update)
-    //la llave primaria no se puede actualizar
-    {$update_sql="UPDATE usuarios SET nombre_us='$nombre_ua',
-        cel_us='$cel_ua', genero_us='$genero_ua', fechanac_us='$fechanac_ua'
-        WHERE correo_us LIKE '$correo_ua'";
-        if(mysqli_query($con_update,$update_sql))
-        {echo "<br><br><br><br><h1>echo actualizacion correcta</h1>";  
-        }
-        else{echo "<br><br><br><h2>ERROR DE UPDATE</h2>";}
-                
-    }
-
 }
 
 
