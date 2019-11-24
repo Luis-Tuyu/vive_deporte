@@ -3,14 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sima</title>
+        <title>Vive Deporte MX</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<!--[if lt IE 9]> <script src="js/html5shiv.js"></script> 
-	<script src="js/respond.min.js"></script> <![endif]--> 		
-        <!-- Place favicon.ico in the root directory -->
+
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -27,11 +25,7 @@
             <div class="logo"></div>
             <div id="loader">
             </div>
-        </div>
-        <!-- end preloader -->
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        </div>        
 
 <!--importamos el menu que será para todos-->
 <div class="menuContainer"></div>
@@ -39,49 +33,70 @@
 <!-- Formulario_usuario -->
 <section id="ctn_sec">
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+		<div class="row">			
 				<div class="title_sec">
 					<h1>Usuarios</h1>
 					<h2>Registrate para disfrutar de una carrea con vive deporte</h2>
-				</div>			
-			</div>		
-			<div class="col-sm-6"> 
+				</div>																
 				<div id="cnt_form">
+					<div  class="input-item3" >
+							<i class="fa fa-align-justify">  </i>
+					</div>
+						
 					<!--Este es el formulario interesante para el resgistro-->
 					<form id="contact-form" class="contact" name="contact-form" method="post" action="registrar_usuario.php">
-						<!--nombre-->
+						<!--nombre-->				
 						<div class="form-group">
-						<input type="text" name="name" class="form-control name-field" required="required" placeholder="Nombre">
+							<span class="input-item">
+								<i class="fa fa-user"> </i>
+							</span>																																																					
+							<input type="text" name="name" class="form-input" id="txt-input	" required="required" placeholder="Nombre" > 	 								
 						</div>
 						<!--celular-->
 						<div class="form-group">
-								<input type="text" name="celular" class="form-control mail-field" required="required" placeholder="celular">
+								<span class="input-item">
+										<i class="fa fa-phone"> </i>
+									</span>	
+								<input type="text" name="celular" class="form-input" id="txt-input	" required="required" placeholder="celular">
 							</div> 
-							<!--GENERO-->
+						<!--GENERO-->
 						<div class="form-group">
-								<input type="text" name="genero" class="form-control mail-field" required="required" placeholder="genero">
+								<span class="input-item">
+										<i class="fa fa-venus-mars"> </i>
+									</span>	
+								<input type="text" name="genero" class="form-input" id="txt-input	" required="required" placeholder="genero">
 						</div> 
 						<!--fecha_nacimiento-->
 						<div class="form-group">
-								<input type="date" name="fecha_nac" class="form-control mail-field" required="required" placeholder="fecha nacimiento">
+								<span class="input-item2">
+										<i class="fa fa-calendar"> </i>
+									</span>	
+								<input type="date" name="fecha_nac" class="form-input" id="txt-input" required="required" placeholder="fecha nacimiento">
 						</div>
 						<!--correo-->
 							<div class="form-group">
 						<div class="form-group">
-							<input type="text" name="email" class="form-control mail-field" required="required" placeholder="correo electronico">
+								<span class="input-item">
+										<i class="fa fa-envelope"> </i>
+									</span>	
+							<input type="text" name="email" class="form-input" id="txt-input	" required="required" placeholder="correo electronico">
 						</div> 
 						<!--contraseña-->
 						<div class="form-group">
-								<input type="password" name="contrasena" class="form-control mail-field" required="required" placeholder="contraseña">
+								<span class="input-item">
+										<i class="fa fa-key"> </i>
+									</span>	
+								<input type="password" name="contrasena" class="form-input" id="txt-input	" required="required" placeholder="contraseña">
 						</div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Enviar</button>
 						</div>
 					</form> 
 				</div>
-			</div>
-</section>
+			
+</section >
+	
+
 <!-- End contact us  Section -->
 
 <!-- End located map  Section -->
