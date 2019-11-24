@@ -52,6 +52,7 @@ if($bool_login)
   echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
   echo '<div class="agregar_admin"></div>';
   update_email();
+  echo '<div class="empresas_form"></div>';
 }
 
 //los mismos datos del usuario
@@ -165,6 +166,13 @@ $(window).load(function(){
   //importar el registro de administradores
     $(document).ready(function () {
       $('.agregar_admin').load('html/registrar_admin.html');
+    });
+  </script>
+  
+  <script>
+  //registro de empresas
+    $(document).ready(function () {
+      $('.empresas_form').load('html/registrar_empresas.html');
     });
   </script>
 

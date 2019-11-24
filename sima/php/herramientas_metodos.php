@@ -60,9 +60,18 @@ $hora_ins=$hora->format('H:i:s');;
   }
 }
 
+//registrar empresas
+function registrar_emp($arre_emp)
+{$con_emp=conectar_m("root","");
+$sql_emp= "INSERT INTO empresas(id_emp, nombre_emp, cel_emp, direccion_emp, repre_emp)
+VALUES('', '$arre_emp[0]', '$arre_emp[1]', '$arre_emp[2]', '$arre_emp[3]')";
+        if(mysqli_query($con_emp, $sql_emp))
+        {echo "<br><br><br><br><h1>registro correcto</h1>";
+            print("correcto");
+        }else{echo "<br><br><br><br><h1>ERROR DE REGISTRO</h1>";}
+}
 
 //insertar administradores
-
 function registrar_adiministradores($datos_admi)
 {$con3=conectar_m("root", ""); //conexion
     $correo_admi=$datos_admi[0];

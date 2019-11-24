@@ -96,7 +96,24 @@ $_POST["genero_update"],$_POST["fechanac_update"], $_POST["email_update"])&&
     $datos_form_update[4]=$_POST["fechanac_update"];
   update_accion($datos_form_update);
 }else{}
+
+//registrar empresas
+if(isset($_POST["nombre_emp"], $_POST["celular_emp"],$_POST["direccion_emp"],
+$_POST["repre_emp"]))
+{ include ("php/herramientas_metodos.php");
+$arre_empresa[0]=$_POST["nombre_emp"];
+ $arre_empresa[1]= $_POST["celular_emp"];
+ $arre_empresa[2]=$_POST["direccion_emp"];
+ $arre_empresa[3]= $_POST["repre_emp"];
+ registrar_emp($arre_empresa);
+
+}
+
+
+
+
 ?>
+
 
 
 
