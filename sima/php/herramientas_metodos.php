@@ -139,9 +139,12 @@ function update_colocar_form($datos_update)
                                     <input type="email" name="email_update" class="form-control mail-field" required="required" 
                                     placeholder="correo electronico" value="'.$datos_update["correo_us"].'">
                                 </div> 
-
+                                <!---nos servirá para reconocer que se hará en la báse de datos-->
+                                <div class="form-group">
+                                <input type="text" name="update" class="form-control mail-field" value="update_accion">
+                            </div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary">Consultar</button>
+							<button type="submit" class="btn btn-primary">Modificar</button>
 						</div>
 					</form> 
 				</div>
@@ -149,6 +152,27 @@ function update_colocar_form($datos_update)
 </section>');
 }
 
+ 
+function update_accion($datos_ua)
+{$con_update=conectar_m("root","");
+    $correo_ua=$datos_ua[0];
+    $nombre_ua=$datos_ua[1];
+    $cel_ua=$datos_ua[2];
+    $genero_ua=$datos_ua[3];
+    $fechanac_ua=$datos_ua[4];
+    if($con_update)
+    //la llave primaria no se puede actualizar
+    {$update_sql="UPDATE usuarios SET nombre_us='$nombre_ua',
+        cel_us='$cel_ua', genero_us='$genero_ua', fechanac_us='$fechanac_ua'
+        WHERE correo_us LIKE '$correo_ua'";
+        if(mysqli_query($con_update,$update_sql))
+        {echo "<br><br><br><br><h1>echo actualizacion correcta</h1>";  
+        }
+        else{echo "<br><br><br><h2>ERROR DE UPDATE</h2>";}
+                
+    }
+
+}
 
 
 ?>
