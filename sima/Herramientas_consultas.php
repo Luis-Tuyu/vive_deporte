@@ -110,6 +110,19 @@ $arre_empresa[0]=$_POST["nombre_emp"];
 }
 
 
+//convocatorias
+if(isset($_POST["nombre_conv"],$_POST["empresas_conv"], $_POST["costo_conv"], $_POST["lugar_conv"],
+$_POST["hora_conv"], $_POST["fecha_conv"]))
+{//echo "<br><br><br><br><br><br><br><h1></h1>";
+  include ("php/herramientas_metodos.php");
+$arre_conv[0]=$_POST["nombre_conv"];
+$arre_conv[1]=$_POST["empresas_conv"];
+$arre_conv[2]=$_POST["costo_conv"];
+$arre_conv[3]=$_POST["lugar_conv"];
+$arre_conv[4]=$_POST["hora_conv"];
+$arre_conv[5]=$_POST["fecha_conv"];
+registrar_conv1($arre_conv);
+}else{echo "<br><br><br><br><br><br><br><h1>ERROR_ convocatorias</h1>";}
 
 
 ?>

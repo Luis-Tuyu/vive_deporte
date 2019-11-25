@@ -71,6 +71,21 @@ VALUES('', '$arre_emp[0]', '$arre_emp[1]', '$arre_emp[2]', '$arre_emp[3]')";
         }else{echo "<br><br><br><br><h1>ERROR DE REGISTRO</h1>";}
 }
 
+ //perfecto funcion. luisito debe darle formato
+function seleccionar_emp()
+{$con_emp2=conectar_m("root", "");
+$sql_selec_emp="SELECT id_emp, nombre_emp FROM empresas";
+        if(mysqli_query($con_emp2, $sql_selec_emp))
+        {$query_emp=mysqli_query($con_emp2, $sql_selec_emp);
+            while($fila = mysqli_fetch_array($query_emp))
+            {
+            echo '<option class="form-control mail-field">';
+             echo $fila["nombre_emp"];
+             echo "</option>";
+          }
+            
+        }else{}
+}
 //insertar administradores
 function registrar_adiministradores($datos_admi)
 {$con3=conectar_m("root", ""); //conexion
@@ -102,6 +117,30 @@ function registrar_adiministradores($datos_admi)
       echo "<br>no se ha podido insertar por un error de conexion BD";
     }
 }
+
+//registrar convocatorias
+function registrar_conv1($datos_emp)
+{ $con_conv1=conectar_m("root", "");
+    $sql_id_emp="SELECT id_emp FROM empresas WHERE nombre_emp LIKE '$datos_emp[1]' ";
+    $consulta_emp=mysqli_query($con_conv1, $sql_id_emp);
+    $aux_arre=mysqli_fetch_array($consulta_emp);
+    $aux_idemp=$aux_arre["id_emp"];
+    $sql1_conv="INSERT INTO convocatorias (id_conv, id_emp, nombre_conv, costo_conv, acumulador_participante_conv)
+    VALUES ('','$aux_idemp','$datos_emp[0]','$datos_emp[2]','0')";
+        if($con_conv1)
+        {mysqli_query($con_conv1, $sql1_conv);
+                //segundo registro, debemos seleccionar el maximo, el cual es el último id
+        $sql_id="SELECT MAX(id_conv) FROM convocatorias"; //listo el registro de convocatorias
+        $id=mysqli_query($con_conv1,$sql_id);
+        $id_arre=mysqli_fetch_array($id);
+        $id_dato=$id_arre["MAX(id_conv)"];
+        $aux_conv_date=date("Y-m-d",strtotime($datos_emp[5]));
+        $sqli_infoevento="INSERT INTO convocatorias_infoevento (id_conv, lugar_conv, hora_conv, fecha_conv)
+        VALUES('$id_dato','$datos_emp[3]','$datos_emp[4]','$aux_conv_date')";
+           mysqli_query($con_conv1,$sqli_infoevento); 
+}
+}
+
 /*Seleccionamos para luego actualizar los datos*/
 function seleccionar_usuarios($correo_usuario)
 {$con4=conectar_m("root","");
@@ -190,6 +229,8 @@ function update_colocar_form($datos_update)
 			</div>
 </section>');
 }
+
+
 
 
 ?>

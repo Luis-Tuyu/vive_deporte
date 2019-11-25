@@ -53,6 +53,7 @@ if($bool_login)
   echo '<div class="agregar_admin"></div>';
   update_email();
   echo '<div class="empresas_form"></div>';
+  echo '<div class="registrar_eventos"></div>"';
 }
 
 //los mismos datos del usuario
@@ -173,6 +174,13 @@ $(window).load(function(){
   //registro de empresas
     $(document).ready(function () {
       $('.empresas_form').load('html/registrar_empresas.html');
+    });
+  </script>
+
+<script>
+  //registro de eventos
+    $(document).ready(function () {
+      $('.registrar_eventos').load('html/registrar_eventos.php');
     });
   </script>
 
