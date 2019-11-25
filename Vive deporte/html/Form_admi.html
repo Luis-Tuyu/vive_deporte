@@ -10,13 +10,13 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">		
         <!-- Place favicon.ico in the root directory -->
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="/Vive deporte/css/normalize.css">
+        <link rel="stylesheet" href="/Vive deporte/css/main.css">
+        <link rel="stylesheet" href="/Vive deporte/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/Vive deporte/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Vive deporte/css/owl.carousel.css">
+        <link rel="stylesheet" href="/Vive deporte/css/responsive.css">
+        <link rel="stylesheet" href="/Vive deporte/css/style.css">
 
     </head>
 <body >
@@ -172,43 +172,23 @@
 <!-- End footer Section -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="js/vendor/jquery-1.11.2.min.js"></script>
+<script src="/js/vendor/jquery-1.11.2.min.js"></script>
 
-<script src="js/isotope.pkgd.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/appear.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/waypoints.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/showHide.js"></script>
-<script src="js/jquery.nicescroll.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/scrolling-nav.js"></script>
-<script src="js/plugins.js"></script>
-<!-- Google Map js -->
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
-		<script>
-			function initialize() {
-			  var mapOptions = {
-				zoom: 14,
-				scrollwheel: false,
-				center: new google.maps.LatLng(41.092586000000000000, -75.592688599999970000)
-			  };
-			  var map = new google.maps.Map(document.getElementById('googleMap'),
-				  mapOptions);
-			  var marker = new google.maps.Marker({
-				position: map.getCenter(),
-				animation:google.maps.Animation.BOUNCE,
-				icon: 'img/map-marker.png',
-				map: map
-			  });
-			}
-			google.maps.event.addDomListener(window, 'load', initialize);
-		</script>
-<script src="js/main.js"></script>
-
-<script src="showHide.js" type="text/javascript"></script>
+<script src="/js/isotope.pkgd.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/appear.js"></script>
+<script src="/js/jquery.counterup.min.js"></script>
+<script src="/js/waypoints.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/showHide.js"></script>
+<script src="/js/jquery.nicescroll.min.js"></script>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/scrolling-nav.js"></script>
+<script src="/js/plugins.js"></script>
+     
+<script src="/js/main.js"></script>
+<script src="/js/showHide.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 
@@ -257,8 +237,11 @@ $(window).load(function(){
 
 });
 </script>
-<?
-?>
+<script>
+    $(document).ready(function () {
+      $('.menuContainer').load('/html/Menu_barra.html');
+    });
+  </script>
 
 
     </body>
