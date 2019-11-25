@@ -1,6 +1,5 @@
 
 @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
-
 .input-item {
     background: #fff;
 	color: black;	
@@ -45,6 +44,46 @@ input[class="form-input"]{
     
 }
 input[id="txt-input"] {width: 250px;}
+
+.bfan{             
+    color: white;   
+    margin: 7px; 
+    padding: 15px 58px;    
+    background: #FFFB00;
+    transition: all 0.5s ease;   
+    cursor: pointer;
+    border-radius: 30px;  
+  }
+  .bfan.secundario{
+    background-color: transparent;
+    color: #95E80C;
+  }
+  .bfan.tercero{
+    background-color: transparent;
+    color: #95E80C;
+  }
+  
+  .bfan:hover{
+    color: #95E80C;
+    background-color: transparent;
+  }
+  .bfan.secundario:hover{
+    color: #95E80C;
+    background-color: #95E80C;
+  }
+  .bfan.tercero:hover{
+    color:#95E80C;
+    background-color: red;
+  }
+  .bfan:active{
+    box-shadow: inset 0 0 20px #95E80C;
+  }
+  .bfan.secundario:active{
+    box-shadow: inset 0 0 20px #95E80C;
+  }
+  .bfan.tercero:active{
+    box-shadow: inset 0 0 20px #95E80C;
+  }
 
 
 body {
@@ -478,14 +517,14 @@ margin-top : 10px;
 padding : 70px 0;
 }
 .service {
-
 transition: all 1s ease 0s;
 -moz-transition: all 1s ease 0s;
 -webkit-transition: all 1s ease 0s;
 border :1px solid  black;
 cursor : pointer;
 text-align : center;
-padding : 61px 0;
+padding : 60px 60px ;   
+
 
 }
 .service:hover .service_hoverly {
@@ -515,7 +554,7 @@ position : relative;
 
 transition: all 1s ease 0s;
 	-moz-transition: all 1s ease 0s;
-	-webkit-transition: all 1s ease 0s;border :1px solid #03B0F0;
+	-webkit-transition: all 1s ease 0s;border :1px solid #FFBE0D;
 display : none;
 padding : 25px 5px;
 position : absolute;
@@ -700,7 +739,7 @@ border : #00AFF0 solid 5px;transition: all 1s ease 0s;
 -webkit-transition: all 1s ease 0s
 }
 .sngl_pricing:hover.sngl_pricing h3 {
-background : none 0 0 repeat scroll #00AFF0;transition: all 1s ease 0s;
+background : none 0 0 repeat scroll #FFBE0D;transition: all 1s ease 0s;
 -moz-transition: all 1s ease 0s;
 -webkit-transition: all 1s ease 0s
 }
@@ -788,6 +827,16 @@ display : none;
 	padding: 50px;
 	background: linear-gradient(-225deg, #95E80C 45%, #FFBE0D 55%)
 }
+#cnt_form2{			
+    margin : 0;	
+	text-align : center;
+	padding: 50px;
+	background: linear-gradient(-225deg, #95E80C 45%, #FFBE0D 55%)
+}
+#cnt_form2 .btn {
+    background : black;
+    padding : 10px 35px;
+    }
 #cnt_form .btn {
 background : black;
 padding : 10px 35px;
@@ -843,7 +892,7 @@ transition: all 1s ease 0s;
 -webkit-transition: all 1s ease 0s
 }
 .ft ul li a i:hover {
-color : #00AFF0;transition: all 1s ease 0s;
+color : #FFBE0D;transition: all 1s ease 0s;
 -moz-transition: all 1s ease 0s;
 -webkit-transition: all 1s ease 0s
 }
