@@ -21,7 +21,8 @@
 	-webkit-transition: all 1s ease 0s;
 	text-align : center;
 	padding : 10px 0;
-	font-size : 70px;	
+    font-size : 70px;	
+    color: black;
 	
 }
 
@@ -367,7 +368,7 @@ padding : 15px 20px;
 transition : transform 0.3s;
 }
 .hover_effect_btn a::before {
-background : none 0 0 repeat scroll #00AFF0;
+background : none 0 0 repeat scroll black;
 color : #fff;
 height : 100%;
 left : 0;
@@ -382,7 +383,7 @@ font-family : lato;
 border : #666666 solid 1px;
 border-radius : 6px;
 }
-.hover_effect_btn a:hover span, .hover_effect_btn a:focus span {
+.hover_effect_ a:hover span, .hover_effect_btn a:focus span {
 transform : translateX(100%);
 }
 .hover_effect_btn a:hover::before, .hover_effect_btn a:focus::before {
@@ -785,7 +786,7 @@ font-size : 24px;
 text-transform : none;
 }
 .btn.pricing_btn {
-background : none 0 0 repeat scroll #00aff0;
+background : none 0 0 repeat scroll black;
 border : #666666 solid 1px;
 color : #fff;
 text-transform : uppercase;
