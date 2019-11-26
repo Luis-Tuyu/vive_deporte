@@ -1,16 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
+<head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sima</title>
+        <title>Vive Deporte MX</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<!--[if lt IE 9]> <script src="js/html5shiv.js"></script> 
-	<script src="js/respond.min.js"></script> <![endif]--> 		
-        <!-- Place favicon.ico in the root directory -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">	
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -33,9 +30,9 @@
 <br><br><br>
 <!-- start contact us Section -->
 <br><br><br>
-<h1>VALIDAR LOGIN ADMINISTRADORES</h1>
+<h1 class="title_sec">VALIDAR LOGIN ADMINISTRADORES</h1>
 <?php
-require ("php/conexion.php");
+require ("../VD3.0/php/conexion.php");
 if(isset($_POST["correo"], $_POST["contrasena"]))
 {$correo_us=$_POST["correo"];
 $clave_us2=$_POST["contrasena"];
@@ -54,6 +51,7 @@ if($bool_login)
   update_email();
   echo '<div class="empresas_form"></div>';
   echo '<div class="registrar_eventos"></div>"';
+    
 }
 
 //los mismos datos del usuario
@@ -73,26 +71,7 @@ if($bool_login)
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/scrolling-nav.js"></script>
 <script src="js/plugins.js"></script>
-<!-- Google Map js -->
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
-		<script>
-			function initialize() {
-			  var mapOptions = {
-				zoom: 14,
-				scrollwheel: false,
-				center: new google.maps.LatLng(41.092586000000000000, -75.592688599999970000)
-			  };
-			  var map = new google.maps.Map(document.getElementById('googleMap'),
-				  mapOptions);
-			  var marker = new google.maps.Marker({
-				position: map.getCenter(),
-				animation:google.maps.Animation.BOUNCE,
-				icon: 'img/map-marker.png',
-				map: map
-			  });
-			}
-			google.maps.event.addDomListener(window, 'load', initialize);
-		</script>
+
 <script src="js/main.js"></script>
 
 <script src="showHide.js" type="text/javascript"></script>
@@ -103,11 +82,11 @@ $(document).ready(function(){
 
 
    $('.show_hide').showHide({			 
-		speed: 1000,  // speed you want the toggle to happen	
-		easing: '',  // the animation effect you want. Remove this line if you dont want an effect and if you haven't included jQuery UI
-		changeText: 1, // if you dont want the button text to change, set this to 0
-		showText: 'View',// the button text to show when a div is closed
-		hideText: 'Close' // the button text to show when a div is open
+		speed: 600, 
+		easing: '',  
+		changeText: 1, 
+		showText: 'View',
+		hideText: 'Close' 
 					 
 	}); 
 
@@ -119,7 +98,7 @@ $(document).ready(function(){
     jQuery(document).ready(function( $ ) {
         $('.counter').counterUp({
             delay: 10,
-            time: 1000
+            time: 70
         });
     });
 </script>
@@ -136,26 +115,21 @@ $(window).load(function(){
     $("body").css("overflow", "visible");        
     var nice=$('html').niceScroll({
 	cursorborder:"5",
-	cursorcolor:"#00AFF0",
-	cursorwidth:"3px",
+	cursorcolor:"#FFBE0D",
+	cursorwidth:"9px",
 	boxzoom:true, 
 	autohidemode:true
 	});
 
 });
 </script>
-
 <script>
-    $(document).ready(function () {
-      $('.menuContainer').load('html/Menu_barra.html');
-    });
-  </script>
+	$(document).ready(function () {
+		$('.menuContainer').load('html/Menu_barra.html');
+	});
+</script>
 
-<script>
-    $(document).ready(function () {
-      $('.menuContainer').load('html/Menu_barra.html');
-    });
-  </script>
+
 <!--Importar herramientas desde html-->
 <script>
     $(document).ready(function () {

@@ -1,16 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
+ <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sima</title>
+        <title>Vive Deporte MX</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<!--[if lt IE 9]> <script src="js/html5shiv.js"></script> 
-	<script src="js/respond.min.js"></script> <![endif]--> 		
-        <!-- Place favicon.ico in the root directory -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">	
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -28,10 +25,7 @@
             <div id="loader">
             </div>
         </div>
-        <!-- end preloader -->
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+       
 		
 <!--Menús-->
  <!---importar menú-->   
@@ -51,7 +45,7 @@ $_POST["email_ins"],$_POST["contrasena_ins"], $_POST["idconv_ins"]))
 	$datos_ins[5]=$_POST["contrasena_ins"];
 	$datos_ins[6]=$_POST["idconv_ins"];
   inscripcion($datos_ins); 
-  echo "<br><br><br><br><br>"."<h1>inscripcion correcta</h1>";
+  echo  "<br><br><br><br><br>"."<h1>inscripcion correcta</h1>";
 }else{
 	echo "<br><br><br><br>"."<h1>error no estan definidos todos los objetos</h1>";
 }

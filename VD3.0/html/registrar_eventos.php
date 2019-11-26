@@ -6,7 +6,7 @@
 					<h1>Registro de eventos</h1>
 				</div>			
 			</div>		
-			<div class="col-sm-6"> 
+			<div class="col-sm-12"> 
 				<div id="cnt_form">
 					<!--Este es el formulario interesante para el resgistro-->
 					<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
@@ -16,7 +16,7 @@
 						</div>
 						<!--empresa-->
 						<?php
-						include ("C:/xampp/htdocs/vive_deporte/sima/php/herramientas_metodos.php");
+						include ("../php/herramientas_metodos.php");
 						echo '<div class="form-group">
 						<select name="empresas_conv">';
 							seleccionar_emp(); //ligado en una funcion
