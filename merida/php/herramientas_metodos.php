@@ -330,8 +330,19 @@ $sql_cc="SELECT COUNT(*)*cp.precio_cp FROM inscripciones i, convocatorias_precio
 }
 
 /* liberar el numero de los participantes,un update al número poiendole 0*/
-function liberar_num()
-{
+function liberar_num($datos_ln)
+{$con_ln=conectar_m("root", "");
+    $sql_ln="UPDATE inscripciones SET num_participante=0
+    WHERE correo_us LIKE '$datos_ln[0]'
+    AND id_conv = '$datos_ln[1]'";
+
+        if($con_ln)
+        {
+              if(mysqli_query($con_ln, $sql_ln))
+               {echo "correcto numero liberado";
+
+               } 
+        }
 
 }
 /*SELECT DE LA INFORMACION DE TODA LA CARRERA*/
