@@ -72,6 +72,7 @@ VALUES('', '$arre_emp[0]', '$arre_emp[1]', '$arre_emp[2]', '$arre_emp[3]')";
 }
 
  //perfecto funcion. luisito debe darle formato
+ /*Modificado para que envie el id*/
 function seleccionar_emp()
 {$con_emp2=conectar_m("root", "");
 $sql_selec_emp="SELECT id_emp, nombre_emp FROM empresas";
@@ -317,4 +318,42 @@ function update_administradores($datos_ua)
 
 }
 
+
+/*checar el corte entre fechas, tabla 7*/
+/*este corte me hace un join de la tablas y los que tiene */
+/*checar este punto mañana, haciendo una suma por peueños grupos*/
+function cajas_corte($datos_cc)
+{$conexion_cc=conectar_m("root", "");
+/*te dara por intervalo de fecha y la modalidad cuanto fue el total de ventas*/
+$sql_cc="SELECT COUNT(*)*cp.precio_cp FROM inscripciones i, convocatorias_precio cp WHERE fecha_ins BETWEEN '2019-11-24' AND '2019-11-24'
+ AND i.id_conv =1 AND i.id_conv = cp.id_conv AND cp.modalidad_cp LIKE 'caminta' ";
+}
+
+/* liberar el numero de los participantes,un update al número poiendole 0*/
+function liberar_num()
+{
+
+}
+/*SELECT DE LA INFORMACION DE TODA LA CARRERA*/
+/*checar para que se pueda poner automático*/
+function select_conv($id_sc)
+{$conexion_sc=conectar_m("root","");
+$sql_sc="SELECT nombre_conv 'convocatorias', lugar_conv 'lugar', fecha_conv 'fecha del event', 
+hora_conv 'hora' 
+FROM convocatorias c, convocatorias_infoevento cp 
+WHERE cp.id_conv = c.id_conv AND c.id_conv ='$id_sc'";
+
+$sql_sc2="SELECT modalidad_cp 'modalidad',precio_cp 'precio'
+ FROM convocatorias_precio WHERE id_conv='$id_sc'";
+        if($conexion_sc)
+        {
+            $query_sc=mysqli_query($conexion_sc, $sql_sc);
+                $fecth=mysqli_fetch_array($query_sc);
+                /*imprimos los datos*/
+            $query_sc2=mysqli_query($conexion_sc, $sql_sc2);
+            $fetch_sc2=mysqli_fetch_array($query_sc2);
+            /*se imprime ocn un ciclo*/
+        }
+}
+/*Metodo de reportes, preguntar a andy*/
 ?>

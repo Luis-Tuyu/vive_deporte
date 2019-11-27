@@ -16,7 +16,7 @@
 						</div>
 						<!--empresa-->
 						<?php
-						include ("C:/xampp/htdocs/vive_deporte/sima/php/herramientas_metodos.php");
+						include ("C:/xampp/htdocs/vive_deporte/merida/php/herramientas_metodos.php");
 						echo '<div class="form-group">
 						<select name="empresas_conv">';
 							seleccionar_emp(); //ligado en una funcion
