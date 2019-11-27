@@ -279,4 +279,42 @@ function insertar_ramas($datos_ramas)
         }
 }
 
+/*Eliminar administradores*/
+function elimnar_admi($email_admi)
+{$con_ea=conectar_m("root", "");
+    $sql_ea="DELETE FROM administradores WHERE correo_admi LIKE '$email_admi'";
+    if($con_ea)
+    {   if(mysqli_query($con_ea, $sql_ea))
+        { echo "usuario dado de baja con exito";
+        $sql_ea2="DELETE FROM login_admin WHERE correo_admi LIKE '$email_admi'";
+                if(mysqli_query($con_ea, $sql_ea2))
+                {}else{echo "ERROR, exite la posibilidad que el usuario no exista";}
+        }else{
+            echo "Error: " . $sql_ea . "<br>" . mysqli_error($con_ea);
+        }
+
+    }
+}
+
+/*actuaizar administradores*/
+function update_administradores($datos_ua)
+{$con_ua=conectar_m("root", "");
+    $sql_ua="UPDATE administradores SET nombre_admi='$datos_ua[1]', fecha_admi='$datos_ua[2]',
+    celular_admi='$datos_ua[3]', salario_admi=$datos_ua[4] 
+    WHERE correo_admi LIKE '$datos_ua[0]'";
+    if($con_ua)
+    {   if(mysqli_query($con_ua, $sql_ua))
+        { $sql_ua2="UPDATE login_admin SET contrasena_admi='$datos_ua[1]', tipo_admi='$datos_ua[2]'
+            WHERE correo_admi LIKE '$datos_ua[0]'";
+                if(mysqli_query($con_ua, $sql_ua2))
+                {echo "update ADMINISTRADOES CON EXITO";
+                }else{echo "Error: " . $sql_ua2 . "<br>" . mysqli_error($con_ua);}
+        }else{
+            echo "Error: " . $sql_ua . "<br>" . mysqli_error($con_ua);
+        }
+
+    }
+
+}
+
 ?>
