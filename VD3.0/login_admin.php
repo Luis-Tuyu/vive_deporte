@@ -45,7 +45,7 @@ $clave_us2=$_POST["contrasena"];
 //herramientas para los usuarios
 if($bool_login)
 {
-  echo '<h2>herramientas del administrador</h2>';
+  echo '<h2 class="title_sec">herramientas del administrador</h2>';
   echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
   echo '<div class="agregar_admin"></div>';
   update_email();

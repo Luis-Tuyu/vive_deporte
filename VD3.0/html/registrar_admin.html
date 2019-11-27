@@ -1,44 +1,64 @@
 <section id="ctn_sec">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+			
 				<div class="title_sec">
+					<div class="input-item3">
+					
+						<i class="fa fa-inbox"> </i>
+					</div>
 					<h1>Registro de administradores</h1>
+					
 				</div>			
-			</div>		
-			<div class="col-sm-12"> 
+					
+			
 				<div id="cnt_form">
 					<!--Este es el formulario interesante para el resgistro-->
 					<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
 						<!--nombre-->
 						<div class="form-group">
-						<input type="text" name="nombre_admi" class="form-control name-field" required="required" placeholder="Nombre administrador">
+							<span class="input-item">
+								<i class="fa fa-user"> </i>
+							</span>
+						<input type="text" name="nombre_admi" class="form-input" required="required" placeholder="Nombre administrador">
 						</div>
 						<!--celular-->
 						<div class="form-group">
-								<input type="text" name="celular_admi" class="form-control mail-field" required="required" placeholder="celular">
+							<span class="input-item">
+								<i class="fa fa-phone"> </i>
+							</span>
+								<input type="text" name="celular_admi"  class="form-input"  required="required" placeholder="celular">
 							</div> 
 							<!--salario, solo se registrad para los trabajadores de vive_deporte-->
 						<div class="form-group">
-								<input type="text" name="salario_admi" class="form-control mail-field"  placeholder="salario">
+								<input type="text" name="salario_admi"  class="form-input"   placeholder="salario">
 						</div> 
 						<!--fecha_nacimiento-->
 						<div class="form-group">
-                            <p>Fecha de nacimiento</p>
-								<input type="date" name="fechanac_admi" class="form-control mail-field" required="required" placeholder="fecha nacimiento">
+							<p>Fecha de nacimiento</p>
+							<span class="input-item2">
+								<i class="fa fa-calendar"> </i>
+							</span>
+								<input type="date" name="fechanac_admi"  class="form-input"  required="required" placeholder="fecha nacimiento">
 						</div>
 						<!--tipo_admi-->
 						<div class="form-group">
-								<input type="text" name="tipo_admi" class="form-control name-field" required="required" placeholder="Tipo de administrador">
+								<input type="text" name="tipo_admi"  class="form-input"  required="required" placeholder="Tipo de administrador">
 								</div>
 						<!--correo-->
 							<div class="form-group">
 						<div class="form-group">
-							<input type="email" name="email_admi" class="form-control mail-field" required="required" placeholder="correo electronico">
+							<span class="input-item">
+								<i class="fa fa-envelope"> </i>
+							</span>
+							<input type="email" name="email_admi"  class="form-input"  required="required" placeholder="correo electronico">
 						</div> 
 						<!--contraseña-->
 						<div class="form-group">
-								<input type="password" name="contrasena_admi" class="form-control mail-field" required="required" placeholder="contraseña">
+								<span class="input-item">
+									<i class="fa fa-key"> </i>
+								</span>
+								<input type="password" name="contrasena_admi"  class="form-input"  required="required" placeholder="contraseña">
                         </div>	
                         <!--La hora se obtiene con php, porque aqui es para poder seleccionarlo-->
 						<div class="form-group">
@@ -46,5 +66,5 @@
 						</div>
 					</form> 
 				</div>
-			</div>
+			
 </section>
