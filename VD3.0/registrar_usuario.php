@@ -1,18 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
+<head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sima</title>
+        <title>Vive Deporte MX</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<!--[if lt IE 9]> <script src="js/html5shiv.js"></script> 
-	<script src="js/respond.min.js"></script> <![endif]--> 		
-        <!-- Place favicon.ico in the root directory -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">	
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -22,19 +17,18 @@
         <link rel="stylesheet" href="css/responsive.css">
         <link rel="stylesheet" href="css/style.css">
 
-	
     </head>
 <body >
 
-		 <!-- start preloader -->
+<!-- start preloader -->
         <div id="loader-wrapper">
             <div class="logo"></div>
             <div id="loader">
             </div>
         </div>
-  <!--importar menú-->
-  <div class="menuContainer"></div>
-<br><br><br>    
+   <!---importar menú-->   
+   <div class="menuContainer"></div>
+<br>
 	
 <?php
 //validar los datos recibidos

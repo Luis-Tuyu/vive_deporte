@@ -27,7 +27,7 @@
         </div>
    <!---importar menú-->   
    <div class="menuContainer"></div>
-<br><br><br>
+<br>
 <!-- start contact us Section -->
 <br><br><br>
 <h1 class="title_sec">VALIDAR LOGIN ADMINISTRADORES</h1>
