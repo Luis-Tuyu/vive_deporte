@@ -1,16 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
+<head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Sima</title>
+        <title>Vive Deporte MX</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<!--[if lt IE 9]> <script src="js/html5shiv.js"></script> 
-	<script src="js/respond.min.js"></script> <![endif]--> 		
-        <!-- Place favicon.ico in the root directory -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">	
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -27,66 +24,17 @@
             <div class="logo"></div>
             <div id="loader">
             </div>
-        </div>
-        <!-- end preloader -->
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+		</div>}
+		
+
+
 		
 		
 <!-- Start Header Section -->
-<header class="main_menu_sec navbar navbar-default navbar-fixed-top">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-md-3 col-sm-12">
-				<div class="lft_hd">
-					<a href="index.html"><img src="img/logo.png" alt=""/></a>
-				</div>
-			</div>			
-			<div class="col-lg-9 col-md-9 col-sm-12">
-				<div class="rgt_hd">					
-					<div class="main_menu">
-						<nav id="nav_menu">
-							<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							</button>	
-						<div id="navbar">
-							<ul>
-								<li><a class="page-scroll" href="index.html">Home</a></li> 
-							<li><a href="#">Our Another Page <i class="fa fa-angle-down"></i></a>
-							<ul>
-								<li><a class="page-scroll" href="#tm_sec">Our Team</a></li>
-								<li><a class="page-scroll" href="#tstm_sec">Our Testimonial</a></li>
-								<li><a class="page-scroll" href="#lts_sec">Our Latest Blog</a></li>
-								<li><a class="page-scroll" href="#pricing_sec">Pricing</a></li>
-								<li><a class="page-scroll" href="#clt_sec">Our Happy Client</a></li>
-							</ul>
-							</li> 						
+<div class="menuContainer">
 
-							<li><a href="#">Static Page<i class="fa fa-angle-down"></i></a>
-							<ul>
-								<li><a class="page-scroll" href="blog.html">Blog Page</a></li>
-								<li><a class="page-scroll" href="single.html">Single Blog Page</a></li>
-							</ul>
-							</li> 
-							
-								<li><a class="page-scroll" href="#abt_sec">About</a></li>
-								<li><a class="page-scroll" href="#skill_sec">Our Skill</a></li>
-								<li><a class="page-scroll" href="#pr_sec">Our Service</a></li>
-								<li><a class="page-scroll" href="#protfolio_sec">Our Portfolio</a></li>
-								<li><a class="page-scroll" href="#ctn_sec">Contact Us</a></li>
-							</ul>
-						</div>		
-						</nav>			
-					</div>					
-						
-				</div>
-			</div>	
-		</div>	
-	</div>	
-</header>
+</div>
+<br><br><br>
 <!-- End Header Section -->
 
 <!-- start blog Section -->
@@ -94,8 +42,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="title_sec">
-				<h1>Single Page</h1>
-				<h2>WE’RE BRANDING & DIGITAL STUDIO FROM VIET NAM</h2>
+				<h1>Convocatorias</h1>				
 			</div>		
 			<div class="col-lg-8 col-md-8 col-sm-8 ">
 				<div class="sngl_blg">						
@@ -305,11 +252,11 @@ $(document).ready(function(){
 
 
    $('.show_hide').showHide({			 
-		speed: 1000,  // speed you want the toggle to happen	
-		easing: '',  // the animation effect you want. Remove this line if you dont want an effect and if you haven't included jQuery UI
-		changeText: 1, // if you dont want the button text to change, set this to 0
-		showText: 'View',// the button text to show when a div is closed
-		hideText: 'Close' // the button text to show when a div is open
+		speed: 600, 
+		easing: '',  
+		changeText: 1, 
+		showText: 'View',
+		hideText: 'Close' 
 					 
 	}); 
 
@@ -321,7 +268,7 @@ $(document).ready(function(){
     jQuery(document).ready(function( $ ) {
         $('.counter').counterUp({
             delay: 10,
-            time: 1000
+            time: 70
         });
     });
 </script>
@@ -338,16 +285,19 @@ $(window).load(function(){
     $("body").css("overflow", "visible");        
     var nice=$('html').niceScroll({
 	cursorborder:"5",
-	cursorcolor:"#00AFF0",
-	cursorwidth:"3px",
+	cursorcolor:"#FFBE0D",
+	cursorwidth:"9px",
 	boxzoom:true, 
 	autohidemode:true
 	});
 
 });
 </script>
-
-
+<script>
+	$(document).ready(function () {
+		$('.menuContainer').load('../VD3.0/html/Menu_barra.html');
+	});
+</script>
 
     </body>
 </html>

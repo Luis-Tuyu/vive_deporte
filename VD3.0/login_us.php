@@ -45,8 +45,6 @@ $clave_us2=$_POST["contrasena"];
     echo "ERROR, primero dedes iniciar sesión, para ver el contenido";
 }
 
-
-
 //aqui pondremos el codigo para validad el login y mandarlo a otra opagina o ostrar caracteristicas
 ?>
 
