@@ -124,26 +124,35 @@ function update_email()
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
-				<div class="title_sec">
+                <div class="title_sec">
+                            <span class="input-item3">
+								    <i class="fa fa-upload"> </i>
+                            </span>
 					<h1>Modificar Informacion Usuarios</h1>
 				</div>			
 			</div>		
-			<div class="col-sm-12"> 
+			
 				<div id="cnt_form">
 					<!--Este es el formulario interesante para el resgistro-->
 					<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
 						<!--correo-->
                                 <div class="form-group">
-                                    <input type="email" name="email_update" class="form-control mail-field" required="required" placeholder="correo electronico">
+                                    <span class="input-item">
+								    <i class="fa fa-envelope"> </i>
+							        </span>
+                                    <input type="email" name="email_update" class="form-input" required="required" placeholder="correo electronico">
                                 </div> 
                                 <div class="form-group">
-                                    <input type="text" name="update" class="form-control mail-field" value="update">
+                                    <span class="input-item">
+								    <i class="fa fa-level-up"> </i>
+							        </span>
+                                    <input type="text" name="update" class="form-input" value="update">
                                 </div> 
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Consultar</button>
 						</div>
 					</form> 
-				</div>
+				
 			</div>
 </section>');
 }
