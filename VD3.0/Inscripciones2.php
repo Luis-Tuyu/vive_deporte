@@ -46,55 +46,71 @@
 			</div>		
 			<div class="col-lg-8 col-md-8 col-sm-8 ">
 				<div class="sngl_blg">						
-					<img src="http://cdn.shopify.com/s/files/1/1039/5466/files/blog-img2.jpg?10828543012475550494" alt=""/>
-					<div class="post_info">
-						<div class="post_intro">
-							<h2>there are a few things</h2>	
-							<i class="fa fa-picture-o"></i>									
+					<div class="slider">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+					<!-- Indicadores de objetos -->
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="5"></li>
+
+					</ol>
+
+					<!-- objetos mov. -->
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<div class="wrap_caption">
+								<div class="caption_carousel">
+									<img src="./img/10kA.jpg" with="300px" height="300px"/>
+								</div>
+							</div>
+							
 						</div>
-						<ul>											
-							<li>Oct 23 2015 //</li>
-							<li>Oct 23 2015 //</li>
-							<li>1 comment</li>
-						</ul>
+						<div class="item">
+							<div class="wrap_caption">
+								<div class="caption_carousel">
+									<img src="./img/5lupita.jpeg" with="300px" height="300px"/>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="wrap_caption">
+								<div class="caption_carousel">
+									<img src="./img/carreracancun.png"with="300px" height="300px" />
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="wrap_caption">
+								<div class="caption_carousel">
+									<img src="./img/Megamedia.jpg" with="300px" height="300px"/>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="wrap_caption">
+								<div class="caption_carousel">
+									<img src="./img/Triatlonisladetris.jpg" with="300px" height="300px"/>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="post_content">
-						<p>Vestibulum sed pharetra risus, ac lacinia lorem. Etiam commodo laoreet rutrum. Praesent ut nulla in erat accumsan egestas pulvinar at ipsum. Aenean auctor, neque et dapibus lacinia, leo mauris rhoncus elit, id tincidunt purus orci ut eros. Suspendisse potenti. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mu, ac lacinia lorem. Etiam commodo laoreet rutrum. Praesent ut nulla in erat accumsan egestas pulvinar at ipsum. Aenean auctor, neque et dapibus lacinia, leo mauris rhoncus elit, id tincidunt purus orci ut eros. Suspendisse potenti. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus</p>
-						
-					</div>
+					<!-- Controls -->
+					<a class="left left_crousel_btn" href="#carousel-example-generic" role="button" data-slide="prev">
+						<i class="fa fa-angle-left"></i>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right right_crousel_btn" href="#carousel-example-generic" role="button" data-slide="next">
+						<i class="fa fa-angle-right"></i>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>					
 				</div>	
-				<div class="author_info">
-					<img src="img/admin.jpg" alt=""/>
-					<div class="author_dec">
-						<ul class="social_link">
-							<li><a href=""><i class="fa fa-flickr"></i></a></li>
-							<li><a href=""><i class="fa fa-pinterest"></i></a></li>
-							<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-							<li><a href=""><i class="fa fa-skype"></i></a></li>
-							<li><a href=""><i class="fa fa-google"></i></a></li>
-						</ul>
-						<h3>Admin</h3>
-						<p>Phasellus facilisis convallis metus, ut imperdiet augue auctor nec. Duis at velit id augue lobortis porta. Sed varius, enim accumsan aliquam tincidunt, tortor urna vulputate quam, eget finibus urna est in augue. Etiam in sem non tellus volutpat lacinia.</p>					
-					</div>
-				</div>	
-
-											<div id="cnt_form">
-												<div class="status alert alert-success" style="display: none"></div>
-												<form id="contact-form" class="contact" name="contact-form" method="post" action="send-mail.php">
-													<div class="form-group">
-														<input type="text" name="name" class="form-control name-field" required="required" placeholder="Your Name"></div>
-														<div class="form-group">
-															<input type="email" name="email" class="form-control mail-field" required="required" placeholder="Your Email">
-														</div> 
-														<div class="form-group">
-															<textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Message"></textarea>
-														</div> 
-														<div class="form-group">
-															<button type="submit" class="btn btn-primary">Send</button>
-														</div>
-													</form> 
-												</div>
-
+	
 			</div>				
 			
 			<div class="col-lg-4 col-md-4 col-sm-4">
@@ -123,34 +139,7 @@
 							<li><a href="">Donec nec pretium felis</a></li>
 							<li><a href="">Donec nec pretium felis</a></li>
 						</ul>
-					</div>				
-					<div class="widget">
-						<h2>categories</h2>
-						<div class="title_br"></div>
-						<ul class="flickr">
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-							<li><img src="img/flckr.jpg" alt=""/></li>
-						</ul>
-					</div>
-					<div class="widget">
-						<h2>categories</h2>
-						<div class="title_br"></div>
-						<ul class="tag">
-							<li><a href="">php</a></li>
-							<li><a href="">css</a></li>
-							<li><a href="">wordpress</a></li>
-							<li><a href="">photoshop</a></li>
-							<li><a href="">html</a></li>
-							<li><a href="">js</a></li>
-
-						</ul>
-					</div>						
+					</div>													
 				</div>
 			</div>	
 		</div>
@@ -184,24 +173,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="ft">						
+				<div class="ft">
 					<ul>
-						<li><a href=""><i class="fa fa-facebook"></i></a></li>
-						<li><a href=""><i class="fa fa-twitter"></i></a></li>
-						<li><a href=""><i class="fa fa-dribbble"></i></a></li>
-						<li><a href=""><i class="fa fa-rss"></i></a></li>
-						<li><a href=""><i class="fa fa-flickr"></i></a></li>
-						<li><a href=""><i class="fa fa-pinterest"></i></a></li>
-						<li><a href=""><i class="fa fa-linkedin"></i></a></li>
-						<li><a href=""><i class="fa fa-skype"></i></a></li>
-						<li><a href=""><i class="fa fa-google"></i></a></li>
-					</ul>					
+						<li><a href="https://es-la.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://xvideos.com"><i class="fa fa-twitter"></i></a></li>
+
+					</ul>
 				</div>
-					<ul class="copy_right">
-						<li>&copy;Sima 2015</li>
-						<li>made by myumifte</li>
-					</ul>					
-			</div>	
+				<ul class="copy_right">
+					<li>&copy; Vive Deporte 2019</li>
+					<li>Desarrollado por DiseñaTec</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </footer>
