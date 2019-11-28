@@ -1,0 +1,171 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vive Deporte MX</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+    <div class="page-wrapper chiller-theme toggled">
+        
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="#">Administradores</a>
+                    <div id="close-sidebar">
+                        <i class="fas fa-sign-out"></i>
+                    </div>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img src="img/logob.jpg" alt="" />
+                    </div>
+                    <div class="user-info">
+                        <spam>Nombre de usuario</spam>
+                    </div>                    
+                                                         
+                </div>               
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>General</span>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-road"> </i>
+                                <span>Carreras</span>                                
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Insertar carrera 1
+                                            <span class="badge badge-pill badge-success">Pro</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Insertar carrera 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Insertar carrera 3</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>                        
+                        <li class="sidebar-dropdown">
+                            <a   href="#">
+                                <i class="fa fa-user"> </i>
+                                <span>Usuarios</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Añadir usuario</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Eliminar usuario</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Modificar usuario</a>
+                                    </li>                                    
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-user"> </i>
+                                <span>Administradores</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Añadir administrador</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Eliminar administrador</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Modificar administrador</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fa fa-file"></i>
+                                <span>Reportes</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="#">Generar reportes</a>
+                                    </li>                                    
+                                </ul>
+                            </div>
+                        </li>                                                
+                        <li>                        
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->           
+        </nav>       
+    </div>   
+    <section >
+        <div class="slider">
+            <div class="row">               
+                <div id="bienbenida" class="title_sec" >
+                    <h1>Bienvenido...!</h1>
+                    <h2>¡A trabajar!   </h2>
+                
+            </div>
+            </div>
+        </div>
+    </section>
+       
+    
+
+    <script>
+        $(".sidebar-dropdown > a").click(function () {
+            $(".sidebar-submenu").slideUp(200);
+            if (
+                $(this)
+                    .parent()
+                    .hasClass("active")
+            ) {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this)
+                    .parent()
+                    .removeClass("active");
+            } else {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this)
+                    .next(".sidebar-submenu")
+                    .slideDown(200);
+                $(this)
+                    .parent()
+                    .addClass("active");
+            }
+        });
+
+        $("#close-sidebar").click(function () {
+            $(".page-wrapper").removeClass("toggled");
+        });
+        $("#show-sidebar").click(function () {
+            $(".page-wrapper").addClass("toggled");
+        });
+    </script>
+   
+

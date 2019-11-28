@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">	
-		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+	    	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -19,17 +19,9 @@
 
     </head>
 <body >
-		 <!-- start preloader -->
-        <div id="loader-wrapper">
-            <div class="logo"></div>
-            <div id="loader">
-            </div>
-        </div>
-   <!---importar menú-->   
-   <div class="menuContainer"></div>
-<br>
+   <!---importar menú-->          
+   <div class="Barra_lateral"></div>
 <!-- start contact us Section -->
-<br><br><br>
 <h1 class="title_sec">VALIDAR LOGIN ADMINISTRADORES</h1>
 <?php
 require ("../VD3.0/php/conexion.php");
@@ -53,9 +45,30 @@ if($bool_login)
   echo '<div class="registrar_eventos"></div>"';
     
 }
-
 //los mismos datos del usuario
 ?>
+
+<!-- start footer Section -->
+<footer id="ft_sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ft">
+                    <ul>
+                        <li><a href="https://www.facebook.com/ViveDeporteMx/"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://xvideos.com"><i class="fa fa-twitter"></i></a></li>
+
+                    </ul>
+                </div>
+                <ul class="copy_right">
+                    <li>&copy; Vive Deporte 2019</li>
+                    <li>Desarrollado por DiseñaTec</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End footer Section -->  
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
 
@@ -157,6 +170,43 @@ $(window).load(function(){
       $('.registrar_eventos').load('html/registrar_eventos.php');
     });
   </script>
+
+  <script>
+  $(document).ready(function () {
+      $('.Barra_lateral').load('html/Barra_lateral.html');
+    });
+  </script>
+
+  <script>
+    $(".sidebar-dropdown > a").click(function () {
+        $(".sidebar-submenu").slideUp(200);
+        if (
+            $(this)
+                .parent()
+                .hasClass("active")
+        ) {
+            $(".sidebar-dropdown").removeClass("active");
+            $(this)
+                .parent()
+                .removeClass("active");
+        } else {
+            $(".sidebar-dropdown").removeClass("active");
+            $(this)
+                .next(".sidebar-submenu")
+                .slideDown(200);
+            $(this)
+                .parent()
+                .addClass("active");
+        }
+    });
+
+    $("#close-sidebar").click(function () {
+        $(".page-wrapper").removeClass("toggled");
+    });
+    $("#show-sidebar").click(function () {
+        $(".page-wrapper").addClass("toggled");
+    });
+</script>     
 
     </body>
 </html>

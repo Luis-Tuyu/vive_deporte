@@ -79,7 +79,7 @@
 						<div class="item">
 							<div class="wrap_caption">
 								<div class="caption_carousel">
-									<img src="./img/carreracancun.png"with="300px" height="300px" />
+									<img src="./img/carreracancun.png" with="300px" height="300px" />
 								</div>
 							</div>
 						</div>
