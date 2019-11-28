@@ -887,11 +887,11 @@ vertical-align : middle;
 width : 100%;
 }
 #slider_sec {
-background-image : url("../img/corredor_a.png");
+background-image : url("../img/home.jpg");
 background-position : center center;
 background-repeat : no-repeat;
 background-size : 100% 100%;
-height : 900px;
+height : 600px;
 width : 100%;
 }
 .left_crousel_btn, .right_crousel_btn {
