@@ -230,7 +230,7 @@ function update_colocar_form($datos_update)
 			</div>
 </section>');
 }
-/*seleccionamos todos  los usuarios por carrera*/
+/*seleccionamos todos  los usuarios por carrera, este  es tu reporte*/
 function usuarios_por_convocatoria($nombre_car)
 {$con_tabla=conectar_m("root", "");
     $sql_all="SELECT num_participante,nombre_us,ins.correo_us,cel_us, nombre_conv 
@@ -353,7 +353,6 @@ $sql_sc="SELECT nombre_conv 'convocatorias', lugar_conv 'lugar', fecha_conv 'fec
 hora_conv 'hora' 
 FROM convocatorias c, convocatorias_infoevento cp 
 WHERE cp.id_conv = c.id_conv AND c.id_conv ='$id_sc'";
-
 $sql_sc2="SELECT modalidad_cp 'modalidad',precio_cp 'precio'
  FROM convocatorias_precio WHERE id_conv='$id_sc'";
         if($conexion_sc)
@@ -366,5 +365,4 @@ $sql_sc2="SELECT modalidad_cp 'modalidad',precio_cp 'precio'
             /*se imprime ocn un ciclo*/
         }
 }
-/*Metodo de reportes, preguntar a andy*/
 ?>
