@@ -84,9 +84,14 @@ input[id="txt-input"] {width: 200px;}
   }
 
   #bienbenida{   
-    padding: 300px;        
-    background: linear-gradient(-225deg, #95E80C 45%, #FFBE0D 55%)
-    
+    background-image : url("../img/trab2.jpg");  
+    background-position : center center;
+    background-repeat : no-repeat;
+    background-size : 100% 100%;
+    height : 600px;
+    width : 100%; 
+    margin-top: 50px;                  
+
   } 
 
 @keyframes swing {
@@ -1270,16 +1275,16 @@ width : 100px;
 display : none;
 }
 #ctn_sec {			
-	padding : 70px 0px;
-	margin-left: 0px;
+	padding : 70px 10px;
+	margin: 10px 10px 10px;
 }
 #form-group{
 	float: left;
 }
 #cnt_form{			
-    margin : 0 390px;	
+    margin : 50px 390px;	
 	text-align : center;
-	padding: 50px;
+	padding: 50px 0 50px;
 	background: linear-gradient(-225deg, #95E80C 45%, #FFBE0D 55%);
 }
 #cnt_form2{			

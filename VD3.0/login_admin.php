@@ -22,7 +22,12 @@
    <!---importar menú-->          
    <div class="Barra_lateral"></div>
 <!-- start contact us Section -->
-<h1 class="title_sec">VALIDAR LOGIN ADMINISTRADORES</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php
 require ("../VD3.0/php/conexion.php");
 if(isset($_POST["correo"], $_POST["contrasena"]))
@@ -43,6 +48,12 @@ if($bool_login)
   update_email();
   echo '<div class="empresas_form"></div>';
   echo '<div class="registrar_eventos"></div>"';
+  echo '<div class="usuarios_convocatoria"></div>"';
+  echo '<div class="  precio_convocatoria"></div>"';    
+  echo '<div class=" ramas"></div>"';    
+  echo '<div class=" kits"></div>"';    
+  
+  
     
 }
 //los mismos datos del usuario
@@ -50,23 +61,24 @@ if($bool_login)
 
 <!-- start footer Section -->
 <footer id="ft_sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="ft">
-                    <ul>
-                        <li><a href="https://www.facebook.com/ViveDeporteMx/"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://xvideos.com"><i class="fa fa-twitter"></i></a></li>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="ft">
+					<ul>
+						<li><a href="https://www.facebook.com/ViveDeporteMx/"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://twitter.com/ViveDeporteMX"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://www.instagram.com/vivedeportemx/"><i class="fa fa-instagram"></i></a></li>
 
-                    </ul>
-                </div>
-                <ul class="copy_right">
-                    <li>&copy; Vive Deporte 2019</li>
-                    <li>Desarrollado por DiseñaTec</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+					</ul>
+				</div>
+				<ul class="copy_right">
+					<li>&copy; Vive Deporte 2019</li>
+					<li>Desarrollado por DiseñaTec</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </footer>
 <!-- End footer Section -->  
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -151,6 +163,13 @@ $(window).load(function(){
   </script>
 
 <script>
+  //insertar kits
+    $(document).ready(function () {
+      $('.kits').load('html/insertar_kits.php');
+    });
+  </script>
+
+<script>
   //importar el registro de administradores
     $(document).ready(function () {
       $('.agregar_admin').load('html/registrar_admin.html');
@@ -164,10 +183,32 @@ $(window).load(function(){
     });
   </script>
 
+ <script>
+  //insertar ramas
+    $(document).ready(function () {
+      $('.ramas').load('html/insertar_ramas.php');
+    });
+  </script>
 <script>
   //registro de eventos
     $(document).ready(function () {
       $('.registrar_eventos').load('html/registrar_eventos.php');
+    });
+  </script>
+
+  <script>
+  //usuarios por convocatoria
+    $(document).ready(function () {
+      $('.usuarios_convocatoria').load('html/usuarios_por_convocatoria.php');
+    });
+  </script>
+  
+
+  
+  <script>
+  //Precio convocatoria
+    $(document).ready(function () {
+      $('.precio_convocatoria').load('html/insertar_conv_precio.php');
     });
   </script>
 
@@ -210,3 +251,4 @@ $(window).load(function(){
 
     </body>
 </html>
+

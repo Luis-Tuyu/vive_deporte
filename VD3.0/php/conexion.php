@@ -120,7 +120,7 @@ echo "formato de fecha corregido".$fechanac_us;
 /*aqui se pondra el editar los datos del usuario*/
 function update_email()
 {
-    print ('<section id="ctn_sec">
+    print ('<section id="ctn_sec modus">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
