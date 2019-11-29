@@ -36,6 +36,7 @@
 <h1>VALIDAR LOGIN ADMINISTRADORES</h1>
 <?php
 require ("php/conexion.php");
+$bool_login;
 if(isset($_POST["correo"], $_POST["contrasena"]))
 {$correo_us=$_POST["correo"];
 $clave_us2=$_POST["contrasena"];
@@ -69,7 +70,25 @@ if($bool_login[0])
 }
 
 //los mismos datos del usuario
+
+//cerrar session
+if(isset($_POST["change"]))
+{ echo "Variable definida";
+    if($_POST["change"]=="true")
+  {$bool_login[0]=false;
+    $bool_login[1]="";
+    $url="index.html";
+     echo "<SCRIPT>window.location='$url';</SCRIPT>"; 
+  }
+}
+
 ?>
+
+<form method="post" action="login_admin.php" >
+  <input type="text" name="change" value="true" style="visibility:hidden">
+  <button type="submit">Cerrar session</button>
+</form>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
 
