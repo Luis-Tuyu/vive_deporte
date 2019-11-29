@@ -52,7 +52,9 @@ if($bool_login)
   echo '<div class="  precio_convocatoria"></div>"';    
   echo '<div class=" ramas"></div>"';    
   echo '<div class=" kits"></div>"';    
-  
+   echo '<div class="  dell_admin"></div>"'; 
+   echo '<div class="  lib_num"></div>"'; 
+ 
   
     
 }
@@ -154,6 +156,13 @@ $(window).load(function(){
 	});
 </script>
 
+<script>
+  //liberar numero
+	$(document).ready(function () {
+		$('.lib_num').load('html/liberar_num.php');
+	});
+</script>
+
 
 <!--Importar herramientas desde html-->
 <script>
@@ -173,6 +182,12 @@ $(window).load(function(){
   //importar el registro de administradores
     $(document).ready(function () {
       $('.agregar_admin').load('html/registrar_admin.html');
+    });
+  </script>
+  <script>
+  //eliminar admministrador
+    $(document).ready(function () {
+      $('.dell_admin').load('html/elimnar_admi.php');
     });
   </script>
   
