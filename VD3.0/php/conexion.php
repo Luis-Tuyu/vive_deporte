@@ -69,13 +69,14 @@ function validar_login_admin($usuario_admi, $contrasena_admi)
     $filas_admi=mysqli_fetch_array($datos2);
         if($usuario_admi == $filas_admi["correo_admi"])
         {           if($contrasena_admi == $filas_admi["contrasena_admi"])
-                    {//echo "<br> <h2>ACCESO CORRECTO</h2>";
-                        //echo "<p>Correo: </p>";
-                       // print ("<br>".$filas_admi["correo_admi"]."<br>");
-                        return true;
+                     {$array_vla[0]=true;
+                     $array_vla[1]=$filas_admi["tipo_admi"];   
+                     return $array_vla;   
                     }else{
                         echo "contraseña incorrecta";
-                        return false;
+                        $array_vla[0]=false;
+                     $array_vla[1]="LOGIN INCORRECTO";
+                     return $array_vla; 
                     }
         }else{
             echo "<br>Usuario no registrado";

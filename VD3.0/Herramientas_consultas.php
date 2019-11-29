@@ -63,7 +63,8 @@ if(isset($_POST["nombre_admi"],$_POST["celular_admi"],$_POST["fechanac_admi"]
 	$datos_admi[6]=$_POST["contrasena_admi"];
   registrar_adiministradores($datos_admi); //registramos a los usuarios
   echo "<br><br><br><br><br>"."<h1>Registro de administradores correcta</h1>";
-}else{ echo "error de registro administradores";}
+}else{ //echo "error de registro administradores";
+}
 
 
 //si es igual mostramos la informacion dentro de un formulario
@@ -116,9 +117,8 @@ $arre_conv[3]=$_POST["lugar_conv"];
 $arre_conv[4]=$_POST["hora_conv"];
 $arre_conv[5]=$_POST["fecha_conv"];
 registrar_conv1($arre_conv);
-}else{echo "<br><br><br><br><br><br><br><h1>ERROR_ convocatorias</h1>";}
-
-
+}else{ //echo "<br><br><br><br><br><br><br><h1>ERROR_ convocatorias</h1>";
+}
 ?>
 
 

@@ -244,7 +244,7 @@ function usuarios_por_convocatoria($nombre_car)
     }else {echo "error seleccion";}
 }
 
-/*insert*/
+/*insert precios convocatoria*/
 function insertar_conv_precio($cp)
 {$conectar_cp=conectar_m("root","");
     $Sql_ins_cp="INSERT INTO convocatorias_precio (id_conv, modalidad_cp, precio_cp)
@@ -253,7 +253,23 @@ function insertar_conv_precio($cp)
     {mysqli_query($conectar_cp, $Sql_ins_cp);  
     }else{ echo "error en la i";}
 
+}   
+
+/*Esto le puse para las empresas */
+function select_carrera()
+{$con_emp2=conectar_m("root", "");
+    $sql_conv="SELECT id_conv 'id', nombre_conv 'convocatoria' FROM convocatorias ";
+            if(mysqli_query($con_emp2, $sql_conv))
+        {$query_conv=mysqli_query($con_emp2, $sql_conv);
+            while($fila = mysqli_fetch_array($query_conv))
+            {
+            echo '<option class="form-control mail-field">';
+             echo $fila["convocatoria"];
+             echo "</option>";
+          }
+           }else{}
 }
+
 
 /*contenido nuevo*/
 function insertar_kits($datos_kits)
@@ -362,4 +378,23 @@ $sql_sc2="SELECT modalidad_cp 'modalidad',precio_cp 'precio'
         }
 }
 /*Metodo de reportes, preguntar a andy*/
+
+/*muestras la convocatoria y el id*/
+function select_carrera()
+{$con_conv=conectar_m("root", "");
+    $sql_conv="SELECT id_conv 'id', nombre_conv 'convocatoria' FROM convocatorias ";
+     if($con_conv)
+     { 
+         if(mysqli_query($con_conv, $sql_conv))
+         {
+            
+         }
+     }
+}
+/*Busueda por nombre*/
+function buscar_conv()
+{$con_bc=conectar_m("root", "");
+    $sql_bc="";
+}
+/*puntos de ventas, tendra cuanto gano por día, solamente por día*/
 ?>
