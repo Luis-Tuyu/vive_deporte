@@ -13,10 +13,10 @@
                 </div>
                 <!--Formulario para los kits-->
                 <form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">
-                    <div class="form-group">
-                        <label> Proporciona el correo del administrador que deseas eliminar: <br<></label>
+                 <label> Proporciona el correo del administrador que deseas eliminar: <br<></label>    
+                <div class="form-group">                       
                         <span class="input-item">
-                            <i class="fa fa-enveloped"> </i>
+                            <i class="fa fa-envelope"> </i>
                         </span>
                         <input type="text" name="correo_admi" class="form-input" required="required" placeholder="Correo">
                     </div>                                                                  

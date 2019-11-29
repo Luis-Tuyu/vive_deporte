@@ -14,11 +14,14 @@
                 <!--Formulario para los kits-->
                 <form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">
                     <div class="form-group">
-                        <span class="input-item">
-                            <i class="fa fa-key"> </i>
-                        </span>
-                        <input type="text" name="id_conv" class="form-input" required="required" placeholder="ID convocatoria">
-                    </div>
+                       <?php
+						include ("../php/herramientas_metodos.php");
+						echo '<div class="form-input">
+						<select name="id_conv">';
+							select_carrera(); //ligado en una funcion
+						echo '
+						</select></div>';
+						?> </div>
                     <div class="form-group">
                         <label>Fecha para los kits:</label>
                         <br>

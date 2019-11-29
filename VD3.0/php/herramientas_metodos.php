@@ -244,7 +244,7 @@ function usuarios_por_convocatoria($nombre_car)
     }else {echo "error seleccion";}
 }
 
-/*insert*/
+/*insert precios a las convocatorias*/
 function insertar_conv_precio($cp)
 {$conectar_cp=conectar_m("root","");
     $Sql_ins_cp="INSERT INTO convocatorias_precio (id_conv, modalidad_cp, precio_cp)
@@ -362,4 +362,19 @@ $sql_sc2="SELECT modalidad_cp 'modalidad',precio_cp 'precio'
         }
 }
 /*Metodo de reportes, preguntar a andy*/
+
+
+function select_carrera()
+{$con_emp2=conectar_m("root", "");
+    $sql_conv="SELECT id_conv 'id', nombre_conv 'convocatoria' FROM convocatorias ";    
+        if(mysqli_query($con_emp2, $sql_conv))
+        {$query_conv=mysqli_query($con_emp2, $sql_conv);
+            while($fila = mysqli_fetch_array($query_conv))
+            {
+            echo '<option class="form-control mail-field">';
+             echo $fila["convocatoria"];
+             echo "</option>";
+          }                
+        }else{}
+}
 ?>
