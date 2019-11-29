@@ -24,7 +24,7 @@
 						<!--empresa-->
 						<?php
 						include ("../php/herramientas_metodos.php");
-						echo '<div class="form-group">
+						echo '<div class="form-input">
 						<select name="empresas_conv">';
 							seleccionar_emp(); //ligado en una funcion
 						echo '

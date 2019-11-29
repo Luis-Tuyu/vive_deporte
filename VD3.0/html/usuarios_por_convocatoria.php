@@ -12,13 +12,13 @@
 					<i class="fa fa-file"> </i>					
 				</div>
 				<!--Formulario de reporte de usuarios inscritos por convocatoria-->
-				<form id="contact-form" class="contact" name="contact-form" method="post" action="us_convocatoria.php">					                
+				<form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">					                
                     <div class="form-group">
                         <span class="input-item">
 								<i class="fa fa-flag"> </i>
 								
 						</span>
-					<input type="text" name="convocatoria" class="form-input" required="required" placeholder="Convocatoria">
+					<input type="text" name="nombre_car" class="form-input" required="required" placeholder="Convocatoria">
                     </div>
                     <div class="form-group">
 						<button type="submit" class="btn btn-primary">Generar reporte</button>

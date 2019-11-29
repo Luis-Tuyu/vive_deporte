@@ -13,33 +13,33 @@
                         <i class="fa fa-pagelines"> </i>
                     </div>
                     <!--Formulario de reporte de usuarios inscritos por convocatoria-->
-                    <form id="contact-form" class="contact" name="contact-form" method="post" action="us_convocatoria.php">
+                    <form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">
                         <div class="form-group">
                             <span class="input-item">
                                 <i class="fa fa-key"> </i>                                
                             </span>
-                            <input type="text" name="convocatoria" class="form-input" required="required" placeholder="ID de la convocatoria">
+                            <input type="text" name="id_conv" class="form-input" required="required" placeholder="ID de la convocatoria">
                         </div>
                         <div class="form-group">
                             <span class="input-item">
                                 <i class="fa fa-heartbeat"> </i>
                             
                             </span>
-                            <input type="text" name="convocatoria" class="form-input" required="required" placeholder="Modalidad de la convocatoria">
+                            <input type="text" name="modalidad_re" class="form-input" required="required" placeholder="Modalidad de la convocatoria">
                         </div>
                         <div class="form-group">
                             <span class="input-item">
                                 <i class="fa fa-cubes"> </i>
                                
                             </span>
-                            <input type="text" name="convocatoria" class="form-input" required="required" placeholder="Categoria de la convocarotia">
+                            <input type="text" name="categoria_re" class="form-input" required="required" placeholder="Categoria de la convocarotia">
                         </div>
                         <div class="form-group">
                             <span class="input-item">
                                 <i class="fa fa-list-ol"> </i>
                                
                             </span>
-                            <input type="text" name="convocatoria" class="form-input" required="required" placeholder="Edad">
+                            <input type="text" name="edad_re" class="form-input" required="required" placeholder="Edad">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Agregar rama</button>

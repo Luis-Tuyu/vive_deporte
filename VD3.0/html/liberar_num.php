@@ -11,13 +11,13 @@
                 <div class="input-item3">
                     <i class="fa fa-medkit"> </i>
                 </div>
-                <!--Formulario para los kits-->
-                <form id="contact-form" class="contact" name="contact-form" method="post" action="us_convocatoria.php">
+                <!--Formulario liberar numeros-->
+                <form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">
                     <div class="form-group">                        
                         <span class="input-item">
                             <i class="fa fa-number"> </i>
                         </span>
-                        <input type="text" name="convocatoria" class="form-input" required="required" placeholder="Número">
+                        <input type="text" name="num_participante" class="form-input" required="required" placeholder="Número">
                     </div>                                                                  
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Asignar</button>

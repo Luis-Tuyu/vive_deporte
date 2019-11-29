@@ -80,7 +80,7 @@ $sql_selec_emp="SELECT id_emp, nombre_emp FROM empresas";
         {$query_emp=mysqli_query($con_emp2, $sql_selec_emp);
             while($fila = mysqli_fetch_array($query_emp))
             {
-            echo '<option class="form-control mail-field">';
+             echo '<option class="form-control mail-field">';
              echo $fila["nombre_emp"];
              echo "</option>";
           }
