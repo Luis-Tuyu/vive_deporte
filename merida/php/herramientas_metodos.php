@@ -365,4 +365,28 @@ $sql_sc2="SELECT modalidad_cp 'modalidad',precio_cp 'precio'
             /*se imprime ocn un ciclo*/
         }
 }
+
+/*Metodo de reportes, preguntar a andy*/
+/*muestras la convocatoria y el id*/
+function select_carrera()
+{$con_conv=conectar_m("root", "");
+    $sql_conv="SELECT id_conv 'id', nombre_conv 'convocatoria' FROM convocatorias ";
+     if($con_conv)
+     { 
+         if(mysqli_query($con_conv, $sql_conv))
+         {
+            
+         }
+
+     }
+}
+/*Busueda por nombre*/
+function buscar_conv()
+{$con_bc=conectar_m("root", "");
+    $sql_bc="";
+
+}
+
+/*puntos de ventas, tendra cuanto gano por día, solamente por día*/
+
 ?>

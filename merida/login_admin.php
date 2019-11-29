@@ -46,14 +46,26 @@ $clave_us2=$_POST["contrasena"];
 }
 
 //herramientas para los usuarios
-if($bool_login)
+if($bool_login[0])
 {
-  echo '<h2>herramientas del administrador</h2>';
-  echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
-  echo '<div class="agregar_admin"></div>';
-  update_email();
-  echo '<div class="empresas_form"></div>';
-  echo '<div class="registrar_eventos"></div>"';
+    if($bool_login[1] == "MO")//master organizador, administrador
+    {echo '<h2>herramientas del administrador</h2>';
+      echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
+      echo '<div class="agregar_admin"></div>';
+      update_email();
+      echo '<div class="empresas_form"></div>';
+      echo '<div class="registrar_eventos"></div>"';
+    }else if($bool_login[1]=='PV') //punto de venta
+    { echo '<div class="Herramientas"></div>'; //inscripcciones
+      //faltará otras herramientas
+
+    }else if($bool_login[1]=='MC') //master cliente, empresa
+    {//mostrará toda la info
+
+    }else{
+      echo "ERROR, USUARIO, VALIDACION INCORRECTA";
+    }
+  
 }
 
 //los mismos datos del usuario
