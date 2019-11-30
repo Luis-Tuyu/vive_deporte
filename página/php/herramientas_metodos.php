@@ -72,7 +72,6 @@ VALUES('', '$arre_emp[0]', '$arre_emp[1]', '$arre_emp[2]', '$arre_emp[3]')";
 }
 
  //perfecto funcion. luisito debe darle formato
- /*Modificado para que envie el id*/
 function seleccionar_emp()
 {$con_emp2=conectar_m("root", "");
 $sql_selec_emp="SELECT id_emp, nombre_emp FROM empresas";
@@ -80,7 +79,7 @@ $sql_selec_emp="SELECT id_emp, nombre_emp FROM empresas";
         {$query_emp=mysqli_query($con_emp2, $sql_selec_emp);
             while($fila = mysqli_fetch_array($query_emp))
             {
-             echo '<option class="form-control mail-field">';
+            echo '<option class="form-control mail-field">';
              echo $fila["nombre_emp"];
              echo "</option>";
           }
@@ -239,19 +238,12 @@ function usuarios_por_convocatoria($nombre_car)
     ORDER BY num_participante";
     if($con_tabla)
     {$sql_query_all=mysqli_query($con_tabla,$sql_all);
-            while($fila_uc = mysqli_fetch_array($sql_query_all))
-            { echo "<p>convocatoria: ".$fila_uc["nombre_conv"].'</p>';
-              echo "<p>numero participante: ".$fila_uc["num_participante"].'</p>';
-               echo "<p>nombre: ".$fila_uc["nombre_us"].'</p>';
-               echo "<p>correo: ".$fila_uc["correo_us"].'</p>';
-               echo "<p>celular: ".$fila_uc["cel_us"].' </p>';
-               echo "<br>";  
-            }
-    //return $arra_all;
+    $arra_all=mysqli_fetch_array($sql_query_all);
+    return $arra_all;
     }else {echo "error seleccion";}
 }
 
-/*insert precios a las convocatorias*/
+/*insert*/
 function insertar_conv_precio($cp)
 {$conectar_cp=conectar_m("root","");
     $Sql_ins_cp="INSERT INTO convocatorias_precio (id_conv, modalidad_cp, precio_cp)
@@ -287,131 +279,4 @@ function insertar_ramas($datos_ramas)
         }
 }
 
-/*Eliminar administradores*/
-function elimnar_admi($email_admi)
-{$con_ea=conectar_m("root", "");
-    $sql_ea="DELETE FROM administradores WHERE correo_admi LIKE '$email_admi'";
-    if($con_ea)
-    {   if(mysqli_query($con_ea, $sql_ea))
-        { echo "usuario dado de baja con exito";
-        $sql_ea2="DELETE FROM login_admin WHERE correo_admi LIKE '$email_admi'";
-                if(mysqli_query($con_ea, $sql_ea2))
-                {}else{echo "ERROR, exite la posibilidad que el usuario no exista";}
-        }else{
-            echo "Error: " . $sql_ea . "<br>" . mysqli_error($con_ea);
-        }
-    }
-}
-
-/*actuaizar administradores*/
-function update_administradores($datos_ua)
-{$con_ua=conectar_m("root", "");
-    $sql_ua="UPDATE administradores SET nombre_admi='$datos_ua[1]', fecha_admi='$datos_ua[2]',
-    celular_admi='$datos_ua[3]', salario_admi=$datos_ua[4] 
-    WHERE correo_admi LIKE '$datos_ua[0]'";
-    if($con_ua)
-    {   if(mysqli_query($con_ua, $sql_ua))
-        { $sql_ua2="UPDATE login_admin SET contrasena_admi='$datos_ua[1]', tipo_admi='$datos_ua[2]'
-            WHERE correo_admi LIKE '$datos_ua[0]'";
-                if(mysqli_query($con_ua, $sql_ua2))
-                {echo "update ADMINISTRADOES CON EXITO";
-                }else{echo "Error: " . $sql_ua2 . "<br>" . mysqli_error($con_ua);}
-        }else{
-            echo "Error: " . $sql_ua . "<br>" . mysqli_error($con_ua);
-        }
-    }
-}
-
-
-/*checar el corte entre fechas, tabla 7*/
-/*este corte me hace un join de la tablas y los que tiene */
-/*checar este punto mañana, haciendo una suma por peueños grupos*/
-function cajas_corte($datos_cc)
-{$conexion_cc=conectar_m("root", "");
-/*te dara por intervalo de fecha y la modalidad cuanto fue el total de ventas*/
-$sql_cc="SELECT COUNT(*)*cp.precio_cp FROM inscripciones i, convocatorias_precio cp WHERE fecha_ins BETWEEN '2019-11-24' AND '2019-11-24'
- AND i.id_conv =1 AND i.id_conv = cp.id_conv AND cp.modalidad_cp LIKE 'caminta' ";
-}
-
-/* liberar el numero de los participantes,un update al número poiendole 0*/
-function liberar_num($datos_ln)
-{$con_ln=conectar_m("root", "");
-    //debemos de hacer una consulta, para saber el id 
-    $sql_seid="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$datos_ln[1]'";
-    if(mysqli_query($con_ln,$sql_seid))
-    {$query_seid=mysqli_query($con_ln,$sql_seid);
-    $fila_seid=mysqli_fetch_array($query_seid); //debe seleccionar el id_conv, ya que el nombre es único
-    $datos_ln[1]=$fila_seid["id_conv"];
-    //modificacion de inscripciones
-    $sql_ln="UPDATE inscripciones SET num_participante=0
-    WHERE correo_us LIKE '$datos_ln[0]'
-    AND id_conv = '$datos_ln[1]'";
-        if($con_ln)
-        {
-              if(mysqli_query($con_ln, $sql_ln))
-               {echo "correcto, numero liberado";
-               }else{echo "ERRORM, el usuario no pertence a esa convocatoria";} 
-        }
-
-    }
-    
-
-}
-/*SELECT DE LA INFORMACION DE TODA LA CARRERA*/
-/*checar para que se pueda poner automático*/
-function select_conv($id_sc)
-{$conexion_sc=conectar_m("root","");
-$sql_sc="SELECT nombre_conv 'convocatorias', lugar_conv 'lugar', fecha_conv 'fecha del event', 
-hora_conv 'hora' 
-FROM convocatorias c, convocatorias_infoevento cp 
-WHERE cp.id_conv = c.id_conv AND c.id_conv ='$id_sc'";
-
-$sql_sc2="SELECT modalidad_cp 'modalidad',precio_cp 'precio'
- FROM convocatorias_precio WHERE id_conv='$id_sc'";
-        if($conexion_sc)
-        {
-            $query_sc=mysqli_query($conexion_sc, $sql_sc);
-                $fecth=mysqli_fetch_array($query_sc);
-                /*imprimos los datos*/
-            $query_sc2=mysqli_query($conexion_sc, $sql_sc2);
-            $fetch_sc2=mysqli_fetch_array($query_sc2);
-            /*se imprime ocn un ciclo*/
-        }
-}
-/*Metodo de reportes, preguntar a andy*/
-
-
-function select_carrera()
-{$con_emp2=conectar_m("root", "");
-    $sql_conv="SELECT id_conv 'id', nombre_conv 'convocatoria' FROM convocatorias ";    
-        if(mysqli_query($con_emp2, $sql_conv))
-        {$query_conv=mysqli_query($con_emp2, $sql_conv);
-            while($fila = mysqli_fetch_array($query_conv))
-            {
-            echo '<option value="'.$fila["convocatoria"].'">';
-             echo $fila["convocatoria"];
-             echo "</option>";
-          }                
-        }else{}
-}
-
-function seleccionar_id($n_conv)
-{$con_si=conectar_m("root", "");
-    $sql_id="SELECT id_conv FROM convocatorias 
-    WHERE nombre_conv LIKE '$n_conv'";
-    if($con_si)
-    {   if(mysqli_query($$con_si, $sql_id))
-        {$query_si=mysqli_query($$con_si, $sql_id);
-            if(mysqli_fetch_array($query_si))
-            {$array_si=mysqli_fetch_array($query_si);
-                return $array_si;
-            }else{
-                return 0;
-            }
-
-        }
-
-    }
-
-}
 ?>

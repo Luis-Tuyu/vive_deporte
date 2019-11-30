@@ -12,16 +12,15 @@
 					<i class="fa fa-file"> </i>					
 				</div>
 				<!--Formulario de reporte de usuarios inscritos por convocatoria-->
-				<form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">					                
-                    <div class="form-group">
+				<form id="contact-form" class="contact" name="us_conv" method="post" action="Herramientas_consultas.php">					                
                        <?php
 						include ("../php/herramientas_metodos.php");
 						echo '<div class="form-input">
-						<select name="nombre_car">';
+						<select name="us_by_conv">';
 							select_carrera(); //ligado en una funcion
 						echo '
 						</select></div>';
-						?>  </div>
+						?>
                     <div class="form-group">
 						<button type="submit" class="btn btn-primary">Generar reporte</button>
 					</div>

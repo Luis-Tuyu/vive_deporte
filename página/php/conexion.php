@@ -60,7 +60,7 @@ function obtener_login_us($correo, $contrasena)
        //condicion para ver si esta en la base de datos
 }
 
-/**/
+
 function validar_login_admin($usuario_admi, $contrasena_admi)
 {$con2=conectar("root","");
     $consulta="SELECT * FROM login_admin WHERE correo_admi LIKE '$usuario_admi'";
@@ -69,13 +69,13 @@ function validar_login_admin($usuario_admi, $contrasena_admi)
     $filas_admi=mysqli_fetch_array($datos2);
         if($usuario_admi == $filas_admi["correo_admi"])
         {           if($contrasena_admi == $filas_admi["contrasena_admi"])
-                    {$array_vla[0]=true;
-                        $array_vla[1]=$filas_admi["tipo_admi"];   
-                        return $array_vla; 
+                    {//echo "<br> <h2>ACCESO CORRECTO</h2>";
+                        //echo "<p>Correo: </p>";
+                       // print ("<br>".$filas_admi["correo_admi"]."<br>");
+                        return true;
                     }else{
-                        $array_vla[0]=false;
-                        $array_vla[1]="LOGIN INCORRECTO";
-                        return $array_vla; 
+                        echo "contraseña incorrecta";
+                        return false;
                     }
         }else{
             echo "<br>Usuario no registrado";
@@ -120,39 +120,30 @@ echo "formato de fecha corregido".$fechanac_us;
 /*aqui se pondra el editar los datos del usuario*/
 function update_email()
 {
-    print ('<section id="ctn_sec modus">
+    print ('<section id="ctn_sec">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
-                <div class="title_sec">
-                            <span class="input-item3">
-								    <i class="fa fa-upload"> </i>
-                            </span>
+				<div class="title_sec">
 					<h1>Modificar Informacion Usuarios</h1>
 				</div>			
 			</div>		
-			
+			<div class="col-sm-6"> 
 				<div id="cnt_form">
 					<!--Este es el formulario interesante para el resgistro-->
 					<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
 						<!--correo-->
                                 <div class="form-group">
-                                    <span class="input-item">
-								    <i class="fa fa-envelope"> </i>
-							        </span>
-                                    <input type="email" name="email_update" class="form-input" required="required" placeholder="correo electronico">
+                                    <input type="email" name="email_update" class="form-control mail-field" required="required" placeholder="correo electronico">
                                 </div> 
                                 <div class="form-group">
-                                    <span class="input-item">
-								    <i class="fa fa-level-up"> </i>
-							        </span>
-                                    <input type="text" name="update" class="form-input" value="update">
+                                    <input type="text" name="update" class="form-control mail-field" value="update">
                                 </div> 
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Consultar</button>
 						</div>
 					</form> 
-				
+				</div>
 			</div>
 </section>');
 }

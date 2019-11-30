@@ -1,13 +1,16 @@
 <!doctype html>
 <html class="no-js" lang="">
- <head>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Vive Deporte MX</title>
+        <title>Sima</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">	
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<!--[if lt IE 9]> <script src="js/html5shiv.js"></script> 
+	<script src="js/respond.min.js"></script> <![endif]--> 		
+        <!-- Place favicon.ico in the root directory -->
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -25,7 +28,10 @@
             <div id="loader">
             </div>
         </div>
-       
+        <!-- end preloader -->
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 		
 <!--Menús-->
  <!---importar menú-->   
@@ -45,7 +51,7 @@ $_POST["email_ins"],$_POST["contrasena_ins"], $_POST["idconv_ins"]))
 	$datos_ins[5]=$_POST["contrasena_ins"];
 	$datos_ins[6]=$_POST["idconv_ins"];
   inscripcion($datos_ins); 
-  echo  "<br><br><br><br><br>"."<h1>inscripcion correcta</h1>";
+  echo "<br><br><br><br><br>"."<h1>inscripcion correcta</h1>";
 }else{
 	echo "<br><br><br><br>"."<h1>error no estan definidos todos los objetos</h1>";
 }
@@ -104,7 +110,7 @@ $arre_empresa[0]=$_POST["nombre_emp"];
 }
 
 
-//Registo de convocatorias
+//convocatorias
 if(isset($_POST["nombre_conv"],$_POST["empresas_conv"], $_POST["costo_conv"], $_POST["lugar_conv"],
 $_POST["hora_conv"], $_POST["fecha_conv"]))
 {//echo "<br><br><br><br><br><br><br><h1></h1>";
@@ -118,23 +124,10 @@ $arre_conv[5]=$_POST["fecha_conv"];
 registrar_conv1($arre_conv);
 }else{echo "<br><br><br><br><br><br><br><h1>ERROR_ convocatorias</h1>";}
 
-/*usuarios_por_convocatoria*/
-if(isset($_POST["us_by_conv"]))
-{echo "<h1>Usuarios por convocatoria</h1>";
-  include ("php/herramientas_metodos.php");
-  $us_conv=$_POST["us_by_conv"];
-  usuarios_por_convocatoria($us_conv);
-}else{echo "<h1>ERROR</h1>";}
 
-//liberar num, participante
-if(isset($_POST["num_participante"], $_POST["lib_num"]))
-{echo "<h1>Liberar número</h1>";
-  include ("php/herramientas_metodos.php");
-$lib_num[0]=$_POST["num_participante"]; //este es el correo
-$lib_num[1]=$_POST["lib_num"];
-liberar_num($lib_num);
-}
 ?>
+
+
 
 
 
