@@ -126,9 +126,15 @@ if(isset($_POST["us_by_conv"]))
   usuarios_por_convocatoria($us_conv);
 }else{echo "<h1>ERROR</h1>";}
 
+//liberar num, participante
+if(isset($_POST["num_participante"], $_POST["lib_num"]))
+{echo "<h1>Liberar número</h1>";
+  include ("php/herramientas_metodos.php");
+$lib_num[0]=$_POST["num_participante"]; //este es el correo
+$lib_num[1]=$_POST["lib_num"];
+liberar_num($lib_num);
+}
 ?>
-
-
 
 
 

@@ -336,15 +336,25 @@ $sql_cc="SELECT COUNT(*)*cp.precio_cp FROM inscripciones i, convocatorias_precio
 /* liberar el numero de los participantes,un update al número poiendole 0*/
 function liberar_num($datos_ln)
 {$con_ln=conectar_m("root", "");
+    //debemos de hacer una consulta, para saber el id 
+    $sql_seid="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$datos_ln[1]'";
+    if(mysqli_query($con_ln,$sql_seid))
+    {$query_seid=mysqli_query($con_ln,$sql_seid);
+    $fila_seid=mysqli_fetch_array($query_seid); //debe seleccionar el id_conv, ya que el nombre es único
+    $datos_ln[1]=$fila_seid["id_conv"];
+    //modificacion de inscripciones
     $sql_ln="UPDATE inscripciones SET num_participante=0
     WHERE correo_us LIKE '$datos_ln[0]'
     AND id_conv = '$datos_ln[1]'";
         if($con_ln)
         {
               if(mysqli_query($con_ln, $sql_ln))
-               {echo "correcto numero liberado";
-               } 
+               {echo "correcto, numero liberado";
+               }else{echo "ERRORM, el usuario no pertence a esa convocatoria";} 
         }
+
+    }
+    
 
 }
 /*SELECT DE LA INFORMACION DE TODA LA CARRERA*/
@@ -378,7 +388,7 @@ function select_carrera()
         {$query_conv=mysqli_query($con_emp2, $sql_conv);
             while($fila = mysqli_fetch_array($query_conv))
             {
-            echo '<option class="form-control mail-field">';
+            echo '<option value="'.$fila["convocatoria"].'">';
              echo $fila["convocatoria"];
              echo "</option>";
           }                
