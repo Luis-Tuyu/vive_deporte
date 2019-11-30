@@ -94,17 +94,17 @@ function insertar_datos_usuario($datos_rec)
 $genero_us=$datos_rec[3];
 $fechanac_us=date("Y-m-d",strtotime($datos_rec[4]));
 $clave_us2=$datos_rec[5];
-echo "formato de fecha corregido".$fechanac_us;
+//echo "formato de fecha corregido".$fechanac_us;
  $sql3_ins="INSERT INTO usuarios(correo_us, nombre_us, cel_us, genero_us,fechanac_us)
   VALUES ('$correo_us', '$nombre_us', '$cel_us', '$genero_us','$fechanac_us')";   
   if($con3){
         
             if (mysqli_query($con3, $sql3_ins)) {
-                echo "<h1>Registro hecho con éxito</h1>";
+                //echo "<h1>Registro hecho con éxito</h1>";
                     //registramos en la tabla de login, esto por si existe un error
                     $sql3_ins2="INSERT INTO login_us(correo_us, contrasena_us) VALUES('$correo_us','$clave_us2')";
                         if (mysqli_query($con3, $sql3_ins2)) {
-                            echo "<h1>Registro exitoso en la tabla de login_us</h1>";
+                            echo "<br><br><br><br><br><br><br><h1>Usuario registrado de manera correcta</h1>";
                             } else {
                             echo "Error: " . $sql3_ins . "<br>" . mysqli_error($con3);
                             }

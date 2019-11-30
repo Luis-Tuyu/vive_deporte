@@ -32,7 +32,7 @@
 	
 <?php
 //validar los datos recibidos
-	echo "<br><br><br><br><br> <h1>Página de recepción de datos	</h1>";
+	//echo "<br><br><br><br><br> <h1>Página de recepción de datos	</h1>";
 	if(isset($_POST["name"], $_POST["celular"], $_POST["genero"], $_POST["fecha_nac"],$_POST["email"], $_POST["contrasena"]))
 	{	$arreglo[0]=$_POST["email"] ;
 		$arreglo[1]=$_POST["name"];
