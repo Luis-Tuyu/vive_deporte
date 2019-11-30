@@ -40,24 +40,28 @@ $clave_us2=$_POST["contrasena"];
 }
 
 //herramientas para los usuarios
-if($bool_login)
-{
-  echo '<h2 class="title_sec">herramientas del administrador</h2>';
-  echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
-  echo '<div class="agregar_admin"></div>';
-  update_email();
-  echo '<div class="empresas_form"></div>';
-  echo '<div class="registrar_eventos"></div>"';
-  echo '<div class="usuarios_convocatoria"></div>"';
-  echo '<div class="  precio_convocatoria"></div>"';    
-  echo '<div class=" ramas"></div>"';    
-  echo '<div class=" kits"></div>"';    
-   echo '<div class="  dell_admin"></div>"'; 
-   echo '<div class="  lib_num"></div>"'; 
- 
-  
-    
-}
+if($bool_login[1] == "MO")//master organizador, administrador
+    {echo '<h2>herramientas del administrador</h2>';
+      echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
+      echo '<div class="agregar_admin"></div>';
+      update_email();
+      echo '<div class="empresas_form"></div>';
+      echo '<div class="registrar_eventos"></div>"';
+      echo '<div class="usuarios_convocatoria"></div>"';
+      echo '<div class="precio_convocatoria"></div>"';    
+      echo '<div class=" ramas"></div>"';    
+      echo '<div class=" kits"></div>"';    
+       echo '<div class="  dell_admin"></div>"'; 
+       echo '<div class="  lib_num"></div>"';
+    }else if($bool_login[1]=='PV') //punto de venta
+    { echo '<div class="Herramientas"></div>'; //inscripcciones
+      echo '<div class="usuarios_convocatoria"></div>"';
+      //faltará otras herramientas
+    }else if($bool_login[1]=='MC') //master cliente, empresa
+    {//mostrará toda la info
+    }else{
+      echo "ERROR, USUARIO, VALIDACION INCORRECTA";
+    }
 //los mismos datos del usuario
 ?>
 

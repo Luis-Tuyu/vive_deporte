@@ -12,7 +12,7 @@
 					<i class="fa fa-file"> </i>					
 				</div>
 				<!--Formulario de reporte de usuarios inscritos por convocatoria-->
-				<form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">					                
+				<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">					                
                     <div class="form-group">
                        <?php
 						include ("../php/herramientas_metodos.php");
