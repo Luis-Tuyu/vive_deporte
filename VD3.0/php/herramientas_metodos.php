@@ -239,8 +239,15 @@ function usuarios_por_convocatoria($nombre_car)
     ORDER BY num_participante";
     if($con_tabla)
     {$sql_query_all=mysqli_query($con_tabla,$sql_all);
-    $arra_all=mysqli_fetch_array($sql_query_all);
-    return $arra_all;
+            while($fila_uc = mysqli_fetch_array($sql_query_all))
+            { echo "<p>convocatoria: ".$fila_uc["nombre_conv"].'</p>';
+              echo "<p>numero participante: ".$fila_uc["num_participante"].'</p>';
+               echo "<p>nombre: ".$fila_uc["nombre_us"].'</p>';
+               echo "<p>correo: ".$fila_uc["correo_us"].'</p>';
+               echo "<p>celular: ".$fila_uc["cel_us"].' </p>';
+               echo "<br>";  
+            }
+    //return $arra_all;
     }else {echo "error seleccion";}
 }
 
