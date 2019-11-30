@@ -68,6 +68,7 @@ if(isset($_POST["nombre_admi"],$_POST["celular_admi"],$_POST["fechanac_admi"]
 
 
 //si es igual mostramos la informacion dentro de un formulario
+//colocar informacion en un formulario, para el UPDATE
 if(isset($_POST["email_update"],$_POST["update"]))
 { if($_POST["update"]=="update")
   {/*ejecutamos este codigo*/ 
@@ -79,6 +80,7 @@ if(isset($_POST["email_update"],$_POST["update"]))
 }
 
 //ahora hacemos el update dentro de la base de datos
+//UPDATE, relizar el cambio
 if(isset($_POST["nombre_update"], $_POST["celular_update"],$_POST["genero_update"],
 $_POST["genero_update"],$_POST["fechanac_update"], $_POST["email_update"])&&
  $_POST["update"]=="update_accion")

@@ -137,7 +137,10 @@ function registrar_conv1($datos_emp)
         $aux_conv_date=date("Y-m-d",strtotime($datos_emp[5]));
         $sqli_infoevento="INSERT INTO convocatorias_infoevento (id_conv, lugar_conv, hora_conv, fecha_conv)
         VALUES('$id_dato','$datos_emp[3]','$datos_emp[4]','$aux_conv_date')";
-           mysqli_query($con_conv1,$sqli_infoevento); 
+           if(mysqli_query($con_conv1,$sqli_infoevento))
+           {
+               echo "<br><br><br><br><br><br><br><h1>REGISTRO DE CARRERAS REALIZADO CON ÉXITO</h1>";
+           } 
 }
 }
 
