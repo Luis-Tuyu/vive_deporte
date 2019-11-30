@@ -113,33 +113,11 @@
 	
 			</div>				
 			
-			<div class="col-lg-4 col-md-4 col-sm-4">
+			<div class="col-lg-8 col-md-8 col-sm-8">
 				<div class="sidebar">						
-					<div class="search_widget">
-						<input id="sr_bx" type="text" placeholder="Search...."/>
-					</div>				
-					<div class="widget">
-						<h2>categories</h2>
-						<div class="title_br"></div>
-						<ul>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-						</ul>
-					</div>				
-					<div class="widget">
-						<h2>categories</h2>
-						<div class="title_br"></div>
-						<ul>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-							<li><a href="">Donec nec pretium felis</a></li>
-						</ul>
-					</div>													
+					<div class="inscripciones">
+						
+					</div>										
 				</div>
 			</div>	
 		</div>
@@ -281,6 +259,12 @@ $(window).load(function(){
 		$('.menuContainer').load('../VD3.0/html/Menu_barra.html');
 	});
 </script>
+ <script>
+        //importar formulario de inscripciones de participantes
+        $(document).ready(function () {
+            $('.inscripciones').load('html/Inscripcciones.html');
+        });
+    </script>
 
     </body>
 </html>
