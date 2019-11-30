@@ -45,9 +45,9 @@ $_POST["email_ins"],$_POST["contrasena_ins"], $_POST["idconv_ins"]))
 	$datos_ins[5]=$_POST["contrasena_ins"];
 	$datos_ins[6]=$_POST["idconv_ins"];
   inscripcion($datos_ins); 
-  echo  "<br><br><br><br><br>"."<h1>inscripcion correcta</h1>";
+ // echo  "<br><br><br><br><br>"."<h1>inscripcion correcta</h1>";
 }else{
-	echo "<br><br><br><br>"."<h1>error no estan definidos todos los objetos</h1>";
+	//echo "<br><br><br><br>"."<h1>error no estan definidos todos los objetos</h1>";
 }
 
 //registro de administradores
@@ -62,8 +62,9 @@ if(isset($_POST["nombre_admi"],$_POST["celular_admi"],$_POST["fechanac_admi"]
   $datos_admi[5]=$_POST["salario_admi"];
 	$datos_admi[6]=$_POST["contrasena_admi"];
   registrar_adiministradores($datos_admi); //registramos a los usuarios
-  echo "<br><br><br><br><br>"."<h1>Registro de administradores correcta</h1>";
-}else{ echo "error de registro administradores";}
+  //echo "<br><br><br><br><br>"."<h1>Registro de administradores correcta</h1>";
+}else{ //echo "error de registro administradores";
+}
 
 
 //si es igual mostramos la informacion dentro de un formulario
@@ -116,7 +117,8 @@ $arre_conv[3]=$_POST["lugar_conv"];
 $arre_conv[4]=$_POST["hora_conv"];
 $arre_conv[5]=$_POST["fecha_conv"];
 registrar_conv1($arre_conv);
-}else{echo "<br><br><br><br><br><br><br><h1>ERROR_ convocatorias</h1>";}
+}else{//echo "<br><br><br><br><br><br><br><h1>ERROR_ convocatorias</h1>";
+}
 
 //Modificar o asignar precio a las convocatorias
 if(isset($_POST["empresas_conv"], $_POST["modalidad_cp"], $_POST["precio_cp"]))
@@ -126,7 +128,8 @@ $mod_pre[0]=$_POST["empresas_conv"]; //este es el correo
 $mod_pre[1]=$_POST["modalidad_cp"];
 $mod_pre[2]=$_POST["precio_cp"];
 modificar_pre($mod_pre);
-}else{echo "<br><br><br><br><br><br><br><h1>ERROR_ en cambio de precio</h1>";}
+}else{//echo "<br><br><br><br><br><br><br><h1>ERROR_ en cambio de precio</h1>";
+}
 
 /*usuarios_por_convocatoria*/
 if(isset($_POST["us_by_conv"]))
@@ -134,7 +137,8 @@ if(isset($_POST["us_by_conv"]))
   include ("php/herramientas_metodos.php");
   $us_conv=$_POST["us_by_conv"];
   usuarios_por_convocatoria($us_conv);
-}else{echo "<h1>ERROR</h1>";}
+}else{//echo "<h1>ERROR</h1>";
+}
 
 //liberar num, participante
 if(isset($_POST["num_participante"], $_POST["lib_num"]))

@@ -2,7 +2,7 @@ FORMULARIOS NECESARIOS PARA LAS HERRAMIENTAS
 
 /////Herramientas:
 		LO CORRECTO y DETALLES:
------Registrar empresa: mensaje al registrar
+-----Registrar empresa: mensaje al registrar ****se cambio el mensaje y se eliminaron los demás de la página
 ----Registrar Carrera: mensaje al registrar (falta modalidad)
 ---- Añadir usuairo: El genero ¿se puede hacer una lista? solo con hombre y mujer, siento que es más sencillo
 ----Añadir administrador: mensaje al registrar ( el tipo de usuairo puede opnerse una lista con los 3 tipos que existen?)

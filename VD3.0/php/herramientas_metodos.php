@@ -66,8 +66,7 @@ function registrar_emp($arre_emp)
 $sql_emp= "INSERT INTO empresas(id_emp, nombre_emp, cel_emp, direccion_emp, repre_emp)
 VALUES('', '$arre_emp[0]', '$arre_emp[1]', '$arre_emp[2]', '$arre_emp[3]')";
         if(mysqli_query($con_emp, $sql_emp))
-        {echo "<br><br><br><br><h1>registro correcto</h1>";
-            print("correcto");
+        {echo "<br><br><br><br><br><br><br><br><h1>Empresa Registrada de manera correcta</h1>";
         }else{echo "<br><br><br><br><h1>ERROR DE REGISTRO</h1>";}
 }
 
