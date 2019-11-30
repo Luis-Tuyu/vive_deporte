@@ -22,15 +22,15 @@
 						<input type="text" name="nombre_conv" class="form-input" required="required" placeholder="Nombre convocatoria">
 						</div>
 						<!--empresa-->
+						<div class="form-group">
+							<label class="ayudas"> Empresa:</label>
+							<select name="empresas_conv" size="1" style="height:30px; width:150px; font-size:15px;">   
 						<?php
-						include ("../php/herramientas_metodos.php");
-						echo '<div class="form-input">
-						<select name="empresas_conv">';
-							seleccionar_emp(); //ligado en una funcion
-						echo '
-						</select></div>';
+						include ("../php/herramientas_metodos.php");					
+							seleccionar_emp(); //ligado en una funcion						
 						?>
-
+							</select>
+						</div>						
 						<!--costo convocatoria-->
 						<div class="form-group">
 							<span class="input-item">
@@ -47,13 +47,13 @@
 						</div> 
 						<!--hora -->
 						<div class="form-group">
-							<p>Hora del evento</p>
+							<p class="ayudas">Hora del evento: </p>
 							<span class="input-item2">
 								<i class="fa fa-clock-o"> </i>
 							</span>
 								<input type="time" name="hora_conv" class="form-input" required="required" placeholder="hora">
 						</div>
-						<p>Fecha de realizacion</p>
+						<p class="ayudas">Fecha de realizacion: </p>
 						<div class="form-group">
 							<span class="input-item2">
 								<i class="fa fa-calendar"> </i>

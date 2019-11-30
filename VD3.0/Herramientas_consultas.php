@@ -118,6 +118,16 @@ $arre_conv[5]=$_POST["fecha_conv"];
 registrar_conv1($arre_conv);
 }else{echo "<br><br><br><br><br><br><br><h1>ERROR_ convocatorias</h1>";}
 
+//Modificar o asignar precio a las convocatorias
+if(isset($_POST["empresas_conv"], $_POST["modalidad_cp"], $_POST["precio_cp"]))
+{echo "<h1>Cambio o asignacion de precio</h1>";
+  include ("php/herramientas_metodos.php");
+$mod_pre[0]=$_POST["empresas_conv"]; //este es el correo
+$mod_pre[1]=$_POST["modalidad_cp"];
+$mod_pre[2]=$_POST["precio_cp"];
+modificar_pre($mod_pre);
+}else{echo "<br><br><br><br><br><br><br><h1>ERROR_ en cambio de precio</h1>";}
+
 /*usuarios_por_convocatoria*/
 if(isset($_POST["us_by_conv"]))
 {echo "<h1>Usuarios por convocatoria</h1>";
@@ -134,6 +144,12 @@ $lib_num[0]=$_POST["num_participante"]; //este es el correo
 $lib_num[1]=$_POST["lib_num"];
 liberar_num($lib_num);
 }
+
+
+
+
+
+
 ?>
 
 

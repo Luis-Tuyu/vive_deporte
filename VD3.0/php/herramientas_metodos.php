@@ -142,6 +142,7 @@ function registrar_conv1($datos_emp)
 }
 }
 
+
 /*Seleccionamos para luego actualizar los datos*/
 function seleccionar_usuarios($correo_usuario)
 {$con4=conectar_m("root","");

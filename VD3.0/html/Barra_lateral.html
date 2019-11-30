@@ -51,14 +51,14 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
+                                        <a href="#ctn_sec regemp">Registrar empresa</a>
+                                    </li>
+                                    <li>
                                         <a href="#ctn_sec evento">Registrar Carrera</a>
                                     </li>
                                     <li>
                                         <a href="#ctn_sec precioconv">Precio de convocatoria</a>
-                                    </li>
-                                    <li>
-                                        <a href="#ctn_sec regemp">Registrar empresa</a>
-                                    </li>
+                                    </li>                                    
                                     <li>
                                         <a href="#ctn_sec ramas">Insertar rama</a>
                                     </li>
@@ -79,14 +79,14 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="#">Añadir usuario</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Eliminar usuario</a>
-                                    </li>
+                                        <a href="#ctn_sec regisus">Añadir usuario</a>
+                                    </li>                                    
                                     <li>
                                         <a href="#ctn_sec modus">Modificar usuario</a>
                                     </li>                                    
+                                    <li>
+                                        <a href="#">Eliminar usuario</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -99,12 +99,12 @@
                                 <ul>
                                     <li>
                                         <a href="#ctn_sec admin">Añadir administrador</a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="#">Modificar administrador</a>
                                     </li>
                                     <li>
                                         <a href="#ctn_sec delladmin">Eliminar administrador</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Modificar administrador</a>
                                     </li>
                                 </ul>
                             </div>
@@ -224,10 +224,19 @@
             $(".page-wrapper").addClass("toggled");
         });
     </script>
+
+
+    
     <!--Importar herramientas desde html-->
     <script>
         $(document).ready(function () {
-            $('.Herramientas').load('html/Inscripcciones.html');
+            $('.Herramientas').load('html/Inscripcciones.php');
+        });
+    </script>
+     <script>
+        //importar formulario de inscripciones de participantes
+        $(document).ready(function () {
+            $('.inscripciones').load('html/Inscripcciones.php');
         });
     </script>
     
@@ -237,12 +246,7 @@
             $('.agregar_admin').load('html/registrar_admin.html');
         });
     </script>
-    <script>
-        //importar formulario de inscripciones de participantes
-        $(document).ready(function () {
-            $('.inscripciones').load('html/Inscripcciones.html');
-        });
-    </script>
+   
     
     <script>
         //registro de empresas
@@ -256,6 +260,7 @@
         $(document).ready(function () {
             $('.registrar_eventos').load('html/registrar_eventos.php');
         });
-    </script>
+    </script> 
+    
    
 
