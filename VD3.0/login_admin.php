@@ -51,8 +51,11 @@ if($bool_login[1] == "MO")//master organizador, administrador
       echo '<div class="precio_convocatoria"></div>"';    
       echo '<div class=" ramas"></div>"';    
       echo '<div class=" kits"></div>"';    
-       echo '<div class="  dell_admin"></div>"'; 
-       echo '<div class="  lib_num"></div>"';
+      echo '<div class="  dell_admin"></div>"'; 
+      echo '<div class="  lib_num"></div>"';
+      echo '<div class="  form_usuarios"></div>"';
+
+
     }else if($bool_login[1]=='PV') //punto de venta
     { echo '<div class="Herramientas"></div>'; //inscripcciones
       echo '<div class="usuarios_convocatoria"></div>"';
@@ -171,7 +174,7 @@ $(window).load(function(){
 <!--Importar herramientas desde html-->
 <script>
     $(document).ready(function () {
-      $('.Herramientas').load('html/Inscripcciones.html');
+      $('.Herramientas').load('html/Inscripcciones.php');
     });
   </script>
 
@@ -219,6 +222,13 @@ $(window).load(function(){
   //usuarios por convocatoria
     $(document).ready(function () {
       $('.usuarios_convocatoria').load('html/usuarios_por_convocatoria.php');
+    });
+  </script>
+
+  <script>
+  //usuarios por convocatoria
+    $(document).ready(function () {
+      $('.form_usuarios').load('html/Form_usuario2.php');
     });
   </script>
   

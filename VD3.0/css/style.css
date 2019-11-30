@@ -43,6 +43,18 @@ input[class="form-input"]{
 }
 input[id="txt-input"] {width: 200px;}
 
+input [id="lista"]{   
+  height:30px; 
+  width:150px; 
+  font-size:15px;
+  margin: 5px 5px 5px;
+}
+.ayudas{
+    font-size: 20px;
+    font-family: 'Abel', sans-serif;
+    color: black;
+}
+
 .bfan{             
     color: white;   
     margin: 7px; 

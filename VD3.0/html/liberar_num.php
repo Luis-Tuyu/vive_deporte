@@ -20,13 +20,14 @@
                         <input type="email" name="num_participante" class="form-input" required="required" placeholder="correo">
                     </div> 
                     <div class="form-item">
-						<select name="lib_num" size="1" style="height:30px; with:150px; font-size:15px;">   
-                    <?php
-						include ("../php/herramientas_metodos.php");
-						//echo '';
-							select_carrera(); //ligado en una funcion
-                        ?>       
-                        </select></div>                                                       
+						<select name="lib_num" size="1" style="height:30px; width:150px; font-size:15px;">   
+                            <?php
+                                include ("../php/herramientas_metodos.php");
+                                //echo '';
+                                    select_carrera(); //ligado en una funcion
+                            ?>       
+                        </select>
+                    </div>                                                       
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Asignar</button>
                     </div>

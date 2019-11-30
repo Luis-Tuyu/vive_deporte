@@ -13,14 +13,14 @@
 				</div>
 				<!--Formulario de reporte de usuarios inscritos por convocatoria-->
 				<form id="contact-form" class="contact" name="us_conv" method="post" action="Herramientas_consultas.php">					                
-                       <?php
-						include ("../php/herramientas_metodos.php");
-						echo '<div class="form-input">
-						<select name="us_by_conv">';
-							select_carrera(); //ligado en una funcion
-						echo '
-						</select></div>';
+				 <div class="form-group">	 
+					<select name="us_by_conv" size="1" style="height:30px; width:150px; font-size:15px;">  
+					   <?php
+						include ("../php/herramientas_metodos.php");					
+							select_carrera(); //ligado en una funcion					
 						?>
+					</select>
+				</div>
                     <div class="form-group">
 						<button type="submit" class="btn btn-primary">Generar reporte</button>
 					</div>

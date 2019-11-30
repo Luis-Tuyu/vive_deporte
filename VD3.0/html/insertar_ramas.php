@@ -15,14 +15,13 @@
                     <!--Formulario de reporte de usuarios inscritos por convocatoria-->
                     <form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">
                         <div class="form-group">
+                                <label class="ayudas"> Carrera:</label>
+                                <select name="lib_num" size="1" style="height:30px; width:150px; font-size:15px;">
                             <?php
-                            include ("../php/herramientas_metodos.php");
-                            echo '<div class="form-input">
-                            <select name="id_conv">';
-                                select_carrera(); //ligado en una funcion
-                            echo '
-                            </select></div>';
+                                include ("../php/herramientas_metodos.php");                          
+                                select_carrera(); //ligado en una funcion                                                     
                             ?>  
+                                </select>
                         </div>
                         <div class="form-group">
                             <span class="input-item">
