@@ -394,4 +394,24 @@ function select_carrera()
           }                
         }else{}
 }
+
+function seleccionar_id($n_conv)
+{$con_si=conectar_m("root", "");
+    $sql_id="SELECT id_conv FROM convocatorias 
+    WHERE nombre_conv LIKE '$n_conv'";
+    if($con_si)
+    {   if(mysqli_query($$con_si, $sql_id))
+        {$query_si=mysqli_query($$con_si, $sql_id);
+            if(mysqli_fetch_array($query_si))
+            {$array_si=mysqli_fetch_array($query_si);
+                return $array_si;
+            }else{
+                return 0;
+            }
+
+        }
+
+    }
+
+}
 ?>
