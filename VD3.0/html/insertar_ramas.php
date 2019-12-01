@@ -35,13 +35,13 @@
                                 <i class="fa fa-cubes"> </i>
                                
                             </span>
-                            <select name="categoria_re" onchange="ChooseContact(this)" size="1" style="height:50px; width:210px; font-size:15px;">
-                            <option value="16">Junior 16 - 19 años (16 - 19)</option>
-                            <option value="20">Master 20 - 29 años (20 - 29)</option>
-                            <option value="30">Master 30 - 39 años (30 - 39)</option>
-                            <option value="40">Master 40 - 49 años (40 - 49)</option>
-                            <option value="50">Master 50 y 59 (50 - 59)</option>
-                            <option value="60">Master +60 (60 y mayores)</option>
+                            <select name="categoria_re"  size="1" style="height:50px; width:210px; font-size:15px;">
+                            <option value="Junior">Junior 16 - 19 años (16 - 19)</option>
+                            <option value="Master20">Master 20 - 29 años (20 - 29)</option>
+                            <option value="Master30">Master 30 - 39 años (30 - 39)</option>
+                            <option value="Master40">Master 40 - 49 años (40 - 49)</option>
+                            <option value="Master50">Master 50 y 59 (50 - 59)</option>
+                            <option value="Master60">Master +60 (60 y mayores)</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -59,10 +59,3 @@
                 </div>
     
     </section>
-    <script>
-        function ChooseContact(data) {
-
-document.getElementById ("edad_ramas").value = data.value;
-
-}
-        </script>
