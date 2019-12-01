@@ -231,7 +231,8 @@ function update_colocar_form($datos_update)
 }
 /*seleccionamos todos  los usuarios por carrera*/
 function usuarios_por_convocatoria($nombre_car)
-{$con_tabla=conectar_m("root", "");
+{
+    $con_tabla=conectar_m("root", "");
     $sql_all="SELECT num_participante,nombre_us,ins.correo_us,cel_us, nombre_conv 
     FROM convocatorias c, inscripciones ins, usuarios us 
     WHERE ins.id_conv = c.id_conv && ins.correo_us = us.correo_us && c.nombre_conv LIKE '$nombre_car'
@@ -240,7 +241,7 @@ function usuarios_por_convocatoria($nombre_car)
     {$sql_query_all=mysqli_query($con_tabla,$sql_all);
     $arra_all=mysqli_fetch_array($sql_query_all);
     return $arra_all;
-    }else {echo "error seleccion";}
+    }else {echo "error seleccion";}    
 }
 
 /*insert*/
