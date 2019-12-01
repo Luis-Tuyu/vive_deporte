@@ -151,7 +151,13 @@ $lib_num[1]=$_POST["lib_num"];
 liberar_num($lib_num);
 }
 
-
+//eliminar usuario
+if(isset($_POST["correo_elim"]))
+{
+include ("php/herramientas_metodos.php");
+$correo_elim=$_POST["correo_elim"];
+elimnar_us($correo_elim);
+}
 
 
 

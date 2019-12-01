@@ -226,7 +226,7 @@ function update_colocar_form($datos_update)
                                 </div> 
                                 <!---nos servirá para reconocer que se hará en la báse de datos-->
                                 <div class="form-group">
-                                <input type="text" name="update" value="update_accion">
+                                <input type="text" name="update" value="update_accion"  style="visibility:hidden">
                             </div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Modificar</button>
@@ -419,5 +419,24 @@ function seleccionar_id($n_conv)
 
     }
 
+}
+
+/*Eliminar usuario*/
+function elimnar_us($email_admi)
+{$con_ea=conectar_m("root", "");
+    $sql_us1="DELETE a1, a2 FROM login_us AS a1 INNER JOIN usuarios AS a2 
+    WHERE a1.correo_us = a2.correo_us AND a1.correo_us LIKE '$email_admi'"; //eliminamos de dos tablas, al mismo tiempo
+    if($con_ea)
+    {   if(mysqli_query($con_ea, $sql_us1))
+        { //echo "usuario dado de baja con exito";
+        $sql_ea2="DELETE FROM inscripciones WHERE correo_us LIKE '$email_admi'";
+                if(mysqli_query($con_ea, $sql_ea2))
+                {
+                    echo "<br><br><br><br><br><br><br><br><br><br><h1>USUARIO ELIMINADO CON EXITO</h1>";
+                }else{echo "ERROR, exite la posibilidad que el usuario no exista";}
+        }else{
+            echo "Error: " . $sql_us1 . "<br>" . mysqli_error($con_ea);
+        }
+    }
 }
 ?>

@@ -54,6 +54,7 @@ if($bool_login[1] == "MO")//master organizador, administrador
       echo '<div class="  dell_admin"></div>"'; 
       echo '<div class="  lib_num"></div>"';
       echo '<div class="  form_usuarios"></div>"';
+      echo '<div class="elimnar_usuario"></div>';
 
 
     }else if($bool_login[1]=='PV') //punto de venta
@@ -245,6 +246,11 @@ $(window).load(function(){
   $(document).ready(function () {
       $('.Barra_lateral').load('html/Barra_lateral.html');
     });
+
+//elimar usuario
+    $(document).ready(function () {
+      $('.elimnar_usuario').load('html/eliminar_usuario.php');
+    })    
   </script>
 
   <script>
