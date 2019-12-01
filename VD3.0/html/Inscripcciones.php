@@ -37,8 +37,10 @@
 								<span class="input-item">
 									<i class="fa fa-venus-mars"> </i>
 								</span>
-								<input type="text" name="genero_ins" class="form-input" required="required"
-									placeholder="genero">
+									<select name="genero_ins" size="1" style="height:50px; width:150px; font-size:20px;"> 
+						<option value="M">Masculino</option>
+							<option value="F">Femenino</option>
+						</select>
 							</div>
 							<!--fecha_nacimiento-->
 							<label class="ayudas"> Fecha nacimiento:</label>
@@ -69,7 +71,7 @@
 								</div>
 								<div class="form-group">
 									<label class="ayudas"> Carrera:</label>
-									<select name="idconv_ins" size="1" style="height:30px; width:150px; font-size:15px;">
+									<select name="idconv_ins" size="1" style="height:40px; width:220px; font-size:15px;">
 										<?php
 								                        include ("../php/herramientas_metodos.php");					
 								                        select_carrera(); //ligado en una funcion						

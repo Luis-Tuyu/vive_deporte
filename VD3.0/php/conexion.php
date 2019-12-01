@@ -53,6 +53,9 @@ function obtener_datos($usuario, $contra)
 //seleccionar datos login_us, nota de esta manera se debe realizar cada consulta
 function obtener_login_us($correo, $contrasena)
 {   $sql2="SELECT * FROM login_us WHERE correo_us LIKE '$correo'";
+    $sql3="SELECT * FROM usuarios WHERE correo_us LIKE '$correo'";
+    $sql4="SELECT nombre_conv, num_participante FROM inscripciones i, convocatorias con 
+    WHERE i.id_conv = con.id_conv AND correo_us LIKE '$correo' ";
     $con2=conectar("root", "");
        if($con2)
        {$datos= mysqli_query($con2,$sql2);
@@ -60,9 +63,19 @@ function obtener_login_us($correo, $contrasena)
                 if($correo == $filas_logus["correo_us"]) 
                 {//ver si escribio bien la contrasena y validarse
                     if($contrasena == $filas_logus["contrasena_us"])
-                        {echo "<br> <h2>ACCESO CORRECTO</h2>";
-                        echo "<p>Correo: </p>";
-                        print ("<br>".$filas_logus["correo_us"]."<br>");
+                        {$query2=mysqli_query($con2,$sql3);
+                         $a_dg=mysqli_fetch_array($query2);   
+                        echo "<br><br><br><br><br><br><h1>Bienvenido: ".$a_dg["nombre_us"]."</h1>";
+                        echo "<br><h2>Información personal</h2>";
+                        print ("<br><h2>correo: ".$filas_logus["correo_us"]."</h2>");
+                        print ("<br><h2>celular: ".$a_dg["cel_us"]."</h2>");
+                        print ("<br><h2>genero: ".$a_dg["genero_us"]."</h2>");
+                        $query4=mysqli_query($con2, $sql4);        
+                        while($fila_ins= mysqli_fetch_array($query4))
+                        {
+                            print("<h2> carrera: ".$fila_ins["nombre_conv"]."</h2>");
+                            print("<h2> número de participante: ".$fila_ins["num_participante"]."</h2>");
+                        }
                         return true;
                         }else{ print ("<h3>¡ERROR! contraseña no coincide</h3>");}
                      }else{
@@ -83,7 +96,8 @@ function validar_login_admin($usuario_admi, $contrasena_admi)
         if($usuario_admi == $filas_admi["correo_admi"])
         {           if($contrasena_admi == $filas_admi["contrasena_admi"])
                     {$array_vla[0]=true;
-                        $array_vla[1]=$filas_admi["tipo_admi"];   
+                        $array_vla[1]=$filas_admi["tipo_admi"];
+                       setcookie("privilegio", $array_vla[1]); //tiempo de 1hr
                         return $array_vla; 
                     }else{
                         $array_vla[0]=false;
@@ -107,17 +121,17 @@ function insertar_datos_usuario($datos_rec)
 $genero_us=$datos_rec[3];
 $fechanac_us=date("Y-m-d",strtotime($datos_rec[4]));
 $clave_us2=$datos_rec[5];
-echo "formato de fecha corregido".$fechanac_us;
+//echo "formato de fecha corregido".$fechanac_us;
  $sql3_ins="INSERT INTO usuarios(correo_us, nombre_us, cel_us, genero_us,fechanac_us)
   VALUES ('$correo_us', '$nombre_us', '$cel_us', '$genero_us','$fechanac_us')";   
   if($con3){
         
             if (mysqli_query($con3, $sql3_ins)) {
-                echo "<h1>Registro hecho con éxito</h1>";
+                //echo "<h1>Registro hecho con éxito</h1>";
                     //registramos en la tabla de login, esto por si existe un error
                     $sql3_ins2="INSERT INTO login_us(correo_us, contrasena_us) VALUES('$correo_us','$clave_us2')";
                         if (mysqli_query($con3, $sql3_ins2)) {
-                            echo "<h1>Registro exitoso en la tabla de login_us</h1>";
+                            echo "<br><br><br><br><br><br><br><h1>Usuario registrado de manera correcta</h1>";
                             } else {
                             echo "Error: " . $sql3_ins . "<br>" . mysqli_error($con3);
                             }
@@ -159,7 +173,7 @@ function update_email()
                                     <span class="input-item">
 								    <i class="fa fa-level-up"> </i>
 							        </span>
-                                    <input type="text" name="update" class="form-input" value="update">
+                                    <input type="text" name="update" class="form-input" value="update" style="visibility:hidden">
                                 </div> 
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Consultar</button>

@@ -15,24 +15,25 @@
         <form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
             <div class="form-group">
                 <label class="ayudas"> Carrera:</label>
-                <select name="precio_car" size="1" style="height:30px; width:150px; font-size:15px;">
+                
                      <?php
-                        include ("../php/herramientas_metodos.php");					
-                        select_carrera(); //ligado en una funcion						
+                        include ("../php/herramientas_metodos.php");
+                        echo '<select name="precio_car2" size="1" style="height:40px; width:210px; font-size:15px;">';					
+                        select_carrera(); //ligado en una funcion	
+                        echo ' </select> ';
+                        echo '<br><br><label class="ayudas"> Modalidad:</label>';
+                        echo '<select name="modalidad_cp" size="1" style="height:40px; width:210px; font-size:15px;">';					
+                        modalidad_emp(); //ligado en una funcion	
+                        echo ' </select> ';
+
                      ?>  
-                </select>                                      
-            </div>
-            <div class="form-group">
-                <span class="input-item">
-                    <i class="fa fa-exchange"> </i>
-                </span>
-                <input type="text" name="modalidad_cp" class="form-input" required="required" placeholder="Modalidad">
+                                                    
             </div>
             <div class="form-group">
                 <span class="input-item">
                     <i class="fa fa-database"> </i>
                 </span>
-                <input type="text" name="precio_cp" class="form-input" required="required" placeholder="Precio">
+                <input type="text" name="precio_cp" class="form-input" required="required" placeholder="Precio por competidor">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Asignar</button>

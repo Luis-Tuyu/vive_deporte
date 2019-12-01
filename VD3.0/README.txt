@@ -2,20 +2,21 @@ FORMULARIOS NECESARIOS PARA LAS HERRAMIENTAS
 
 /////Herramientas:
 		LO CORRECTO y DETALLES:
------Registrar empresa: mensaje al registrar
-----Registrar Carrera: mensaje al registrar (falta modalidad)
----- Añadir usuairo: El genero ¿se puede hacer una lista? solo con hombre y mujer, siento que es más sencillo
-----Añadir administrador: mensaje al registrar ( el tipo de usuairo puede opnerse una lista con los 3 tipos que existen?)
----Usuarios por convocatoria: mensaje al registrar
+-----Registrar empresa: mensaje al registrar ****se cambio el mensaje y se eliminaron los demás de la página
+----Registrar Carrera: mensaje al registrar (falta modalidad) ****pendiente
+---- Añadir usuairo: El genero ¿se puede hacer una lista? solo con hombre y mujer, siento que es más sencillo ******listo
+----Añadir administrador: mensaje al registrar ( el tipo de usuairo puede opnerse una lista con los 3 tipos que existen?), simon perro ***LISTO
+---Usuarios por convocatoria: mensaje al registrar **pendiente
 
 		FALTANTE:
------Precio convocatoria: Detalle, Sirve la tabla? las convocatorias ya tendran precio, seria una actualizacion y la modalidad siento que debe ser una lista desplegable con las modalidades existentes. 
------Insertar rama: Detalle, ¿aqui se inicializan las ramas y modalidades y categorias? 
-----Kits: Detalle, esta de mas el lugar, pues con el nombre de la carrera llo puedes jalar en automatico. 
+-----Precio convocatoria: Detalle, Sirve la tabla? las convocatorias ya tendran precio, seria una actualizacion y la modalidad siento que debe ser una lista desplegable con las modalidades existentes., simo eso es un problema 
+-----Insertar rama: Detalle, ¿aqui se inicializan las ramas y modalidades y categorias? , no, el usaurio debe registrarlas, porque depende de la empresa, solo modalidades debe inicializarse
+----Kits: Detalle, esta de mas el lugar, pues con el nombre de la carrera llo puedes jalar en automatico.  ***el lugar es para la entrega
 ---- Una Herramienta para Eliminar un usuario...
 ---Modificar administrador
-----Eliminar administrador: no existe
----Liberar numero: no entiendo que hace este metodo
+----Eliminar administrador: no existe  **listo
+---Liberar numero: no entiendo que hace este metodo  ***se supone que en los requerimientos, el  número, 
+asigando al participante, se le quita por alguna razón **listo
 
 
 

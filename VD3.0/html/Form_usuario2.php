@@ -35,8 +35,10 @@
 						<span class="input-item">
 							<i class="fa fa-venus-mars"> </i>
 						</span>
-						<input type="text" name="genero" class="form-input" id="txt-input	" required="required"
-							placeholder="genero">
+						<select name="genero" size="1" style="height:50px; width:150px; font-size:20px;"> 
+						<option value="M">Masculino</option>
+							<option value="F">Femenino</option>
+						</select>
 					</div>
 					<!--fecha_nacimiento-->
 					<label class="ayudas"> Fecha de nacimiento::</label>

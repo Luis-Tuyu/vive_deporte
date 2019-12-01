@@ -45,9 +45,9 @@ $_POST["email_ins"],$_POST["contrasena_ins"], $_POST["idconv_ins"]))
 	$datos_ins[5]=$_POST["contrasena_ins"];
 	$datos_ins[6]=$_POST["idconv_ins"];
   inscripcion($datos_ins); 
-  echo  "<br><br><br><br><br>"."<h1>inscripcion correcta</h1>";
+ // echo  "<br><br><br><br><br>"."<h1>inscripcion correcta</h1>";
 }else{
-	echo "<br><br><br><br>"."<h1>error no estan definidos todos los objetos</h1>";
+	//echo "<br><br><br><br>"."<h1>error no estan definidos todos los objetos</h1>";
 }
 
 //registro de administradores
@@ -62,11 +62,13 @@ if(isset($_POST["nombre_admi"],$_POST["celular_admi"],$_POST["fechanac_admi"]
   $datos_admi[5]=$_POST["salario_admi"];
 	$datos_admi[6]=$_POST["contrasena_admi"];
   registrar_adiministradores($datos_admi); //registramos a los usuarios
-  echo "<br><br><br><br><br>"."<h1>Registro de administradores correcta</h1>";
-}else{ echo "error de registro administradores";}
+  //echo "<br><br><br><br><br>"."<h1>Registro de administradores correcta</h1>";
+}else{ //echo "error de registro administradores";
+}
 
 
 //si es igual mostramos la informacion dentro de un formulario
+//colocar informacion en un formulario, para el UPDATE
 if(isset($_POST["email_update"],$_POST["update"]))
 { if($_POST["update"]=="update")
   {/*ejecutamos este codigo*/ 
@@ -78,6 +80,7 @@ if(isset($_POST["email_update"],$_POST["update"]))
 }
 
 //ahora hacemos el update dentro de la base de datos
+//UPDATE, relizar el cambio
 if(isset($_POST["nombre_update"], $_POST["celular_update"],$_POST["genero_update"],
 $_POST["genero_update"],$_POST["fechanac_update"], $_POST["email_update"])&&
  $_POST["update"]=="update_accion")
@@ -116,7 +119,8 @@ $arre_conv[3]=$_POST["lugar_conv"];
 $arre_conv[4]=$_POST["hora_conv"];
 $arre_conv[5]=$_POST["fecha_conv"];
 registrar_conv1($arre_conv);
-}else{echo "<br><br><br><br><br><br><br><h1>ERROR_ convocatorias</h1>";}
+}else{//echo "<br><br><br><br><br><br><br><h1>ERROR_ convocatorias</h1>";
+}
 
 //Modificar o asignar precio a las convocatorias
 if(isset($_POST["empresas_conv"], $_POST["modalidad_cp"], $_POST["precio_cp"]))
@@ -126,7 +130,8 @@ $mod_pre[0]=$_POST["empresas_conv"]; //este es el correo
 $mod_pre[1]=$_POST["modalidad_cp"];
 $mod_pre[2]=$_POST["precio_cp"];
 modificar_pre($mod_pre);
-}else{echo "<br><br><br><br><br><br><br><h1>ERROR_ en cambio de precio</h1>";}
+}else{//echo "<br><br><br><br><br><br><br><h1>ERROR_ en cambio de precio</h1>";
+}
 
 /*usuarios por convocatoria*/
 if(isset($_POST["us_by_conv"]))
@@ -134,7 +139,8 @@ if(isset($_POST["us_by_conv"]))
   include ("php/herramientas_metodos.php");  
   $us_conv=$_POST["us_by_conv"];
   usuarios_por_convocatoria($us_conv);
-}else{echo "<h1>ERROR</h1>";}
+}else{//echo "<h1>ERROR</h1>";
+}
 
 //liberar num, participante
 if(isset($_POST["num_participante"], $_POST["lib_num"]))
@@ -145,10 +151,63 @@ $lib_num[1]=$_POST["lib_num"];
 liberar_num($lib_num);
 }
 
+//eliminar usuario
+if(isset($_POST["correo_elim"]))
+{
+include ("php/herramientas_metodos.php");
+$correo_elim=$_POST["correo_elim"];
+elimnar_us($correo_elim);
+}
+
+//eliminar administrador
+if(isset($_POST["correo_elim_admin"]))
+{
+include ("php/herramientas_metodos.php");
+$correo_elim_admin=$_POST["correo_elim_admin"];
+elimnar_administrador($correo_elim_admin);
+}
+
+//insertar rama
+if(isset($_POST["carreras_ramas"],$_POST["modalidad_re"], $_POST["categoria_re"]
+,$_POST["edad_re"]))
+{include ("php/herramientas_metodos.php");
+$arre_rama[0]=$_POST["carreras_ramas"];
+$arre_rama[1]=$_POST["modalidad_re"];
+$arre_rama[2]=$_POST["categoria_re"];
+$arre_rama[3]=$_POST["edad_re"];
+insertar_ramas($arre_rama);
+}
+
+//insertar precio por convocatoria
+if(isset($_POST["modalidad_cp"],$_POST["precio_car2"],$_POST["precio_cp"]))
+{ $arre_pc[0]=$_POST["precio_car2"];
+  $arre_pc[1]=$_POST["modalidad_cp"];
+  $arre_pc[2]=$_POST["precio_cp"];
+  //echo "<br><br><br><br><br><br><br><br><br>".$arre_pc[0];
+  //echo "<br><br><br><br><br><br><br><br><br>".$arre_pc[1];
+ // echo "<br><br><br><br><br><br><br><br><br>".$arre_pc[2];
+  include ("php/herramientas_metodos.php");
+  insertar_conv_precio($arre_pc);
+}
+
+//insertar kits
+if(isset($_POST["empresa_kits"],$_POST["fecha_kits"],$_POST["lugar_kits"],$_POST["requisitos_kits"]))
+{//echo "<br><br><br><br><br><br><br><br><br><br><h1>INSERCCION DE KITS</h1>";
+  $a_kits[0]=$_POST["empresa_kits"];
+  $a_kits[1]=$_POST["fecha_kits"];
+  $a_kits[2]=$_POST["lugar_kits"];
+  $a_kits[3]=$_POST["requisitos_kits"];
+  include ("php/herramientas_metodos.php");
+  insertar_kits($a_kits);
+
+}else{//echo "<br><br><br><br><br><br><br><br><br><br><h1>KITS NO DEFINIDO</h1>";
+
+}
 
 
 
 
+echo '<div class="regresar"></div>';
 
 ?>
 
@@ -247,6 +306,11 @@ $(window).load(function(){
     });
   </script>
 
-
+<script>
+  //regresar
+    $(document).ready(function () {
+      $('.regresar').load('html/regresar.php');
+    });
+  </script>
     </body>
 </html>

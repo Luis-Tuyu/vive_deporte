@@ -18,7 +18,7 @@ function inscripcion($datos_rec)
 $genero_us=$datos_rec[3];
 $fechanac_us=date("Y-m-d",strtotime($datos_rec[4]));
 $clave_us2=$datos_rec[5];
-$convoc=$datos_rec[6];
+//$convoc=$datos_rec[6]; //realmente es el nombre de la carrera
 $fechains=date("Y-m-d"); //automatico 
 $hora = new DateTime("now", new DateTimeZone('America/Monterrey')); //auxiliar
 $hora_ins=$hora->format('H:i:s');;
@@ -32,17 +32,22 @@ $hora_ins=$hora->format('H:i:s');;
                     //registramos en la tabla de login, esto por si existe un error
                     $sql3_ins2="INSERT INTO login_us(correo_us, contrasena_us) VALUES('$correo_us','$clave_us2')";
                         if (mysqli_query($con3, $sql3_ins2)) 
-                        {
+                        {//seleccionar el id de la carrera
+                                $sql_idins="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$datos_rec[6]'";
+                                $query_idins=mysqli_query($con3, $sql_idins);
+                                $arra_idins=mysqli_fetch_array($query_idins);
+                                $convoc=$arra_idins["id_conv"];
+
                             //debe haber un select, para determinar el acumulador de convocatorias
                                 $sql3_contador= "SELECT acumulador_participante_conv FROM convocatorias 
-                                WHERE id_conv LIKE $convoc";
+                                WHERE id_conv = $convoc"; //asignar porque es un número
                                 $auxiliar=mysqli_query($con3,$sql3_contador);
                                 $contador=mysqli_fetch_array($auxiliar);
                                 $suma=$contador["acumulador_participante_conv"]+1; //sumar el numero de participante
                                      $sql3_ins3="INSERT INTO inscripciones (id_conv, correo_us, fecha_ins, hora_ins, num_participante) 
                                     VALUES ('$convoc', '$correo_us', '$fechains', '$hora_ins','$suma')";      
                                         if(mysqli_query($con3,$sql3_ins3))
-                                        {echo "inscripcion correcta en la tabla de inscripciones";
+                                        {echo "<br><br><br><br><br><br><br><br><h1>INSCRIPCCION HECHA DE MANERA CORRECTA</h1>";
                                             //ahora haceos un update del contador, para el # de participante
                                             $sql_acont="UPDATE convocatorias SET acumulador_participante_conv='$suma'
                                             WHERE id_conv = '$convoc'";
@@ -66,8 +71,7 @@ function registrar_emp($arre_emp)
 $sql_emp= "INSERT INTO empresas(id_emp, nombre_emp, cel_emp, direccion_emp, repre_emp)
 VALUES('', '$arre_emp[0]', '$arre_emp[1]', '$arre_emp[2]', '$arre_emp[3]')";
         if(mysqli_query($con_emp, $sql_emp))
-        {echo "<br><br><br><br><h1>registro correcto</h1>";
-            print("correcto");
+        {echo "<br><br><br><br><br><br><br><br><h1>Empresa Registrada de manera correcta</h1>";
         }else{echo "<br><br><br><br><h1>ERROR DE REGISTRO</h1>";}
 }
 
@@ -103,12 +107,12 @@ function registrar_adiministradores($datos_admi)
     if($con3){
           
              if (mysqli_query($con3, $sql_admi)) {//registrar administradores
-                  echo "<h1>Registro de administradores</h1>";
+                 // echo "<h1>Registro de administradores</h1>";
                               //echo "<h1>Registro exitoso en la tabla de login_admin</h1>";
                                $sql_admi_2="INSERT INTO login_admin (correo_admi, contrasena_admi, tipo_admi) 
                               VALUES ('$correo_admi','$clave_admi','$tipo_admi')";      
                                   if(mysqli_query($con3,$sql_admi_2))
-                                  {echo "inscripcion correcta en la tabla login admin";
+                                  {echo "<br><br><br><br><br><br><br><br><br><br><br><br><h1>inscripcion correcta en la tabla login admin</h1>";
                                   }else{ echo "Error: " . $sql_admi_2. "<br>" . mysqli_error($con3);}
                               
                   } else {
@@ -138,7 +142,10 @@ function registrar_conv1($datos_emp)
         $aux_conv_date=date("Y-m-d",strtotime($datos_emp[5]));
         $sqli_infoevento="INSERT INTO convocatorias_infoevento (id_conv, lugar_conv, hora_conv, fecha_conv)
         VALUES('$id_dato','$datos_emp[3]','$datos_emp[4]','$aux_conv_date')";
-           mysqli_query($con_conv1,$sqli_infoevento); 
+           if(mysqli_query($con_conv1,$sqli_infoevento))
+           {
+               echo "<br><br><br><br><br><br><br><h1>REGISTRO DE CARRERAS REALIZADO CON ÉXITO</h1>";
+           } 
 }
 }
 
@@ -152,7 +159,8 @@ function seleccionar_usuarios($correo_usuario)
         $filas_us=mysqli_fetch_array($select_us);
         if($correo_usuario ==$filas_us["correo_us"])
         {echo "<br><rb><br><br><h2>usuario registrado, obteniendo su informacion<h2>";
-            return $filas_us;}
+            return $filas_us;
+        }
         else{echo "<br><br><br><h2>ERROR DE CONSULTA</h2>";}
                 
     }
@@ -172,9 +180,10 @@ function update_accion($datos_ua)
         cel_us='$cel_ua', genero_us='$genero_ua', fechanac_us='$fechanac_ua'
         WHERE correo_us LIKE '$correo_ua'";
         if(mysqli_query($con_update,$update_sql))
-        {echo "<br><br><br><br><h1>echo actualizacion correcta</h1>";  
+        {echo "<br><br><br><br>
+            <br><br><br><br><h1>ACTUALIZACIÓN CORRECTA DE LOS DATOS DEL USUARIO </h1>";  
         }
-        else{echo "<br><br><br><h2>ERROR DE UPDATE</h2>";}
+        else{echo "<br><br> <br><br><br><br><br><h2>ERROR DE UPDATE</h2>";}
                 
     }
 
@@ -182,7 +191,8 @@ function update_accion($datos_ua)
 
 function update_colocar_form($datos_update)
 {
-    print ('<section id="ctn_sec">
+    print ('
+    <section id="ctn_sec">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
@@ -196,32 +206,32 @@ function update_colocar_form($datos_update)
 					<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
                             <!--nombre-->
                             <div class="form-group">
-                            <input type="text" name="nombre_update" class="form-control name-field" required="required" 
+                            <input type="text" name="nombre_update" required="required" 
                             placeholder="Nombre" value="'.$datos_update["nombre_us"].'">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="celular_update" class="form-control mail-field"
+                                <input type="text" name="celular_update" 
                                  required="required" placeholder="celular" value="'.$datos_update["cel_us"].'">
                             </div> 
                             <!--GENERO-->
 					        	<div class="form-group">
-                                <input type="text" name="genero_update" class="form-control mail-field" 
+                                <input type="text" name="genero_update" 
                                 required="required" placeholder="genero" value="'.$datos_update["genero_us"].'">
                                 </div> 
                                 <div class="form-group">
                                    
                                 <p>Fecha de nacimiento</p>
-                                <input type="date" name="fechanac_update" class="form-control mail-field" 
+                                <input type="date" name="fechanac_update"  
                                 required="required" placeholder="fecha nacimiento" value="'.$datos_update["fechanac_us"].'">
 						        </div>
                                 <!--correo-->
                                 <div class="form-group">
-                                    <input type="email" name="email_update" class="form-control mail-field" required="required" 
+                                    <input type="email" name="email_update" required="required" 
                                     placeholder="correo electronico" value="'.$datos_update["correo_us"].'">
                                 </div> 
                                 <!---nos servirá para reconocer que se hará en la báse de datos-->
                                 <div class="form-group">
-                                <input type="text" name="update" class="form-control mail-field" value="update_accion">
+                                <input type="text" name="update" value="update_accion"  style="visibility:hidden">
                             </div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Modificar</button>
@@ -241,6 +251,7 @@ function usuarios_por_convocatoria($nombre_car)
     ORDER BY num_participante";
     if($con_tabla)
     {$sql_query_all=mysqli_query($con_tabla,$sql_all);
+        echo "<br><br><br><br><br><br><br>";
             while($fila_uc = mysqli_fetch_array($sql_query_all))
             { echo "<p>convocatoria: ".$fila_uc["nombre_conv"].'</p>';
               echo "<p>numero participante: ".$fila_uc["num_participante"].'</p>';
@@ -258,21 +269,45 @@ function usuarios_por_convocatoria($nombre_car)
 /*insert precios a las convocatorias*/
 function insertar_conv_precio($cp)
 {$conectar_cp=conectar_m("root","");
-    $Sql_ins_cp="INSERT INTO convocatorias_precio (id_conv, modalidad_cp, precio_cp)
-    VALUES('$cp[0]','$cp[1]'.'$cp[2]')";
     if($conectar_cp)
-    {mysqli_query($conectar_cp, $Sql_ins_cp);  
-    }else{ echo "error en la i";}
+    {$sql_idcp="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$cp[0]'";
+        if(mysqli_query($conectar_cp,$sql_idcp))
+        {$query_cp=mysqli_query($conectar_cp,$sql_idcp);
+         $array_cp=mysqli_fetch_array($query_cp);
+        // echo "<br><br><br><br><br><br><br><br><h1>".$array_cp["id_conv"]."</h1>";
+         $auxiliar_cp=$array_cp["id_conv"];   
+            $Sql_ins_cp="INSERT INTO convocatorias_precio (id_conv, modalidad_cp, precio_cp)
+            VALUES('$auxiliar_cp','$cp[1]','$cp[2]')";
+                if(mysqli_query($conectar_cp, $Sql_ins_cp))
+                {
+                    echo "<br><br><br><br><br><br><br><br><h1>EL PRECIO FUE REGISTRADO CORRECTAMENTE</h1>";
+                } 
+        } 
+    }else{ //echo "error en la i";}
 
+}
 }
 
 /*contenido nuevo*/
 function insertar_kits($datos_kits)
 {$conectar_kits=conectar_m("root", "");
+    //seleccionar el id con el nombre
+    $sql_idkits="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$datos_kits[0]'";
+    $query_idkits=mysqli_query($conectar_kits, $sql_idkits);
+    $aux_idkits=mysqli_fetch_array($query_idkits);
+    $idkits=$aux_idkits["id_conv"];
+    $fechakits=date("Y-m-d",strtotime($datos_kits[1]));
+    //insertar en la tabla de kits
     $sql_ins_kit="INSERT INTO kits(id_conv, fecha_kits, lugar_kits, requisitos_kits) 
-    VALUES('$datos_kits[0]','$datos_kits[1]','$datos_kits[2]','$datos_kits[4]')";
+    VALUES('$idkits','$fechakits','$datos_kits[2]','$datos_kits[3]')";
     if($conectar_kits)
-    {mysqli_query($conectar_kits,$sql_ins_kit);
+    {
+        if(mysqli_query($conectar_kits,$sql_ins_kit))
+        {
+            echo "<br><br><br><br><br><br><br><br><h1>REGISTRO DE LOS KITS HECHO DE MANERA CORRECTA</h1>";
+        }else{
+            echo "<br><br><br><br><br><br><br><br><h1>ERROR DE REGISTRO DE KITS</h1>";
+        }
     }
 
 }
@@ -280,29 +315,35 @@ function insertar_kits($datos_kits)
 /*contenido nuevo*/
 function insertar_ramas($datos_ramas)
 {$conectar_ramas=conectar_m("root","");
-   $sql_ramas="INSERT INTO ramas_eventos(id_conv, modalidad_re, categoria_re, edad_re)
-   VALUES ('$datos_ramas[0]','$datos_ramas[1]','$datos_ramas[2]')"; 
-        if($conectar_ramas)
+//previo seleccionamos el id de la rama
+if($conectar_ramas)
         {
+$sql_ir_id="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$datos_ramas[0]'";
+if(mysqli_query($conectar_ramas, $sql_ir_id)){
+    $query_ir_id=mysqli_query($conectar_ramas, $sql_ir_id);
+    $array_ir_id=mysqli_fetch_array($query_ir_id); //seeccionamos los datos
+    $aux_id=$array_ir_id["id_conv"];
+   $sql_ramas="INSERT INTO ramas_eventos(id_conv, modalidad_re, categoria_re, edad_re)
+   VALUES ('$aux_id','$datos_ramas[1]','$datos_ramas[2]', '$datos_ramas[3]')"; 
+        
             if(mysqli_query($conectar_ramas,$sql_ramas))
-            {mysqli_query($conectar_ramas,$sql_ramas);
-                echo "Registro de ramas correcto";
-            }else{ echo "Registro de ramas incorrecto";}
+            {//mysqli_query($conectar_ramas,$sql_ramas);
+                echo "<br><br><br><br><br><br><br><br><br><br><h1>Registro de ramas correcto</h1>";
+            }else{   echo "Error: " . $sql_ramas . "<br>" . mysqli_error($conectar_ramas);}
         }
+    }
 }
 
 /*Eliminar administradores*/
-function elimnar_admi($email_admi)
-{$con_ea=conectar_m("root", "");
-    $sql_ea="DELETE FROM administradores WHERE correo_admi LIKE '$email_admi'";
-    if($con_ea)
-    {   if(mysqli_query($con_ea, $sql_ea))
-        { echo "usuario dado de baja con exito";
-        $sql_ea2="DELETE FROM login_admin WHERE correo_admi LIKE '$email_admi'";
-                if(mysqli_query($con_ea, $sql_ea2))
-                {}else{echo "ERROR, exite la posibilidad que el usuario no exista";}
+function elimnar_administrador($email_admi)
+{$con_ea2=conectar_m("root", "");
+    $sql_ea="DELETE a1, a2 FROM login_admin AS a1 INNER JOIN administradores AS a2 
+    WHERE a1.correo_admi = a2.correo_admi AND a1.correo_admi LIKE '$email_admi'";
+    if($con_ea2)
+    {   if(mysqli_query($con_ea2, $sql_ea))
+        { echo "<br><br><br><br><br><br><br><br><h1>ADMINISTRADOR ELIMINADO CON ÉXITO</h1>";
         }else{
-            echo "Error: " . $sql_ea . "<br>" . mysqli_error($con_ea);
+            echo "Error: " . $sql_ea . "<br>" . mysqli_error($con_ea2);
         }
     }
 }
@@ -333,8 +374,11 @@ function update_administradores($datos_ua)
 function cajas_corte($datos_cc)
 {$conexion_cc=conectar_m("root", "");
 /*te dara por intervalo de fecha y la modalidad cuanto fue el total de ventas*/
-$sql_cc="SELECT COUNT(*)*cp.precio_cp FROM inscripciones i, convocatorias_precio cp WHERE fecha_ins BETWEEN '2019-11-24' AND '2019-11-24'
- AND i.id_conv =1 AND i.id_conv = cp.id_conv AND cp.modalidad_cp LIKE 'caminta' ";
+    $sql_cc="SELECT COUNT(*) 'cantidad',COUNT(*)*cp.precio_cp 'total' 
+    FROM inscripciones i, convocatorias_precio cp, convocatorias cc 
+    WHERE fecha_ins BETWEEN '2019-11-24' AND '2019-11-24' 
+    AND cp.id_conv = (SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE 'carrera contra el cancer de mama')
+     AND i.id_conv = cp.id_conv AND cp.id_conv = cc.id_conv AND modalidad_cp LIKE 'caminta' "; //lo seleccionamos dependiendo de la modalidad y la fecha de hoy
 }
 
 /* liberar el numero de los participantes,un update al número poiendole 0*/
@@ -401,21 +445,60 @@ function select_carrera()
 
 function seleccionar_id($n_conv)
 {$con_si=conectar_m("root", "");
-    $sql_id="SELECT id_conv FROM convocatorias 
-    WHERE nombre_conv LIKE '$n_conv'";
+    $sql_id="SELECT id_conv 'id' FROM convocatorias WHERE nombre_conv LIKE 'carrera por la vida'";
     if($con_si)
-    {   if(mysqli_query($$con_si, $sql_id))
-        {$query_si=mysqli_query($$con_si, $sql_id);
+    {   if(mysqli_query($con_si, $sql_id))
+        { $query_si=mysqli_query($con_si, $sql_id);
             if(mysqli_fetch_array($query_si))
             {$array_si=mysqli_fetch_array($query_si);
+                echo "<br><br><br><br><br><br><br><br><h1>id de la convocatoria: ".$n_conv.$array_si["id"]."</h1>";
+    
                 return $array_si;
             }else{
                 return 0;
             }
 
-        }
+        }else{echo "Error: " . $sql_id . "<br>" . mysqli_error($con_si);}
 
     }
 
+}
+
+/*Eliminar usuario*/
+function elimnar_us($email_us)
+{$con_ea=conectar_m("root", "");
+    $sql_us1="DELETE a1, a2 FROM login_us AS a1 INNER JOIN usuarios AS a2 
+    WHERE a1.correo_us = a2.correo_us AND a1.correo_us LIKE '$email_us'"; //eliminamos de dos tablas, al mismo tiempo
+    if($con_ea)
+    {   if(mysqli_query($con_ea, $sql_us1))
+        { //echo "usuario dado de baja con exito";
+        $sql_ea2="DELETE FROM inscripciones WHERE correo_us LIKE '$email_us'";
+                if(mysqli_query($con_ea, $sql_ea2))
+                {
+                    echo "<br><br><br><br><br><br><br><br><br><br><h1>USUARIO ELIMINADO CON EXITO</h1>";
+                }else{echo "ERROR, exite la posibilidad que el usuario no exista";}
+        }else{
+            echo "Error: " . $sql_us1 . "<br>" . mysqli_error($con_ea);
+        }
+    }
+}
+    //modalidad por empresa
+    function modalidad_emp()
+    {$con_idme=conectar_m("root", "");
+        $sql_idem="SELECT re.modalidad_re, c.nombre_conv FROM ramas_eventos re, convocatorias c WHERE re.id_conv = c.id_conv";
+        if($con_idme)
+        {
+            if(mysqli_query($con_idme,$sql_idem))
+            {$query_idem=mysqli_query($con_idme,$sql_idem);
+                while($fila_idem = mysqli_fetch_array($query_idem))
+                {
+                    echo '<option value="'.$fila_idem["modalidad_re"].'">';
+                    echo $fila_idem["modalidad_re"]."-".$fila_idem["nombre_conv"];
+                    echo "</option>";
+                }
+
+            }
+
+    }
 }
 ?>

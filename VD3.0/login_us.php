@@ -34,7 +34,6 @@
 <br><br><br>    
 <!-- start contact us Section -->
 <br><br><br>
-<h1>VALIDAR LOGIN US</h1>
 <?php
 include ("php/conexion.php");
 if(isset($_POST["correo"], $_POST["contrasena"]))
