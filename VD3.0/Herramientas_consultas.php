@@ -167,6 +167,17 @@ $correo_elim_admin=$_POST["correo_elim_admin"];
 elimnar_administrador($correo_elim_admin);
 }
 
+//insertar rama
+if(isset($_POST["carreras_ramas"],$_POST["modalidad_re"], $_POST["categoria_re"]
+,$_POST["edad_re"]))
+{include ("php/herramientas_metodos.php");
+$arre_rama[0]=$_POST["carreras_ramas"];
+$arre_rama[1]=$_POST["modalidad_re"];
+$arre_rama[2]=$_POST["categoria_re"];
+$arre_rama[3]=$_POST["edad_re"];
+insertar_ramas($arre_rama);
+}
+
 
 
 ?>

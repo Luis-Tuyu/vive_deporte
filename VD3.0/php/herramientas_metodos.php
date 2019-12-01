@@ -282,15 +282,23 @@ function insertar_kits($datos_kits)
 /*contenido nuevo*/
 function insertar_ramas($datos_ramas)
 {$conectar_ramas=conectar_m("root","");
-   $sql_ramas="INSERT INTO ramas_eventos(id_conv, modalidad_re, categoria_re, edad_re)
-   VALUES ('$datos_ramas[0]','$datos_ramas[1]','$datos_ramas[2]')"; 
-        if($conectar_ramas)
+//previo seleccionamos el id de la rama
+if($conectar_ramas)
         {
+$sql_ir_id="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$datos_ramas[0]'";
+if(mysqli_query($conectar_ramas, $sql_ir_id)){
+    $query_ir_id=mysqli_query($conectar_ramas, $sql_ir_id);
+    $array_ir_id=mysqli_fetch_array($query_ir_id); //seeccionamos los datos
+    $aux_id=$array_ir_id["id_conv"];
+   $sql_ramas="INSERT INTO ramas_eventos(id_conv, modalidad_re, categoria_re, edad_re)
+   VALUES ('$aux_id','$datos_ramas[1]','$datos_ramas[2]', '$datos_ramas[3]')"; 
+        
             if(mysqli_query($conectar_ramas,$sql_ramas))
             {mysqli_query($conectar_ramas,$sql_ramas);
-                echo "Registro de ramas correcto";
-            }else{ echo "Registro de ramas incorrecto";}
+                echo "<br><br><br><br><br><br><br><br><br><br><h1>Registro de ramas correcto</h1>";
+            }else{   echo "Error: " . $sql_ramas . "<br>" . mysqli_error($conectar_ramas);}
         }
+    }
 }
 
 /*Eliminar administradores*/
@@ -401,19 +409,20 @@ function select_carrera()
 
 function seleccionar_id($n_conv)
 {$con_si=conectar_m("root", "");
-    $sql_id="SELECT id_conv FROM convocatorias 
-    WHERE nombre_conv LIKE '$n_conv'";
+    $sql_id="SELECT id_conv 'id' FROM convocatorias WHERE nombre_conv LIKE 'carrera por la vida'";
     if($con_si)
-    {   if(mysqli_query($$con_si, $sql_id))
-        {$query_si=mysqli_query($$con_si, $sql_id);
+    {   if(mysqli_query($con_si, $sql_id))
+        { $query_si=mysqli_query($con_si, $sql_id);
             if(mysqli_fetch_array($query_si))
             {$array_si=mysqli_fetch_array($query_si);
+                echo "<br><br><br><br><br><br><br><br><h1>id de la convocatoria: ".$n_conv.$array_si["id"]."</h1>";
+    
                 return $array_si;
             }else{
                 return 0;
             }
 
-        }
+        }else{echo "Error: " . $sql_id . "<br>" . mysqli_error($con_si);}
 
     }
 
