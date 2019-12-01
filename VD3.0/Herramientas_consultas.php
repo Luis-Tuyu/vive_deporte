@@ -128,10 +128,10 @@ $mod_pre[2]=$_POST["precio_cp"];
 modificar_pre($mod_pre);
 }else{echo "<br><br><br><br><br><br><br><h1>ERROR_ en cambio de precio</h1>";}
 
-/*usuarios_por_convocatoria*/
+/*usuarios por convocatoria*/
 if(isset($_POST["us_by_conv"]))
 {echo "<h1>Usuarios por convocatoria</h1>";
-  include ("php/herramientas_metodos.php");
+  include ("php/herramientas_metodos.php");  
   $us_conv=$_POST["us_by_conv"];
   usuarios_por_convocatoria($us_conv);
 }else{echo "<h1>ERROR</h1>";}

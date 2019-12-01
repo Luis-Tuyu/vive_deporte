@@ -2,11 +2,10 @@
 include_once("./php/conexion.php");
 ?>
 <section>
-
 <div class="container home">    
     <h2 class="caption_carousel">Tabla de Administradores</h2>      
-    <table id="data_table" class="table table-striped">
-        <the ad>
+    <table id="tabla_administradores" class="table table-striped">
+        <thead>
             <tr>
                 <th class="ayudas">correo_admi</th>
                 <th class="ayudas">nombre_admi</th>
@@ -35,10 +34,12 @@ include_once("./php/conexion.php");
         </tbody>
     </table>    
 </div>
+
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 <script type="text/javascript" src="dist/jquery.tabledit.js"></script>
-<script type="text/javascript" src="./js/ediciontabla.js"></script>
+<script type="text/javascript" src="js/ediciontabla.js"></script>
+
 
 
 

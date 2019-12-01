@@ -42,8 +42,7 @@ $clave_us2=$_POST["contrasena"];
 //herramientas para los usuarios
 if($bool_login[1] == "MO")//master organizador, administrador
     {echo '<h2 class="caption_carousel">herramientas del administrador</h2>';
-
-      echo '<div class="tabla_admin"></div>';      
+       
                       
       echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
       echo '<div class="agregar_admin"></div>';
@@ -99,6 +98,8 @@ if($bool_login[1] == "MO")//master organizador, administrador
 <script type="text/javascript" src="js/ediciontabla.js"></script>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
 
 
 <script src="js/vendor/jquery-1.11.2.min.js"></script>
