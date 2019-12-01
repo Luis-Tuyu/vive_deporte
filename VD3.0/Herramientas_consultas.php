@@ -191,7 +191,7 @@ if(isset($_POST["modalidad_cp"],$_POST["precio_car2"],$_POST["precio_cp"]))
 }
 
 
-
+echo '<h1><a href="login_admin.php">REGRESAR</a></h1>'
 ?>
 
 
