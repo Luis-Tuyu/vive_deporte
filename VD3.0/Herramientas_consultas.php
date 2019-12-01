@@ -207,7 +207,8 @@ if(isset($_POST["empresa_kits"],$_POST["fecha_kits"],$_POST["lugar_kits"],$_POST
 
 
 
-echo '<h1><a href="login_admin.php">REGRESAR</a></h1>'
+echo '<div class="regresar"></div>';
+
 ?>
 
 
@@ -305,6 +306,11 @@ $(window).load(function(){
     });
   </script>
 
-
+<script>
+  //regresar
+    $(document).ready(function () {
+      $('.regresar').load('html/regresar.php');
+    });
+  </script>
     </body>
 </html>

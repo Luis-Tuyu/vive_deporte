@@ -84,8 +84,7 @@ function validar_login_admin($usuario_admi, $contrasena_admi)
         {           if($contrasena_admi == $filas_admi["contrasena_admi"])
                     {$array_vla[0]=true;
                         $array_vla[1]=$filas_admi["tipo_admi"];
-                        session_start(); //iniciar sesion
-                        $_SESSION["sesion2"]="true";  
+                       setcookie("privilegio", $array_vla[1]); //tiempo de 1hr
                         return $array_vla; 
                     }else{
                         $array_vla[0]=false;

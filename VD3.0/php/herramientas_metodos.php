@@ -107,12 +107,12 @@ function registrar_adiministradores($datos_admi)
     if($con3){
           
              if (mysqli_query($con3, $sql_admi)) {//registrar administradores
-                  echo "<h1>Registro de administradores</h1>";
+                 // echo "<h1>Registro de administradores</h1>";
                               //echo "<h1>Registro exitoso en la tabla de login_admin</h1>";
                                $sql_admi_2="INSERT INTO login_admin (correo_admi, contrasena_admi, tipo_admi) 
                               VALUES ('$correo_admi','$clave_admi','$tipo_admi')";      
                                   if(mysqli_query($con3,$sql_admi_2))
-                                  {echo "inscripcion correcta en la tabla login admin";
+                                  {echo "<br><br><br><br><br><br><br><br><br><br><br><br><h1>inscripcion correcta en la tabla login admin</h1>";
                                   }else{ echo "Error: " . $sql_admi_2. "<br>" . mysqli_error($con3);}
                               
                   } else {
@@ -371,8 +371,11 @@ function update_administradores($datos_ua)
 function cajas_corte($datos_cc)
 {$conexion_cc=conectar_m("root", "");
 /*te dara por intervalo de fecha y la modalidad cuanto fue el total de ventas*/
-$sql_cc="SELECT COUNT(*)*cp.precio_cp FROM inscripciones i, convocatorias_precio cp WHERE fecha_ins BETWEEN '2019-11-24' AND '2019-11-24'
- AND i.id_conv =1 AND i.id_conv = cp.id_conv AND cp.modalidad_cp LIKE 'caminta' ";
+    $sql_cc="SELECT COUNT(*) 'cantidad',COUNT(*)*cp.precio_cp 'total' 
+    FROM inscripciones i, convocatorias_precio cp, convocatorias cc 
+    WHERE fecha_ins BETWEEN '2019-11-24' AND '2019-11-24' 
+    AND cp.id_conv = (SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE 'carrera contra el cancer de mama')
+     AND i.id_conv = cp.id_conv AND cp.id_conv = cc.id_conv AND modalidad_cp LIKE 'caminta' "; //lo seleccionamos dependiendo de la modalidad y la fecha de hoy
 }
 
 /* liberar el numero de los participantes,un update al número poiendole 0*/
