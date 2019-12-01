@@ -41,7 +41,10 @@ $clave_us2=$_POST["contrasena"];
 
 //herramientas para los usuarios
 if($bool_login[1] == "MO")//master organizador, administrador
-    {echo '<h2>herramientas del administrador</h2>';
+    {echo '<h2 class="caption_carousel">herramientas del administrador</h2>';
+
+      echo '<div class="tabla_admin"></div>';      
+                      
       echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
       echo '<div class="agregar_admin"></div>';
       update_email();
@@ -54,6 +57,7 @@ if($bool_login[1] == "MO")//master organizador, administrador
       echo '<div class="  dell_admin"></div>"'; 
       echo '<div class="  lib_num"></div>"';
       echo '<div class="  form_usuarios"></div>"';
+      
 
 
     }else if($bool_login[1]=='PV') //punto de venta
@@ -90,8 +94,15 @@ if($bool_login[1] == "MO")//master organizador, administrador
 	</div>
 </footer>
 <!-- End footer Section -->  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script type="text/javascript" src="dist/jquery.tabledit.js"></script>
+<script type="text/javascript" src="js/ediciontabla.js"></script>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="js/vendor/jquery-1.11.2.min.js"></script>
+
+
+<script src="js/vendor/jquery-1.11.2.min.js"></script>
+
 
 <script src="js/isotope.pkgd.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -106,9 +117,14 @@ if($bool_login[1] == "MO")//master organizador, administrador
 <script src="js/scrolling-nav.js"></script>
 <script src="js/plugins.js"></script>
 
+
+
+
 <script src="js/main.js"></script>
 
 <script src="showHide.js" type="text/javascript"></script>
+
+
 
 <script type="text/javascript">
 
@@ -167,6 +183,14 @@ $(window).load(function(){
   //liberar numero
 	$(document).ready(function () {
 		$('.lib_num').load('html/liberar_num.php');
+	});
+</script>
+
+
+<script>
+  //Herramienta de tablas:
+	$(document).ready(function () {
+		$('.tabla_admin').load('./tablas.php');
 	});
 </script>
 
@@ -231,6 +255,14 @@ $(window).load(function(){
       $('.form_usuarios').load('html/Form_usuario2.php');
     });
   </script>
+
+
+   <script>
+  //usuarios por convocatoria
+    $(document).ready(function () {
+      $('.data_table').load('js/ediciontabla.js');
+    });
+  </script>
   
 
   
@@ -277,6 +309,7 @@ $(window).load(function(){
         $(".page-wrapper").addClass("toggled");
     });
 </script>     
+
 
     </body>
 </html>
