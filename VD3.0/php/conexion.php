@@ -40,6 +40,9 @@ function obtener_datos($usuario, $contra)
 //seleccionar datos login_us, nota de esta manera se debe realizar cada consulta
 function obtener_login_us($correo, $contrasena)
 {   $sql2="SELECT * FROM login_us WHERE correo_us LIKE '$correo'";
+    $sql3="SELECT * FROM usuarios WHERE correo_us LIKE '$correo'";
+    $sql4="SELECT nombre_conv, num_participante FROM inscripciones i, convocatorias con 
+    WHERE i.id_conv = con.id_conv AND correo_us LIKE '$correo' ";
     $con2=conectar("root", "");
        if($con2)
        {$datos= mysqli_query($con2,$sql2);
@@ -47,9 +50,19 @@ function obtener_login_us($correo, $contrasena)
                 if($correo == $filas_logus["correo_us"]) 
                 {//ver si escribio bien la contrasena y validarse
                     if($contrasena == $filas_logus["contrasena_us"])
-                        {echo "<br> <h2>ACCESO CORRECTO</h2>";
-                        echo "<p>Correo: </p>";
-                        print ("<br>".$filas_logus["correo_us"]."<br>");
+                        {$query2=mysqli_query($con2,$sql3);
+                         $a_dg=mysqli_fetch_array($query2);   
+                        echo "<br><br><br><br><br><br><h1>Bienvenido: ".$a_dg["nombre_us"]."</h1>";
+                        echo "<br><h2>Información personal</h2>";
+                        print ("<br><h2>correo: ".$filas_logus["correo_us"]."</h2>");
+                        print ("<br><h2>celular: ".$a_dg["cel_us"]."</h2>");
+                        print ("<br><h2>genero: ".$a_dg["genero_us"]."</h2>");
+                        $query4=mysqli_query($con2, $sql4);        
+                        while($fila_ins= mysqli_fetch_array($query4))
+                        {
+                            print("<h2> carrera: ".$fila_ins["nombre_conv"]."</h2>");
+                            print("<h2> número de participante: ".$fila_ins["num_participante"]."</h2>");
+                        }
                         return true;
                         }else{ print ("<h3>¡ERROR! contraseña no coincide</h3>");}
                      }else{
