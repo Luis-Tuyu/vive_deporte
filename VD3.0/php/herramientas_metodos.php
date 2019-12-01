@@ -233,8 +233,7 @@ function update_colocar_form($datos_update)
 }
 /*seleccionamos todos  los usuarios por carrera*/
 function usuarios_por_convocatoria($nombre_car)
-{
-    
+{    
     $con_tabla=conectar_m("root", "");
     $sql_all="SELECT num_participante,nombre_us,ins.correo_us,cel_us, nombre_conv 
     FROM convocatorias c, inscripciones ins, usuarios us 
