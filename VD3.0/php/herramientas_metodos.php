@@ -294,7 +294,7 @@ if(mysqli_query($conectar_ramas, $sql_ir_id)){
    VALUES ('$aux_id','$datos_ramas[1]','$datos_ramas[2]', '$datos_ramas[3]')"; 
         
             if(mysqli_query($conectar_ramas,$sql_ramas))
-            {mysqli_query($conectar_ramas,$sql_ramas);
+            {//mysqli_query($conectar_ramas,$sql_ramas);
                 echo "<br><br><br><br><br><br><br><br><br><br><h1>Registro de ramas correcto</h1>";
             }else{   echo "Error: " . $sql_ramas . "<br>" . mysqli_error($conectar_ramas);}
         }
