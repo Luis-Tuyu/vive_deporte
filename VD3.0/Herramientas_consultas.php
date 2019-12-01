@@ -178,6 +178,18 @@ $arre_rama[3]=$_POST["edad_re"];
 insertar_ramas($arre_rama);
 }
 
+//insertar precio por convocatoria
+if(isset($_POST["modalidad_cp"],$_POST["precio_car2"],$_POST["precio_cp"]))
+{ $arre_pc[0]=$_POST["precio_car2"];
+  $arre_pc[1]=$_POST["modalidad_cp"];
+  $arre_pc[2]=$_POST["precio_cp"];
+  //echo "<br><br><br><br><br><br><br><br><br>".$arre_pc[0];
+  //echo "<br><br><br><br><br><br><br><br><br>".$arre_pc[1];
+ // echo "<br><br><br><br><br><br><br><br><br>".$arre_pc[2];
+  include ("php/herramientas_metodos.php");
+  insertar_conv_precio($arre_pc);
+}
+
 
 
 ?>

@@ -260,12 +260,23 @@ function usuarios_por_convocatoria($nombre_car)
 /*insert precios a las convocatorias*/
 function insertar_conv_precio($cp)
 {$conectar_cp=conectar_m("root","");
-    $Sql_ins_cp="INSERT INTO convocatorias_precio (id_conv, modalidad_cp, precio_cp)
-    VALUES('$cp[0]','$cp[1]'.'$cp[2]')";
     if($conectar_cp)
-    {mysqli_query($conectar_cp, $Sql_ins_cp);  
-    }else{ echo "error en la i";}
+    {$sql_idcp="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$cp[0]'";
+        if(mysqli_query($conectar_cp,$sql_idcp))
+        {$query_cp=mysqli_query($conectar_cp,$sql_idcp);
+         $array_cp=mysqli_fetch_array($query_cp);
+        // echo "<br><br><br><br><br><br><br><br><h1>".$array_cp["id_conv"]."</h1>";
+         $auxiliar_cp=$array_cp["id_conv"];   
+            $Sql_ins_cp="INSERT INTO convocatorias_precio (id_conv, modalidad_cp, precio_cp)
+            VALUES('$auxiliar_cp','$cp[1]','$cp[2]')";
+                if(mysqli_query($conectar_cp, $Sql_ins_cp))
+                {
+                    echo "<br><br><br><br><br><br><br><br><h1>EL PRECIO FUE REGISTRADO CORRECTAMENTE</h1>";
+                } 
+        } 
+    }else{ //echo "error en la i";}
 
+}
 }
 
 /*contenido nuevo*/
@@ -444,6 +455,25 @@ function elimnar_us($email_us)
         }else{
             echo "Error: " . $sql_us1 . "<br>" . mysqli_error($con_ea);
         }
+    }
+}
+    //modalidad por empresa
+    function modalidad_emp()
+    {$con_idme=conectar_m("root", "");
+        $sql_idem="SELECT re.modalidad_re, c.nombre_conv FROM ramas_eventos re, convocatorias c WHERE re.id_conv = c.id_conv";
+        if($con_idme)
+        {
+            if(mysqli_query($con_idme,$sql_idem))
+            {$query_idem=mysqli_query($con_idme,$sql_idem);
+                while($fila_idem = mysqli_fetch_array($query_idem))
+                {
+                    echo '<option value="'.$fila_idem["modalidad_re"].'">';
+                    echo $fila_idem["modalidad_re"]."-".$fila_idem["nombre_conv"];
+                    echo "</option>";
+                }
+
+            }
+
     }
 }
 ?>
