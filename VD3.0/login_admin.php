@@ -29,17 +29,22 @@
 <br>
 <br>
 <?php
+$sesion1;
 require ("../VD3.0/php/conexion.php");
 if(isset($_POST["correo"], $_POST["contrasena"]))
 {$correo_us=$_POST["correo"];
 $clave_us2=$_POST["contrasena"];
-	$bool_login=validar_login_admin($correo_us,$clave_us2);
+  $bool_login=validar_login_admin($correo_us,$clave_us2);
+$sesion1=$bool_login[0];
+//header("location:redireccion.php");
 }else{//porque enviamos datos a la misma página xd
 	//echo "ERROR, primero dedes iniciar sesión, para ver el contenido";
-	$bool_login=false;
+	//$bool_login=false;
 }
 
 //herramientas para los usuarios
+if(isset($_SESSION["sesion2"]))
+{ if($_SESSION["sesion2"]=="true" && $sesion1 ){
 if($bool_login[1] == "MO")//master organizador, administrador
     {echo '<h2>herramientas del administrador</h2>';
       echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
@@ -56,17 +61,37 @@ if($bool_login[1] == "MO")//master organizador, administrador
       echo '<div class="  form_usuarios"></div>"';
       echo '<div class="elimnar_usuario"></div>';
 
-
+      echo '<div class="cerrar_sesion"></div>';
     }else if($bool_login[1]=='PV') //punto de venta
     { echo '<div class="Herramientas"></div>'; //inscripcciones
       echo '<div class="usuarios_convocatoria"></div>"';
       //faltará otras herramientas
+      echo '<div class="cerrar_sesion"></div>';
     }else if($bool_login[1]=='MC') //master cliente, empresa
     {//mostrará toda la info
+      echo '<div class="cerrar_sesion"></div>';
     }else{
       echo "ERROR, USUARIO, VALIDACION INCORRECTA";
     }
-//los mismos datos del usuario
+  }
+}else{
+  echo "<br><br><br><br><br><br><h1>ERROR, usted no ha iniciado sesion</h1>";
+  echo '<div class="cerrar_sesion"></div>';
+}
+
+//cerrar sesion
+if(isset($_POST["change"]))
+{ echo "Variable definida";
+    if($_POST["change"]=="true")
+  {$sesion1=false;
+    session_destroy();
+    $bool_login[1]="";
+    $url="index.html";
+    header("location:redireccion.php");
+    //echo "<SCRIPT>window.location='$url';</SCRIPT>"; 
+  }
+}
+
 ?>
 
 <!-- start footer Section -->
@@ -251,6 +276,10 @@ $(window).load(function(){
     $(document).ready(function () {
       $('.elimnar_usuario').load('html/eliminar_usuario.php');
     });    
+    //cerrar sesion
+    $(document).ready(function () {
+      $('.cerrar_sesion').load('html/cerrar_sesion_admin.html');
+    });  
   </script>
 
   <script>
