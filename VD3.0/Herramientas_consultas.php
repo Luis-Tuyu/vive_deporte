@@ -190,6 +190,21 @@ if(isset($_POST["modalidad_cp"],$_POST["precio_car2"],$_POST["precio_cp"]))
   insertar_conv_precio($arre_pc);
 }
 
+//insertar kits
+if(isset($_POST["empresa_kits"],$_POST["fecha_kits"],$_POST["lugar_kits"],$_POST["requisitos_kits"]))
+{//echo "<br><br><br><br><br><br><br><br><br><br><h1>INSERCCION DE KITS</h1>";
+  $a_kits[0]=$_POST["empresa_kits"];
+  $a_kits[1]=$_POST["fecha_kits"];
+  $a_kits[2]=$_POST["lugar_kits"];
+  $a_kits[3]=$_POST["requisitos_kits"];
+  include ("php/herramientas_metodos.php");
+  insertar_kits($a_kits);
+
+}else{//echo "<br><br><br><br><br><br><br><br><br><br><h1>KITS NO DEFINIDO</h1>";
+
+}
+
+
 
 
 echo '<h1><a href="login_admin.php">REGRESAR</a></h1>'

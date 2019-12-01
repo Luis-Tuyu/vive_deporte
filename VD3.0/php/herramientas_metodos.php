@@ -288,10 +288,23 @@ function insertar_conv_precio($cp)
 /*contenido nuevo*/
 function insertar_kits($datos_kits)
 {$conectar_kits=conectar_m("root", "");
+    //seleccionar el id con el nombre
+    $sql_idkits="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$datos_kits[0]'";
+    $query_idkits=mysqli_query($conectar_kits, $sql_idkits);
+    $aux_idkits=mysqli_fetch_array($query_idkits);
+    $idkits=$aux_idkits["id_conv"];
+    $fechakits=date("Y-m-d",strtotime($datos_kits[1]));
+    //insertar en la tabla de kits
     $sql_ins_kit="INSERT INTO kits(id_conv, fecha_kits, lugar_kits, requisitos_kits) 
-    VALUES('$datos_kits[0]','$datos_kits[1]','$datos_kits[2]','$datos_kits[4]')";
+    VALUES('$idkits','$fechakits','$datos_kits[2]','$datos_kits[3]')";
     if($conectar_kits)
-    {mysqli_query($conectar_kits,$sql_ins_kit);
+    {
+        if(mysqli_query($conectar_kits,$sql_ins_kit))
+        {
+            echo "<br><br><br><br><br><br><br><br><h1>REGISTRO DE LOS KITS HECHO DE MANERA CORRECTA</h1>";
+        }else{
+            echo "<br><br><br><br><br><br><br><br><h1>ERROR DE REGISTRO DE KITS</h1>";
+        }
     }
 
 }

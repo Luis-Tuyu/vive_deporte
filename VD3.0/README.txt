@@ -10,13 +10,13 @@ FORMULARIOS NECESARIOS PARA LAS HERRAMIENTAS
 
 		FALTANTE:
 -----Precio convocatoria: Detalle, Sirve la tabla? las convocatorias ya tendran precio, seria una actualizacion y la modalidad siento que debe ser una lista desplegable con las modalidades existentes., simo eso es un problema 
------Insertar rama: Detalle, ¿aqui se inicializan las ramas y modalidades y categorias? 
+-----Insertar rama: Detalle, ¿aqui se inicializan las ramas y modalidades y categorias? , no, el usaurio debe registrarlas, porque depende de la empresa, solo modalidades debe inicializarse
 ----Kits: Detalle, esta de mas el lugar, pues con el nombre de la carrera llo puedes jalar en automatico.  ***el lugar es para la entrega
 ---- Una Herramienta para Eliminar un usuario...
 ---Modificar administrador
 ----Eliminar administrador: no existe  **listo
 ---Liberar numero: no entiendo que hace este metodo  ***se supone que en los requerimientos, el  número, 
-asigando al participante, se le quita por alguna razón
+asigando al participante, se le quita por alguna razón **listo
 
 
 

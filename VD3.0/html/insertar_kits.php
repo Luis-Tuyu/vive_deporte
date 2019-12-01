@@ -12,10 +12,10 @@
                     <i class="fa fa-medkit"> </i>
                 </div>
                 <!--Formulario para los kits-->
-                <form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">
+                <form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_consultas.php">
                     <div class="form-group">
                         <label class="ayudas"> Carrera:</label>
-                        <select name="lib_num" size="1" style="height:30px; width:150px; font-size:15px;">
+                        <select name="empresa_kits" size="1" style="height:30px; width:150px; font-size:15px;">
                             <?php
                                 include ("../php/herramientas_metodos.php");					
                                 select_carrera(); //ligado en una funcion						
