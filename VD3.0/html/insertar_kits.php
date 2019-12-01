@@ -35,7 +35,7 @@
                         <span class="input-item">
                             <i class="fa fa-location-arrow"> </i>
                         </span>
-                        <input type="text" name="lugar_kits" class="form-input" required="required" placeholder="Lugar">
+                        <input type="text" name="lugar_kits" class="form-input" required="required" placeholder="Lugar de entrega">
                     </div>                            
                     <div class=" form-group"> 
                         <label>Requerimientos de kits:  </label>                           

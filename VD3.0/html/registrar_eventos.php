@@ -36,7 +36,7 @@
 							<span class="input-item">
 								<i class="fa fa-money"> </i>
 							</span>
-								<input type="text" name="costo_conv" class="form-input" required="required" placeholder="costo de la convocatoria">
+								<input type="text" name="costo_conv" class="form-input" required="required" placeholder="costo de realizar el evento">
 							</div> 
 							<!--lugar---->
 						<div class="form-group">

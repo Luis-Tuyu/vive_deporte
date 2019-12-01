@@ -32,7 +32,7 @@
                 <span class="input-item">
                     <i class="fa fa-database"> </i>
                 </span>
-                <input type="text" name="precio_cp" class="form-input" required="required" placeholder="Precio">
+                <input type="text" name="precio_cp" class="form-input" required="required" placeholder="Precio por competidor">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Asignar</button>
