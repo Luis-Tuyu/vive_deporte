@@ -1,5 +1,7 @@
 <?php
 include_once("./php/conexion.php");
+
+}
 ?>
 <section>
 <div class="container home">    
@@ -16,6 +18,12 @@ include_once("./php/conexion.php");
         </thead>
         <tbody>
             <?php 
+            if(isset($_POST["us_by_conv"]))
+{echo "<h1>Usuarios por convocatoria</h1>";
+  include ("php/herramientas_metodos.php");  
+  $us_conv=$_POST["us_by_conv"];
+  usuarios_por_convocatoria($us_conv);
+}else{echo "<h1>ERROR</h1>";}
                 $sql_query = "SELECT correo_admi, nombre_admi, fechanac_admi, celular_admi, salario_admi FROM administradores";
                 $resultset = mysqli_query($conn, $sql_query) or die("error base de datos:". mysqli_error($conn));
                 while( $administradores = mysqli_fetch_assoc($resultset) ) {

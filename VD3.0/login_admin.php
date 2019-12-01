@@ -42,8 +42,7 @@ $clave_us2=$_POST["contrasena"];
 //herramientas para los usuarios
 if($bool_login[1] == "MO")//master organizador, administrador
     {echo '<h2 class="caption_carousel">herramientas del administrador</h2>';
-       
-                      
+                          
       echo '<div class="Herramientas"></div>'; //lo enlazareos con javascript
       echo '<div class="agregar_admin"></div>';
       update_email();
@@ -192,6 +191,14 @@ $(window).load(function(){
   //Herramienta de tablas:
 	$(document).ready(function () {
 		$('.tabla_admin').load('./tablas.php');
+	});
+</script>
+
+
+<script>
+  //Herramienta de tablas:
+	$(document).ready(function () {
+		$('.tabla_carreras').load('./php/tablas_carreras.php');
 	});
 </script>
 
