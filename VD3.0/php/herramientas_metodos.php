@@ -18,7 +18,7 @@ function inscripcion($datos_rec)
 $genero_us=$datos_rec[3];
 $fechanac_us=date("Y-m-d",strtotime($datos_rec[4]));
 $clave_us2=$datos_rec[5];
-$convoc=$datos_rec[6];
+//$convoc=$datos_rec[6]; //realmente es el nombre de la carrera
 $fechains=date("Y-m-d"); //automatico 
 $hora = new DateTime("now", new DateTimeZone('America/Monterrey')); //auxiliar
 $hora_ins=$hora->format('H:i:s');;
@@ -32,17 +32,22 @@ $hora_ins=$hora->format('H:i:s');;
                     //registramos en la tabla de login, esto por si existe un error
                     $sql3_ins2="INSERT INTO login_us(correo_us, contrasena_us) VALUES('$correo_us','$clave_us2')";
                         if (mysqli_query($con3, $sql3_ins2)) 
-                        {
+                        {//seleccionar el id de la carrera
+                                $sql_idins="SELECT id_conv FROM convocatorias WHERE nombre_conv LIKE '$datos_rec[6]'";
+                                $query_idins=mysqli_query($con3, $sql_idins);
+                                $arra_idins=mysqli_fetch_array($query_idins);
+                                $convoc=$arra_idins["id_conv"];
+
                             //debe haber un select, para determinar el acumulador de convocatorias
                                 $sql3_contador= "SELECT acumulador_participante_conv FROM convocatorias 
-                                WHERE id_conv LIKE $convoc";
+                                WHERE id_conv = $convoc"; //asignar porque es un número
                                 $auxiliar=mysqli_query($con3,$sql3_contador);
                                 $contador=mysqli_fetch_array($auxiliar);
                                 $suma=$contador["acumulador_participante_conv"]+1; //sumar el numero de participante
                                      $sql3_ins3="INSERT INTO inscripciones (id_conv, correo_us, fecha_ins, hora_ins, num_participante) 
                                     VALUES ('$convoc', '$correo_us', '$fechains', '$hora_ins','$suma')";      
                                         if(mysqli_query($con3,$sql3_ins3))
-                                        {echo "inscripcion correcta en la tabla de inscripciones";
+                                        {echo "<br><br><br><br><br><br><br><br><h1>INSCRIPCCION HECHA DE MANERA CORRECTA</h1>";
                                             //ahora haceos un update del contador, para el # de participante
                                             $sql_acont="UPDATE convocatorias SET acumulador_participante_conv='$suma'
                                             WHERE id_conv = '$convoc'";
