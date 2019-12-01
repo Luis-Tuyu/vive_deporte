@@ -55,6 +55,7 @@ if($bool_login[1] == "MO")//master organizador, administrador
       echo '<div class="  lib_num"></div>"';
       echo '<div class="  form_usuarios"></div>"';
       echo '<div class="elimnar_usuario"></div>';
+      echo '<div class="elimnar_admin"></div>';
 
 
     }else if($bool_login[1]=='PV') //punto de venta
@@ -251,6 +252,10 @@ $(window).load(function(){
     $(document).ready(function () {
       $('.elimnar_usuario').load('html/eliminar_usuario.php');
     })    
+    //elimar administrador
+    $(document).ready(function () {
+      $('.elimnar_admin').load('html/eliminar_administrador.php');
+    })
   </script>
 
   <script>

@@ -294,17 +294,15 @@ function insertar_ramas($datos_ramas)
 }
 
 /*Eliminar administradores*/
-function elimnar_admi($email_admi)
-{$con_ea=conectar_m("root", "");
-    $sql_ea="DELETE FROM administradores WHERE correo_admi LIKE '$email_admi'";
-    if($con_ea)
-    {   if(mysqli_query($con_ea, $sql_ea))
-        { echo "usuario dado de baja con exito";
-        $sql_ea2="DELETE FROM login_admin WHERE correo_admi LIKE '$email_admi'";
-                if(mysqli_query($con_ea, $sql_ea2))
-                {}else{echo "ERROR, exite la posibilidad que el usuario no exista";}
+function elimnar_administrador($email_admi)
+{$con_ea2=conectar_m("root", "");
+    $sql_ea="DELETE a1, a2 FROM login_admin AS a1 INNER JOIN administradores AS a2 
+    WHERE a1.correo_admi = a2.correo_admi AND a1.correo_admi LIKE '$email_admi'";
+    if($con_ea2)
+    {   if(mysqli_query($con_ea2, $sql_ea))
+        { echo "<br><br><br><br><br><br><br><br><h1>ADMINISTRADOR ELIMINADO CON ÉXITO</h1>";
         }else{
-            echo "Error: " . $sql_ea . "<br>" . mysqli_error($con_ea);
+            echo "Error: " . $sql_ea . "<br>" . mysqli_error($con_ea2);
         }
     }
 }
@@ -422,14 +420,14 @@ function seleccionar_id($n_conv)
 }
 
 /*Eliminar usuario*/
-function elimnar_us($email_admi)
+function elimnar_us($email_us)
 {$con_ea=conectar_m("root", "");
     $sql_us1="DELETE a1, a2 FROM login_us AS a1 INNER JOIN usuarios AS a2 
-    WHERE a1.correo_us = a2.correo_us AND a1.correo_us LIKE '$email_admi'"; //eliminamos de dos tablas, al mismo tiempo
+    WHERE a1.correo_us = a2.correo_us AND a1.correo_us LIKE '$email_us'"; //eliminamos de dos tablas, al mismo tiempo
     if($con_ea)
     {   if(mysqli_query($con_ea, $sql_us1))
         { //echo "usuario dado de baja con exito";
-        $sql_ea2="DELETE FROM inscripciones WHERE correo_us LIKE '$email_admi'";
+        $sql_ea2="DELETE FROM inscripciones WHERE correo_us LIKE '$email_us'";
                 if(mysqli_query($con_ea, $sql_ea2))
                 {
                     echo "<br><br><br><br><br><br><br><br><br><br><h1>USUARIO ELIMINADO CON EXITO</h1>";
