@@ -12,13 +12,13 @@
                     <i class="fa fa-medkit"> </i>
                 </div>
                 <!--Formulario para los kits-->
-                <form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_metodos.php">
+                <form id="contact-form" class="contact" name="contact-form" method="post" action="herramientas_consultas.php">
                  <label> Proporciona el correo del administrador que deseas eliminar: <br<></label>    
                 <div class="form-group">                       
                         <span class="input-item">
                             <i class="fa fa-envelope"> </i>
                         </span>
-                        <input type="text" name="correo_admi" class="form-input" required="required" placeholder="Correo">
+                        <input type="text" name="correo_elim_admin" class="form-input" required="required" placeholder="Correo">
                     </div>                                                                  
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Asignar</button>
