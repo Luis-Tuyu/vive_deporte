@@ -146,7 +146,7 @@ function update_email()
                                     <span class="input-item">
 								    <i class="fa fa-level-up"> </i>
 							        </span>
-                                    <input type="text" name="update" class="form-input" value="update" style="visibility:hidden">
+                                    <input type="text" name="update" class="form-input" value="update">
                                 </div> 
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Consultar</button>

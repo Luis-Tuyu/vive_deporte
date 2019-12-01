@@ -154,7 +154,8 @@ function seleccionar_usuarios($correo_usuario)
         $filas_us=mysqli_fetch_array($select_us);
         if($correo_usuario ==$filas_us["correo_us"])
         {echo "<br><rb><br><br><h2>usuario registrado, obteniendo su informacion<h2>";
-            return $filas_us;}
+            return $filas_us;
+        }
         else{echo "<br><br><br><h2>ERROR DE CONSULTA</h2>";}
                 
     }
@@ -174,9 +175,10 @@ function update_accion($datos_ua)
         cel_us='$cel_ua', genero_us='$genero_ua', fechanac_us='$fechanac_ua'
         WHERE correo_us LIKE '$correo_ua'";
         if(mysqli_query($con_update,$update_sql))
-        {echo "<br><br><br><br><h1>echo actualizacion correcta</h1>";  
+        {echo "<br><br><br><br>
+            <br><br><br><br><h1>ACTUALIZACIÓN CORRECTA DE LOS DATOS DEL USUARIO </h1>";  
         }
-        else{echo "<br><br><br><h2>ERROR DE UPDATE</h2>";}
+        else{echo "<br><br> <br><br><br><br><br><h2>ERROR DE UPDATE</h2>";}
                 
     }
 
@@ -184,7 +186,8 @@ function update_accion($datos_ua)
 
 function update_colocar_form($datos_update)
 {
-    print ('<section id="ctn_sec">
+    print ('
+    <section id="ctn_sec">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
@@ -198,32 +201,32 @@ function update_colocar_form($datos_update)
 					<form id="contact-form" class="contact" name="contact-form" method="post" action="Herramientas_consultas.php">
                             <!--nombre-->
                             <div class="form-group">
-                            <input type="text" name="nombre_update" class="form-control name-field" required="required" 
+                            <input type="text" name="nombre_update" required="required" 
                             placeholder="Nombre" value="'.$datos_update["nombre_us"].'">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="celular_update" class="form-control mail-field"
+                                <input type="text" name="celular_update" 
                                  required="required" placeholder="celular" value="'.$datos_update["cel_us"].'">
                             </div> 
                             <!--GENERO-->
 					        	<div class="form-group">
-                                <input type="text" name="genero_update" class="form-control mail-field" 
+                                <input type="text" name="genero_update" 
                                 required="required" placeholder="genero" value="'.$datos_update["genero_us"].'">
                                 </div> 
                                 <div class="form-group">
                                    
                                 <p>Fecha de nacimiento</p>
-                                <input type="date" name="fechanac_update" class="form-control mail-field" 
+                                <input type="date" name="fechanac_update"  
                                 required="required" placeholder="fecha nacimiento" value="'.$datos_update["fechanac_us"].'">
 						        </div>
                                 <!--correo-->
                                 <div class="form-group">
-                                    <input type="email" name="email_update" class="form-control mail-field" required="required" 
+                                    <input type="email" name="email_update" required="required" 
                                     placeholder="correo electronico" value="'.$datos_update["correo_us"].'">
                                 </div> 
                                 <!---nos servirá para reconocer que se hará en la báse de datos-->
                                 <div class="form-group">
-                                <input type="text" name="update" class="form-control mail-field" value="update_accion">
+                                <input type="text" name="update" value="update_accion">
                             </div>
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">Modificar</button>
