@@ -12,7 +12,7 @@
 					<i class="fa fa-file"> </i>					
 				</div>
 				<!--Formulario de reporte de usuarios inscritos por convocatoria-->
-				<form id="contact-form" class="contact" name="us_conv" method="post" action="Herramientas_consultas.php">					                
+				<form id="contact-form" class="contact" name="us_conv" method="post" action="tablas_carreras.php">					                
 				 <div class="form-group">	 
 					<select name="us_by_conv" size="1" style="height:30px; width:150px; font-size:15px;">  
 					   <?php
