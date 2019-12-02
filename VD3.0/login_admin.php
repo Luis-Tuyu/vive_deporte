@@ -80,11 +80,11 @@ if($bool_login[1] == "MO")//master organizador, administrador
     { echo '<div class="Herramientas"></div>'; //inscripcciones
       echo '<div class="usuarios_convocatoria"></div>"';
       //faltará otras herramientas
-      echo '<div class="cerrar_sesion"></div>';
+      //echo '<div class="cerrar_sesion"></div>';
     }else if($bool_login[1]=='MC') //master cliente, empresa
     {//mostrará toda la info
       echo '<div class="usuarios_convocatoria"></div>"';
-      echo '<div class="cerrar_sesion"></div>';
+      //echo '<div class="cerrar_sesion"></div>';
     }else{
       echo "ERROR, USUARIO, VALIDACION INCORRECTA";
     }
@@ -92,7 +92,7 @@ if($bool_login[1] == "MO")//master organizador, administrador
 
 
 //cerrar sesion
-if(isset($_POST["change"]))
+/*if(isset($_POST["change"]))
 { echo "Variable definida";
     if($_POST["change"]=="true")
   {$sesion1=false;
@@ -103,6 +103,7 @@ if(isset($_POST["change"]))
     echo "<SCRIPT>window.location='$url';</SCRIPT>"; 
   }
 }
+*/
 
 ?>
 
