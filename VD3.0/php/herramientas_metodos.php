@@ -442,21 +442,28 @@ function liberar_num($datos_ln)
 /*checar para que se pueda poner automático*/
 function select_conv($id_sc)
 {$conexion_sc=conectar_m("root","");
-$sql_sc="SELECT nombre_conv 'convocatorias', lugar_conv 'lugar', fecha_conv 'fecha del event', 
+$sql_sc="SELECT nombre_conv 'convocatorias', lugar_conv 'lugar', fecha_conv 'fecha', 
 hora_conv 'hora' 
 FROM convocatorias c, convocatorias_infoevento cp 
-WHERE cp.id_conv = c.id_conv AND c.id_conv ='$id_sc'";
-
+WHERE cp.id_conv = c.id_conv";
 $sql_sc2="SELECT modalidad_cp 'modalidad',precio_cp 'precio'
  FROM convocatorias_precio WHERE id_conv='$id_sc'";
         if($conexion_sc)
         {
-            $query_sc=mysqli_query($conexion_sc, $sql_sc);
-                $fecth=mysqli_fetch_array($query_sc);
-                /*imprimos los datos*/
-            $query_sc2=mysqli_query($conexion_sc, $sql_sc2);
-            $fetch_sc2=mysqli_fetch_array($query_sc2);
-            /*se imprime ocn un ciclo*/
+            while( $query_sc=mysqli_query($conexion_sc, $sql_sc))
+            {
+                echo $query_sc["convocatorias"];
+                echo $query_sc["lugar"];
+                echo $query_sc["fecha"];
+                echo $query_sc["hora"];
+
+            }
+            //pueden exisit varias modalidades
+            while($query_sc2=mysqli_query($conexion_sc, $sql_sc2))
+            {   echo $query_sc["modalidad"];
+                echo $query_sc["precio"];
+            }
+            
         }
 }
 /*Metodo de reportes, preguntar a andy*/
