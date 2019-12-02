@@ -426,8 +426,12 @@ function liberar_num($datos_ln)
         if($con_ln)
         {
               if(mysqli_query($con_ln, $sql_ln))
-               {echo "correcto, numero liberado";
-               }else{echo "ERRORM, el usuario no pertence a esa convocatoria";} 
+               {//echo "correcto, numero liberado";
+                echo '<script type="text/javascript">alert("correcto, numero liberado");</script>';                            
+                print("<script>window.location.href='login_admin.php';</script>");
+               }else{echo '<script type="text/javascript">alert("correcto, numero liberado");</script>';                            
+                print("<script>window.location.href='login_admin.php';</script>");
+                  } 
         }
 
     }
