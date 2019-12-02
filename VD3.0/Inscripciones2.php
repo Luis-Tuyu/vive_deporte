@@ -115,7 +115,7 @@
 			
 			<div class="col-lg-8 col-md-8 col-sm-8">
 				<div class="sidebar">						
-					<div class="inscripciones">
+					<div >
 						
 					</div>										
 				</div>
@@ -123,6 +123,7 @@
 		</div>
 	</div>
 </section>
+
 <!-- start Blog Section -->
 
 <!-- start located map Section -->
@@ -259,6 +260,13 @@ $(window).load(function(){
 		$('.menuContainer').load('../VD3.0/html/Menu_barra.html');
 	});
 </script>
+
+<script>
+	$(document).ready(function () {
+		$('.tablacarr').load('.../tablas_todas_carreras.php');
+	});
+</script>
+
  <script>
         //importar formulario de inscripciones de participantes
         $(document).ready(function () {
