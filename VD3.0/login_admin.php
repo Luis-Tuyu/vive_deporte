@@ -70,7 +70,15 @@ if($bool_login[1] == "MO")//master organizador, administrador
       echo '<div class="  lib_num"></div>"';
       echo '<div class="  form_usuarios"></div>"';
       echo '<div class="elimnar_usuario"></div>';
+      echo'<br>';
+      echo'<br>';
+      echo'<br>';
       echo '<div class="tablaadmin"></div>';
+      echo'<br>';
+      echo'<br>';
+      echo'<br>';
+      echo '<div class="tablaus"></div>';
+      
 
 
       
@@ -283,6 +291,13 @@ $(window).load(function(){
   //total de administradores
     $(document).ready(function () {
       $('.tablaadmin').load('./tablas_admin.php');
+
+    });
+  </script>
+   <script>
+  //total de usuarios 
+    $(document).ready(function () {
+      $('.tablaus').load('./tablas_usuarios.php');
 
     });
   </script>

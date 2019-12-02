@@ -3,25 +3,20 @@ include_once("./php/conexion.php");
 ?>
 <section id="tablaadmin">
 <div class="container home">    
-    <h2 class="caption_carousel">Tabla de Administradores</h2>      
+    <h2 class="title_sec">Tabla de Administradores</h2>      
     <table id="tabla_administradores" class="table table-striped">
         <thead>
             <tr>
-                <th class="ayudas">correo_admi</th>
-                <th class="ayudas">nombre_admi</th>
-                <th class="ayudas">fechanac_admi </th>
-                <th class="ayudas">celular_admi</th>   
-                <th class="ayudas">salario_admi</th>
+                <th class="ayudas">Correo</th>
+                <th class="ayudas">Nombre</th>
+                <th class="ayudas">Fecha de nacimiento </th>
+                <th class="ayudas">Celualr</th>   
+                <th class="ayudas">Salario</th>
             </tr>
         </thead>
         <tbody>
             <?php 
-            if(isset($_POST["us_by_conv"]))
-{echo "<h1>Usuarios por convocatoria</h1>";
-  include ("php/herramientas_metodos.php");  
-  $us_conv=$_POST["us_by_conv"];
-  usuarios_por_convocatoria($us_conv);
-}else{echo "<h1>ERROR</h1>";}
+            
                 $sql_query = "SELECT correo_admi, nombre_admi, fechanac_admi, celular_admi, salario_admi FROM administradores";
                 $resultset = mysqli_query($conn, $sql_query) or die("error base de datos:". mysqli_error($conn));
                 while( $administradores = mysqli_fetch_assoc($resultset) ) {
