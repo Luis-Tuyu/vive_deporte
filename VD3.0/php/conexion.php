@@ -123,7 +123,7 @@ $clave_us2=$datos_rec[5];
                             print("<script>window.location.href='Form_usuario.html';</script>");
                             //echo "<br><br><br><br><br><br><br><h1>Usuario registrado de manera correcta</h1>";
                             } else {
-                            echo "<script type='text/javascript'>alert('failed!');</script>";
+                            echo "<script type='text/javascript'>alert('usuario no fue resgistrado!');</script>";
                             echo "<br><br><br><br><br><br><br><br><br><br><br><br>Error: " . $sql3_us. "<br>" . mysqli_error($con3);
                             }
 
