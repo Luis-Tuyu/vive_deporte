@@ -1,6 +1,27 @@
 <?php
 include_once("./php/conexion.php");
 ?>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <section id="tablaadmin">
 <div class="container home">    
     <h2 class="title_sec">Tabla de Administradores</h2>      
