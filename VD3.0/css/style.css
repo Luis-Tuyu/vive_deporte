@@ -930,9 +930,7 @@ color :#FFBE0D;
 .caption_carousel p {
 font-family : lato;
 font-size : 14px;
-color :#FFBE0D;
-border-top : 1px solid #fff;
-border-bottom : 1px solid #fff;
+color :black;
 display : inline;
 line-height : 35px;
 padding : 8px;
