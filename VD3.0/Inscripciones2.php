@@ -44,7 +44,7 @@
 			<div class="title_sec">
 				<h1>Convocatorias</h1>				
 			</div>		
-			<div class="col-lg-8 col-md-8 col-sm-8 ">
+			<div class="col-lg-4 col-md-4 col-sm-4 ">
 				<div class="sngl_blg">						
 					<div class="slider">
 				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -113,16 +113,17 @@
 	
 			</div>				
 			
-			<div class="col-lg-8 col-md-8 col-sm-8">
-				<div class="sidebar">						
-					<div >
-						
-					</div>										
+			<div class="col-lg-5 col-md-5 col-sm-5">
+				<div class="sidebar">									
+						<?php
+						echo '<div class="tablacarr"></div>'; 
+						?>															
 				</div>
 			</div>	
 		</div>
 	</div>
 </section>
+
 
 <!-- start Blog Section -->
 
@@ -263,7 +264,7 @@ $(window).load(function(){
 
 <script>
 	$(document).ready(function () {
-		$('.tablacarr').load('.../tablas_todas_carreras.php');
+		$('.tablacarr').load('./tablas_todas_carreras.php');
 	});
 </script>
 
