@@ -64,7 +64,7 @@
 						<div class="item active">
 							<div class="wrap_caption">
 								<div class="caption_carousel">
-									<img src="./img/10kA.jpg" with="300px" height="300px"/>
+									<img src="./img/10kA.jpg" with="400px" height="400px"/>
 								</div>
 							</div>
 							
@@ -72,28 +72,28 @@
 						<div class="item">
 							<div class="wrap_caption">
 								<div class="caption_carousel">
-									<img src="./img/5lupita.jpeg" with="300px" height="300px"/>
+									<img src="./img/5lupita.jpeg" with="400px" height="400px"/>
 								</div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="wrap_caption">
 								<div class="caption_carousel">
-									<img src="./img/carreracancun.png" with="300px" height="300px" />
+									<img src="./img/carreracancun.png" with="400px" height="400px" />
 								</div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="wrap_caption">
 								<div class="caption_carousel">
-									<img src="./img/Megamedia.jpg" with="300px" height="300px"/>
+									<img src="./img/Megamedia.jpg" with="400px" height="400px"/>
 								</div>
 							</div>
 						</div>
 						<div class="item">
 							<div class="wrap_caption">
 								<div class="caption_carousel">
-									<img src="./img/Triatlonisladetris.jpg" with="300px" height="300px"/>
+									<img src="./img/Triatlonisladetris.jpg" with="400px" height="400px"/>
 								</div>
 							</div>
 						</div>
