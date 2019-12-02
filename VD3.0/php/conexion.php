@@ -126,14 +126,15 @@ $clave_us2=$datos_rec[5];
             if (mysqli_query($con3, $sql3_ins)) {
                 //echo "<h1>Registro hecho con éxito</h1>";
                     //registramos en la tabla de login, esto por si existe un error
-                    $sql3_ins2="INSERT INTO login_us(correo_us, contrasena_us) VALUES('$correo_us','$clave_us2')";
-                        if (mysqli_query($con3, $sql3_ins2)) {
-                            echo '<script type="text/javascript">alert("submitted successfully!")</script>';                            
-                            header('Location:Form_usuario.html');
+                    $sql3_us="INSERT INTO login_us(correo_us, contrasena_us) VALUES('$correo_us','$clave_us2')";
+                        if (mysqli_query($con3, $sql3_us)) {
+                            echo '<script type="text/javascript">alert("usuario registrado con éxito!");</script>';                            
+                            //header('Location:Form_usuario.html');
+                            print("<script>window.location.href='Form_usuario.html';</script>");
                             //echo "<br><br><br><br><br><br><br><h1>Usuario registrado de manera correcta</h1>";
                             } else {
-                            echo "<script type='text/javascript'>alert('failed!')</script>";
-                            echo "Error: " . $sql3_ins . "<br>" . mysqli_error($con3);
+                            echo "<script type='text/javascript'>alert('usuario no fue resgistrado!');</script>";
+                            echo "<br><br><br><br><br><br><br><br><br><br><br><br>Error: " . $sql3_us. "<br>" . mysqli_error($con3);
                             }
 
                 } else {
@@ -185,3 +186,8 @@ function update_email()
 }
 
 ?>
+<script>
+	$(document).ready(function () {
+		$('.redireccion').alert("registro correto");
+	});
+</script>

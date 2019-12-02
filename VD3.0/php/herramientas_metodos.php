@@ -47,12 +47,17 @@ $hora_ins=$hora->format('H:i:s');;
                                      $sql3_ins3="INSERT INTO inscripciones (id_conv, correo_us, fecha_ins, hora_ins, num_participante) 
                                     VALUES ('$convoc', '$correo_us', '$fechains', '$hora_ins','$suma')";      
                                         if(mysqli_query($con3,$sql3_ins3))
-                                        {echo "<br><br><br><br><br><br><br><br><h1>INSCRIPCCION HECHA DE MANERA CORRECTA</h1>";
+                                        {//echo "<br><br><br><br><br><br><br><br><h1>INSCRIPCCION HECHA DE MANERA CORRECTA</h1>";
                                             //ahora haceos un update del contador, para el # de participante
                                             $sql_acont="UPDATE convocatorias SET acumulador_participante_conv='$suma'
                                             WHERE id_conv = '$convoc'";
                                             mysqli_query($con3,$sql_acont);
-                                        }else{ echo "Error: " . $sql3_ins3 . "<br>" . mysqli_error($con3);}
+                                            echo '<script type="text/javascript">alert("INSCRIPCCION HECHA DE MANERA CORRECTA");</script>';                            
+                                            print("<script>window.location.href='login_admin.php';</script>");
+                                        }else{ echo "Error: " . $sql3_ins3 . "<br>" . mysqli_error($con3);
+                                            echo '<script type="text/javascript">alert("ERRROR DE INSCRIPCION");</script>'; 
+                                            print("<script>window.location.href='login_admin.php';</script>");                           
+                                        }
                         } else {
                             echo "Error: " . $sql3_ins . "<br>" . mysqli_error($con3);
                             }
@@ -112,8 +117,13 @@ function registrar_adiministradores($datos_admi)
                                $sql_admi_2="INSERT INTO login_admin (correo_admi, contrasena_admi, tipo_admi) 
                               VALUES ('$correo_admi','$clave_admi','$tipo_admi')";      
                                   if(mysqli_query($con3,$sql_admi_2))
-                                  {echo "<br><br><br><br><br><br><br><br><br><br><br><br><h1>inscripcion correcta en la tabla login admin</h1>";
-                                  }else{ echo "Error: " . $sql_admi_2. "<br>" . mysqli_error($con3);}
+                                  {//echo "<br><br><br><br><br><br><br><br><br><br><br><br><h1>inscripcion correcta en la tabla login admin</h1>";
+                                    echo '<script type="text/javascript">alert("Registro de administradores correcta");</script>';                            
+                                    print("<script>window.location.href='login_admin.php';</script>");
+                                }else{ echo "Error: " . $sql_admi_2. "<br>" . mysqli_error($con3);
+                                    echo '<script type="text/javascript">alert("ERROR DE REGISTRO");</script>';
+                                    print("<script>window.location.href='login_admin.php';</script>");                            
+                                                                    }
                               
                   } else {
                   echo "Error: " . $sql_admi. "<br>" . mysqli_error($con3);
