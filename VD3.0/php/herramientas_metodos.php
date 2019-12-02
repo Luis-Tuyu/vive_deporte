@@ -77,7 +77,11 @@ $sql_emp= "INSERT INTO empresas(id_emp, nombre_emp, cel_emp, direccion_emp, repr
 VALUES('', '$arre_emp[0]', '$arre_emp[1]', '$arre_emp[2]', '$arre_emp[3]')";
         if(mysqli_query($con_emp, $sql_emp))
         {echo "<br><br><br><br><br><br><br><br><h1>Empresa Registrada de manera correcta</h1>";
-        }else{echo "<br><br><br><br><h1>ERROR DE REGISTRO</h1>";}
+            echo '<script type="text/javascript">alert("Empresar registrada de manera correcta");</script>';                            
+            print("<script>window.location.href='login_admin.php';</script>"); 
+        }else{//echo "<br><br><br><br><h1>ERROR DE REGISTRO</h1>";
+            echo '<script type="text/javascript">alert("ERRROR registro de empresas");</script>'; 
+            print("<script>window.location.href='login_admin.php';</script>"); }
 }
 
  //perfecto funcion. luisito debe darle formato
@@ -154,7 +158,12 @@ function registrar_conv1($datos_emp)
         VALUES('$id_dato','$datos_emp[3]','$datos_emp[4]','$aux_conv_date')";
            if(mysqli_query($con_conv1,$sqli_infoevento))
            {
-               echo "<br><br><br><br><br><br><br><h1>REGISTRO DE CARRERAS REALIZADO CON ÉXITO</h1>";
+               //echo "<br><br><br><br><br><br><br><h1>REGISTRO DE CARRERAS REALIZADO CON ÉXITO</h1>";
+               echo '<script type="text/javascript">alert("REGISTRO DE CARRERAS REALIZADO CON ÉXITO");</script>';                            
+                   print("<script>window.location.href='login_admin.php';</script>");
+           }else{
+            echo '<script type="text/javascript">alert("ERROR");</script>';                            
+            print("<script>window.location.href='login_admin.php';</script>");
            } 
 }
 }
@@ -286,8 +295,12 @@ function insertar_conv_precio($cp)
             $Sql_ins_cp="INSERT INTO convocatorias_precio (id_conv, modalidad_cp, precio_cp)
             VALUES('$auxiliar_cp','$cp[1]','$cp[2]')";
                 if(mysqli_query($conectar_cp, $Sql_ins_cp))
-                {
-                    echo "<br><br><br><br><br><br><br><br><h1>EL PRECIO FUE REGISTRADO CORRECTAMENTE</h1>";
+                {echo '<script type="text/javascript">alert("EL PRECIO FUE REGISTRADO CORRECTAMENTE");</script>';                            
+                   print("<script>window.location.href='login_admin.php';</script>");
+                    //echo "<br><br><br><br><br><br><br><br><h1>EL PRECIO FUE REGISTRADO CORRECTAMENTE</h1>";
+                }else{
+                    echo '<script type="text/javascript">alert("ERROR");</script>';                            
+                   print("<script>window.location.href='login_admin.php';</script>");
                 } 
         } 
     }else{ //echo "error en la i";}
@@ -311,9 +324,13 @@ function insertar_kits($datos_kits)
     {
         if(mysqli_query($conectar_kits,$sql_ins_kit))
         {
-            echo "<br><br><br><br><br><br><br><br><h1>REGISTRO DE LOS KITS HECHO DE MANERA CORRECTA</h1>";
+            //echo "<br><br><br><br><br><br><br><br><h1>REGISTRO DE LOS KITS HECHO DE MANERA CORRECTA</h1>";
+            echo '<script type="text/javascript">alert("REGISTRO DE LOS KITS HECHO DE MANERA CORRECTA");</script>';                            
+                   print("<script>window.location.href='login_admin.php';</script>");
         }else{
-            echo "<br><br><br><br><br><br><br><br><h1>ERROR DE REGISTRO DE KITS</h1>";
+            //echo "<br><br><br><br><br><br><br><br><h1>ERROR DE REGISTRO DE KITS</h1>";
+            echo '<script type="text/javascript">alert("ERROR");</script>';                            
+                   print("<script>window.location.href='login_admin.php';</script>");
         }
     }
 
@@ -335,8 +352,13 @@ if(mysqli_query($conectar_ramas, $sql_ir_id)){
         
             if(mysqli_query($conectar_ramas,$sql_ramas))
             {//mysqli_query($conectar_ramas,$sql_ramas);
-                echo "<br><br><br><br><br><br><br><br><br><br><h1>Registro de ramas correcto</h1>";
-            }else{   echo "Error: " . $sql_ramas . "<br>" . mysqli_error($conectar_ramas);}
+                //echo "<br><br><br><br><br><br><br><br><br><br><h1>Registro de ramas correcto</h1>";
+                echo '<script type="text/javascript">alert("Registro de ramas correcto");</script>';                            
+                   print("<script>window.location.href='login_admin.php';</script>");
+            }else{   echo "Error: " . $sql_ramas . "<br>" . mysqli_error($conectar_ramas);
+                echo '<script type="text/javascript">alert("ERROR");</script>';                            
+                print("<script>window.location.href='login_admin.php';</script>");
+            }
         }
     }
 }
