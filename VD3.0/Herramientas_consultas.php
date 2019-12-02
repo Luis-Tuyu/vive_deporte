@@ -165,7 +165,7 @@ if(isset($_POST["correo_elim_admin"]))
 include ("php/herramientas_metodos.php");
 $correo_elim_admin=$_POST["correo_elim_admin"];
 elimnar_administrador($correo_elim_admin);
-select_conv(1);
+//select_conv();
 }
 
 //insertar rama

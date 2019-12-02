@@ -440,7 +440,7 @@ function liberar_num($datos_ln)
 }
 /*SELECT DE LA INFORMACION DE TODA LA CARRERA*/
 /*checar para que se pueda poner automático*/
-function select_conv($id_sc)
+function select_conv()
 {$conexion_sc=conectar_m("root","");
 $sql_sc="SELECT nombre_conv 'convocatorias', lugar_conv 'lugar', fecha_conv 'fecha', 
 hora_conv 'hora' 
