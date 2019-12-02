@@ -28,7 +28,7 @@ include_once("./php/conexion.php");
 <br><br><br>
 <br><br><br>
     <div class="container home">    
-    <h2 class="caption_carousel">Inscritos por carrera</h2>      
+    <h2 class="title_sec">Inscritos por carrera</h2>      
     <table id="tabla_por carrera" class="table table-striped">
         <thead>
             <tr>      
