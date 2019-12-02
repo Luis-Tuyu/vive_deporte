@@ -112,7 +112,7 @@ if($bool_login[1] == "MO")//master organizador, administrador
   }
 }
 */
-
+ 
 ?>
 
 <!-- start footer Section -->
