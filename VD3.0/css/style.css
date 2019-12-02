@@ -74,7 +74,7 @@ input [id="lista"]{
   }
   
   .bfan:hover{
-    color: #95E80C;
+    color: black;
     background-color: transparent;
   }
   .bfan.secundario:hover{

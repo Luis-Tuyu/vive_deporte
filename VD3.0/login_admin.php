@@ -70,6 +70,10 @@ if($bool_login[1] == "MO")//master organizador, administrador
       echo '<div class="  lib_num"></div>"';
       echo '<div class="  form_usuarios"></div>"';
       echo '<div class="elimnar_usuario"></div>';
+      echo '<div class="tablaadmin"></div>';
+
+
+      
 
       echo '<div class="cerrar_sesion"></div>';
     }else if($bool_login[1]=='PV') //punto de venta
@@ -272,6 +276,14 @@ $(window).load(function(){
   //Precio convocatoria
     $(document).ready(function () {
       $('.precio_convocatoria').load('html/insertar_conv_precio.php');
+    });
+  </script>
+
+   <script>
+  //total de administradores
+    $(document).ready(function () {
+      $('.tablaadmin').load('./tablas_admin.php');
+
     });
   </script>
 
