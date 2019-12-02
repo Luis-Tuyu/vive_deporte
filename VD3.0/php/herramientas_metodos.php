@@ -456,6 +456,7 @@ WHERE cp.id_conv = c.id_conv";
                 echo 'lugar: '.$a_sc["lugar"].'<br>';
                 echo 'fecha: '.$a_sc["fecha"].'<br>';
                 echo 'hora: '.$a_sc["hora"].'<br>';
+                //comentarios
                 //$query_sc2=mysqli_query($conexion_sc, $sql_sc2);
             /*while( $a_sc2=mysqli_fetch_array($query_sc2))
             {   echo 'modalida: '.$a_sc2["modalidad"].'<br>';
