@@ -136,10 +136,10 @@
                 <!-- sidebar-menu  -->
             </div>
             <div class="sidebar-footer">
-                <a href="../index.html">
+                <a href="index.html"">
                     <i class="fa fa-home"></i>                    
                 </a>                   
-                <a>
+                <a class="cerrar">
                     <i class="cerrar"> </i>
                 </a>
             </div>
@@ -251,6 +251,13 @@
         //importar formulario de inscripciones de participantes
         $(document).ready(function () {
             $('.inscripciones').load('html/Inscripcciones.php');
+        });
+    </script>
+
+    <script>
+        //para ir a index
+        $(document).ready(function () {
+            $('.indexx').load('../index.html');
         });
     </script>
     
