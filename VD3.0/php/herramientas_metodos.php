@@ -324,9 +324,13 @@ function insertar_kits($datos_kits)
     {
         if(mysqli_query($conectar_kits,$sql_ins_kit))
         {
-            echo "<br><br><br><br><br><br><br><br><h1>REGISTRO DE LOS KITS HECHO DE MANERA CORRECTA</h1>";
+            //echo "<br><br><br><br><br><br><br><br><h1>REGISTRO DE LOS KITS HECHO DE MANERA CORRECTA</h1>";
+            echo '<script type="text/javascript">alert("REGISTRO DE LOS KITS HECHO DE MANERA CORRECTA");</script>';                            
+                   print("<script>window.location.href='login_admin.php';</script>");
         }else{
-            echo "<br><br><br><br><br><br><br><br><h1>ERROR DE REGISTRO DE KITS</h1>";
+            //echo "<br><br><br><br><br><br><br><br><h1>ERROR DE REGISTRO DE KITS</h1>";
+            echo '<script type="text/javascript">alert("ERROR");</script>';                            
+                   print("<script>window.location.href='login_admin.php';</script>");
         }
     }
 
@@ -348,8 +352,13 @@ if(mysqli_query($conectar_ramas, $sql_ir_id)){
         
             if(mysqli_query($conectar_ramas,$sql_ramas))
             {//mysqli_query($conectar_ramas,$sql_ramas);
-                echo "<br><br><br><br><br><br><br><br><br><br><h1>Registro de ramas correcto</h1>";
-            }else{   echo "Error: " . $sql_ramas . "<br>" . mysqli_error($conectar_ramas);}
+                //echo "<br><br><br><br><br><br><br><br><br><br><h1>Registro de ramas correcto</h1>";
+                echo '<script type="text/javascript">alert("Registro de ramas correcto");</script>';                            
+                   print("<script>window.location.href='login_admin.php';</script>");
+            }else{   echo "Error: " . $sql_ramas . "<br>" . mysqli_error($conectar_ramas);
+                echo '<script type="text/javascript">alert("ERROR");</script>';                            
+                print("<script>window.location.href='login_admin.php';</script>");
+            }
         }
     }
 }
