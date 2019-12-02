@@ -118,8 +118,11 @@ $clave_us2=$datos_rec[5];
                     //registramos en la tabla de login, esto por si existe un error
                     $sql3_ins2="INSERT INTO login_us(correo_us, contrasena_us) VALUES('$correo_us','$clave_us2')";
                         if (mysqli_query($con3, $sql3_ins2)) {
-                            echo "<br><br><br><br><br><br><br><h1>Usuario registrado de manera correcta</h1>";
+                            echo '<script type="text/javascript">alert("submitted successfully!")</script>';                            
+                            header('Location:Form_usuario.html');
+                            //echo "<br><br><br><br><br><br><br><h1>Usuario registrado de manera correcta</h1>";
                             } else {
+                            echo "<script type='text/javascript'>alert('failed!')</script>";
                             echo "Error: " . $sql3_ins . "<br>" . mysqli_error($con3);
                             }
 
@@ -170,8 +173,5 @@ function update_email()
 			</div>
 </section>');
 }
-
-
-
 
 ?>
