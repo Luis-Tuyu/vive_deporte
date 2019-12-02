@@ -449,20 +449,23 @@ WHERE cp.id_conv = c.id_conv";
 $sql_sc2="SELECT modalidad_cp 'modalidad',precio_cp 'precio'
  FROM convocatorias_precio WHERE id_conv='$id_sc'";
         if($conexion_sc)
-        {
-            while( $query_sc=mysqli_query($conexion_sc, $sql_sc))
+        { $query_sc=mysqli_query($conexion_sc, $sql_sc);
+            while( $a_sc=mysqli_fetch_array($query_sc))
             {
-                echo $query_sc["convocatorias"];
-                echo $query_sc["lugar"];
-                echo $query_sc["fecha"];
-                echo $query_sc["hora"];
+                echo 'convocatoria'.$a_sc["convocatorias"].'<br>';
+                echo 'lugar: '.$a_sc["lugar"].'<br>';
+                echo 'fecha: '.$a_sc["fecha"].'<br>';
+                echo 'hora: '.$a_sc["hora"].'<br>';
+                $query_sc2=mysqli_query($conexion_sc, $sql_sc2);
+            while( $a_sc2=mysqli_fetch_array($query_sc2))
+            {   echo 'modalida: '.$a_sc2["modalidad"].'<br>';
+                echo 'precio: '.$a_sc2["precio"].'<br>';
+            }
+            echo '<br><br><br><br><br>';
 
             }
             //pueden exisit varias modalidades
-            while($query_sc2=mysqli_query($conexion_sc, $sql_sc2))
-            {   echo $query_sc["modalidad"];
-                echo $query_sc["precio"];
-            }
+            
             
         }
 }
